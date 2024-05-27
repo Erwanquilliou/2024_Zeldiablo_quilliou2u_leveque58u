@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d19115d-f9cc-4a1a-b2aa-5e14ec80fd91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/LabyDessin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/LabyDessin.java" afterDir="false" />
     </list>
     <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="">
       <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" afterDir="false" />
@@ -59,7 +59,7 @@
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Elève/Desktop/2024_Zeldiablo_quilliou2u_leveque58u/2024_Zeldiablo_quilliou2u_leveque58u",
