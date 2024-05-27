@@ -22,12 +22,12 @@ public class LabyDessin implements DessinJeu {
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-        // dessin mur
+        // dessin personnage
         gc.setFill(Color.BLACK);
-        Raquette raquette = laby.getRaquette();
-        double px = raquette.getPx() - Raquette.RAQUETTE_TAILLE / 2;
-        double py = raquette.getPy();
-        gc.fillRect(px, py, Raquette.RAQUETTE_TAILLE, 10);
+        Perso p = laby.getPerso();
+        double px = p.getX();
+        double py = p.getY();
+        gc.fillRect(px, py, 10, 10);
 
     }
 }
