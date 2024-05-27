@@ -6,7 +6,8 @@ import moteurJeu.MoteurJeu;
 /**
  * lance un jeu de type arkanoid en 10 frames par second
  */
-public class MainArkanoidLent {
+public class
+MainArkanoidLent {
 
     public static void main(String[] args) {
         int width = 800;

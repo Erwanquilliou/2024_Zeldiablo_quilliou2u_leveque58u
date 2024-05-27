@@ -11,8 +11,13 @@ public abstract class LabyJeu implements Jeu {
     }
 
     /**
+<<<<<<< HEAD
+     * met a jour l'etat du jeu
+     */
+=======
 
      met a jour l'etat du jeu*/
+>>>>>>> 643d753069e4859693820dfc98757104c2793ce9
     public void update(double secondes, Clavier clavier) {
 
         // deplace la raquette en fonction des touches
