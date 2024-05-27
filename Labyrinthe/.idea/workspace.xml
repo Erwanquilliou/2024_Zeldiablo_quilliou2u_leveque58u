@@ -5,56 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d19115d-f9cc-4a1a-b2aa-5e14ec80fd91" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.2/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.5/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/ArkanoidDessin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/ArkanoidJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/Balle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/MainArkanoidLent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/MainArkanoidRapide.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/Raquette.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Labyrinthe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Perso.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/Clavier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/DessinJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/FrameStats.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/Jeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/MoteurJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/labyrinthe/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="" />
+    <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="">
+      <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,9 +42,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2h2k203pbdEsXkHx5Va5ryO2ouy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -107,7 +62,7 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Elève/Desktop/2024_Zeldiablo_quilliou2u_leveque58u/2024_Zeldiablo_quilliou2u_leveque58u/Labyrinthe/src/main/java/org/example/labyrinthe",
+    "last_opened_file_path": "C:/Users/Elève/Desktop/2024_Zeldiablo_quilliou2u_leveque58u/2024_Zeldiablo_quilliou2u_leveque58u",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -120,6 +75,21 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Elève\Desktop\2024_Zeldiablo_quilliou2u_leveque58u\2024_Zeldiablo_quilliou2u_leveque58u\Labyrinthe\src\main\java\org\example\labyrinthe" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Labyrinthe" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Labyrinthe" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -136,7 +106,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716799355807</updated>
-      <workItem from="1716799358560" duration="3881000" />
+      <workItem from="1716799358560" duration="4173000" />
+      <workItem from="1716814512946" duration="1296000" />
     </task>
     <servers />
   </component>
