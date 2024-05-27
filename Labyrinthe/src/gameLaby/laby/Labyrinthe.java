@@ -1,4 +1,4 @@
-package org.example.labyrinthe;
+package gameLaby.laby;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

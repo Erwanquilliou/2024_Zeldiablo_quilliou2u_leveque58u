@@ -37,22 +37,6 @@
       <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/ArkanoidDessin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/ArkanoidJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/Balle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/MainArkanoidLent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/MainArkanoidRapide.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameArkanoid/Raquette.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Labyrinthe.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gameLaby/Perso.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/Clavier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/DessinJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/FrameStats.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/Jeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/moteurJeu/MoteurJeu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/labyrinthe/hello-view.fxml" beforeDir="false" />
     </list>
     <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716799355807</updated>
-      <workItem from="1716799358560" duration="3881000" />
+      <workItem from="1716799358560" duration="3690000" />
     </task>
     <servers />
   </component>
