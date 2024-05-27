@@ -22,7 +22,7 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         // dessin personnage
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.RED);
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
