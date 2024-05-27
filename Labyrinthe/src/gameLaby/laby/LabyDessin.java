@@ -14,7 +14,6 @@ public class LabyDessin implements DessinJeu {
     public void dessinerJeu(Jeu jeu, Canvas canvas) {
         LabyJeu laby = (LabyJeu) jeu;
 
-
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
 
@@ -24,7 +23,7 @@ public class LabyDessin implements DessinJeu {
 
         // dessin personnage
         gc.setFill(Color.BLACK);
-        Perso p = laby.getPerso();
+        Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
         gc.fillRect(px, py, 10, 10);
