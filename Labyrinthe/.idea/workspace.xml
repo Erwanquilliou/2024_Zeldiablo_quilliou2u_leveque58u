@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d19115d-f9cc-4a1a-b2aa-5e14ec80fd91" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/LabyDessin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/LabyDessin.java" afterDir="false" />
-    </list>
-    <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="">
       <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/LabyJeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLaby/laby/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameLaby/laby/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/2024_Zeldiablo_quilliou2u_leveque58u/gameLaby/laby/LabyDessin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/2024_Zeldiablo_quilliou2u_leveque58u/gameLaby/laby/LabyDessin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/2024_Zeldiablo_quilliou2u_leveque58u/gameLaby/laby/LabyJeu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/2024_Zeldiablo_quilliou2u_leveque58u/gameLaby/laby/LabyJeu.class" afterDir="false" />
     </list>
+    <list id="17b80ff7-50de-4118-b3cd-e0c01f700158" name="Changes by Elève" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +62,7 @@
     "Gradle.Upgrade Gradle wrapper.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging main",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Elève/Desktop/2024_Zeldiablo_quilliou2u_leveque58u/2024_Zeldiablo_quilliou2u_leveque58u",
@@ -107,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1716799355807</updated>
       <workItem from="1716799358560" duration="4173000" />
-      <workItem from="1716814512946" duration="1296000" />
+      <workItem from="1716814512946" duration="1889000" />
     </task>
     <servers />
   </component>

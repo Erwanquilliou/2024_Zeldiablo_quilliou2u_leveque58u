@@ -3,7 +3,7 @@ package gameLaby.laby;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 
-public abstract class LabyJeu implements Jeu {
+public class LabyJeu implements Jeu {
     private final Labyrinthe laby;
 
     public LabyJeu(Labyrinthe l) {
@@ -18,19 +18,19 @@ public abstract class LabyJeu implements Jeu {
 
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
-            this.laby.deplacerPerso("droite");
+            this.laby.deplacerPerso("Droite");
         }
 
         if (clavier.gauche) {
-            this.laby.deplacerPerso("gauche");
+            this.laby.deplacerPerso("Gauche");
         }
 
         if (clavier.haut) {
-            this.laby.deplacerPerso("haut");
+            this.laby.deplacerPerso("Haut");
         }
 
         if (clavier.bas) {
-            this.laby.deplacerPerso("bas");
+            this.laby.deplacerPerso("Bas");
         }
     }
 

@@ -26,7 +26,18 @@ public class LabyDessin implements DessinJeu {
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
-        gc.fillRect(px, py, 10, 10);
+        gc.fillOval(px*40, py*40, 40, 40);
+
+        for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
+            // affiche la ligne
+            for (int x = 0; x < laby.getLaby().getLength(); x++) {
+                if (laby.getLaby().getMur(x, y)) {
+                    gc.setFill(Color.BLACK);
+                    gc.fillRect(x*40, y * 40, 40, 40);
+                }
+            }
+
+        }
 
     }
 }
