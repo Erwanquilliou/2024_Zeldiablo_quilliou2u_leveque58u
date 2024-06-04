@@ -1,0 +1,18 @@
+@startuml
+hide footbox
+
+participant "main" as m
+participant "lab: Labyrinthe" as l
+participant "p: Perso" as p
+participant "m: Monstre" as ms
+create l
+m -> l : new
+activate l
+  create p
+  l -> p : new
+
+  create ms
+  l -> ms : new
+l --> m
+deactivate l
+@enduml
