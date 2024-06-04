@@ -4,6 +4,10 @@ public class Position {
     private int x;
     private int y;
 
+    public Position(int dx,int dy){
+        this.x = dx;
+        this.y = dy;
+    }
     /**
      * @return position x du personnage
      */
