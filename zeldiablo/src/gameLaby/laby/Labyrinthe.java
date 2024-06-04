@@ -3,6 +3,7 @@ package gameLaby.laby;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * classe labyrinthe. represente un labyrinthe avec
@@ -30,6 +31,7 @@ public class Labyrinthe {
      * attribut du personnage
      */
     public Perso pj;
+    public Monstre monstre;
 
     /**
      * les murs du labyrinthe
@@ -90,6 +92,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
+        this.monstre = null;
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -121,10 +124,8 @@ public class Labyrinthe {
                         throw new Error("caractere inconnu " + c);
                 }
             }
-
-            public void ajoutMonstreLaby() {
-                this.monstre = new Monstre(colonne, numeroLigne);
-            }
+            //ajout d'un monstre
+            ajoutMonstreLaby();
 
             // lecture
             ligne = bfRead.readLine();
@@ -133,6 +134,13 @@ public class Labyrinthe {
 
         // ferme fichier
         bfRead.close();
+    }
+
+    public void ajoutMonstreLaby() {
+        Random random = new Random();
+        int largeur = random.nextInt((this.murs.length)-1);
+        int longueur = random.nextInt((this.murs[0].length)-1);
+        this.monstre = new Monstre(longueur, largeur);
     }
 
 
