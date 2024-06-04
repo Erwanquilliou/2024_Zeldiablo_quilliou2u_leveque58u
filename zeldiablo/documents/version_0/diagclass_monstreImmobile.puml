@@ -3,6 +3,7 @@
 class Position{
 - x: int
 - y:  int
++ Position(int, int)
 + getX(): int
 + getY(): int
 + setX(int)
@@ -12,11 +13,13 @@ class Position{
 Position <-- Monstre : appartient
 
 class Monstre{
++ Monstre(int, int)
 }
 
 Position <-- Personnage : appartient
 
 class Personnage{
++ Personnage(int, int)
 }
 
 Monstre "*" <-- "1" Labyrinthe : appartient
