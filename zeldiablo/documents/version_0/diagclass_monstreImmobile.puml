@@ -1,0 +1,31 @@
+@startuml
+
+class Position{
+- x: int
+- y:  int
++ getX(): int
++ getY(): int
++ setX(int)
++ setY(int)
+}
+
+Position <-- Monstre : appartient
+
+class Monstre{
+}
+
+Position <-- Personnage : appartient
+
+class Personnage{
+}
+
+Monstre "*" <-- "1" Labyrinthe : appartient
+Personnage "*" <-- "1" Labyrinthe : appartient
+
+class Labyrinthe{
+}
+
+
+
+
+@enduml
