@@ -5,7 +5,7 @@ package gameLaby.laby;
  * gere un personnage situe en x,y
  */
 public class Perso extends Position {
-    
+
 
     /**
      * constructeur
@@ -14,8 +14,7 @@ public class Perso extends Position {
      * @param dy position selon y
      */
     public Perso(int dx, int dy) {
-        this.setX(dx);
-        this.setY(dy);;
+        super(dx,dy);
     }
 
     /**
