@@ -14,7 +14,12 @@ public class Perso extends Position {
      * @param dy position selon y
      */
     public Perso(int dx, int dy) {
+<<<<<<< HEAD
+//        this.x = dx;
+        this.y = dy;
+=======
         super(dx,dy);
+>>>>>>> b3c8e0732bb47eb8ab0accfac38a725853936db9
     }
 
     /**
