@@ -18,7 +18,7 @@ public class Perso {
      * @param dy position selon y
      */
     public Perso(int dx, int dy) {
-        this.x = dx;
+//        this.x = dx;
         this.y = dy;
     }
 

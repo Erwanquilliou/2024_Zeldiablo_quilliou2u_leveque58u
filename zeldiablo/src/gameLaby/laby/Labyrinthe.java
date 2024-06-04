@@ -122,6 +122,10 @@ public class Labyrinthe {
                 }
             }
 
+            public void ajoutMonstreLaby() {
+                this.monstre = new Monstre(colonne, numeroLigne);
+            }
+
             // lecture
             ligne = bfRead.readLine();
             numeroLigne++;
