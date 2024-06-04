@@ -121,10 +121,7 @@ public class Labyrinthe {
                         throw new Error("caractere inconnu " + c);
                 }
             }
-
-            public void ajoutMonstreLaby() {
-                this.monstre = new Monstre(colonne, numeroLigne);
-            }
+            
 
             // lecture
             ligne = bfRead.readLine();
