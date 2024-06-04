@@ -22,11 +22,18 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         // dessin personnage
-        gc.setFill(Color.RED);
+        gc.setFill(Color.GREEN);
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
         gc.fillOval(px*40, py*40, 40, 40);
+
+        // dessin monstre
+        gc.setFill(Color.RED);
+        Monstre m = laby.getLaby().getMonstre();
+        double mx = m.getX();
+        double my = m.getY();
+        gc.fillOval(mx*40, my*40, 40, 40);
 
         for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
             // affiche la ligne
