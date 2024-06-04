@@ -126,7 +126,6 @@ public class Labyrinthe {
             }
             //ajout d'un monstre
             ajoutMonstreLaby();
-
             // lecture
             ligne = bfRead.readLine();
             numeroLigne++;
@@ -143,6 +142,9 @@ public class Labyrinthe {
         this.monstre = new Monstre(longueur, largeur);
     }
 
+    public Monstre getMonstre() {
+        return this.monstre;
+    }
 
     /**
      * deplace le personnage en fonction de l'action.
