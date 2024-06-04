@@ -137,9 +137,18 @@ public class Labyrinthe {
 
     public void ajoutMonstreLaby() {
         Random random = new Random();
-        int largeur = random.nextInt((this.murs.length)-1);
-        int longueur = random.nextInt((this.murs[0].length)-1);
-        this.monstre = new Monstre(longueur, largeur);
+        boolean place = false;
+        //on teste si le monstre a ete place ou non
+        while (!place) {
+            int largeur = random.nextInt((this.murs.length)-1);
+            int longueur = random.nextInt((this.murs[0].length)-1);
+            //si la case est libre, alors on place le monstre
+            if ((!this.murs[largeur][longueur])||(this.pj.getX()!=largeur)&&(this.pj.getY()!=longueur)) {
+                this.monstre = new Monstre(largeur, longueur);
+                place = true;
+            }
+        }
+
     }
 
     public Monstre getMonstre() {
