@@ -165,18 +165,7 @@ public class Labyrinthe {
      * @param action une des actions possibles
      */
     public void deplacerPerso(String action) {
-        // case courante
-        int[] courante = {this.pj.getX(), this.pj.getY()};
-
-        // calcule case suivante
-        int[] suivante = getSuivant(courante[0], courante[1], action);
-
-        // si il n'y a pas d'obstacles, on effectue le deplacement
-        if (peutSeDeplacer(suivante[0],suivante[1])) {
-            // on met a jour personnage
-            this.pj.setX(suivante[0]);
-            this.pj.setY(suivante[1]);
-        }
+        this.pj.deplacer(this, action);
     }
 
     /**
@@ -185,7 +174,7 @@ public class Labyrinthe {
      * @param y coordonnées y
      * @return booléen indiquant la présence d'obstacle, true si il n'y en a pas, false sinon
      */
-    boolean peutSeDeplacer(int x,int y){
+    boolean peutSeDeplacer(int x,int y) {
         if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) || ((this.monstre.getX() == x) && (this.monstre.getY() == y))) {
             return false;
         } else {
