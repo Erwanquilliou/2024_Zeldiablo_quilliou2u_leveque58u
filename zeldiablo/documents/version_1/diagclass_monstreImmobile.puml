@@ -41,7 +41,33 @@ class Labyrinthe #FFB6C1{
 + getPerso(): Perso
 }
 
+Labyrinthe "1" <--* "1" LabyJeu : - Laby
 
+class LabyJeu{
++ LabyJeu(Labyrinthe)
++ update(double, Clavier)
++ etreFini(): boolean
++ init()
+}
+
+LabyJeu <.. Main
+
+class Main{
+- main()
+- main(String[])
+}
+
+Labyrinthe <.. Main
+LabyDessin <.. Main
+
+class LabyDessin{
+- LabyDessin()
+- dessinerJeu(Jeu, Canvas)
+}
+
+hide Main
+hide LabyDessin
+hide LabyJeu
 
 
 @enduml
