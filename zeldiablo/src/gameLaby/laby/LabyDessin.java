@@ -39,6 +39,7 @@ public class LabyDessin implements DessinJeu {
             }else{
                 gc.setFill(Color.ORANGE);
                 gc.fillOval(mx * 40, my * 40, 40, 40);
+                gc.setFill(Color.RED);
             }
         }
 
