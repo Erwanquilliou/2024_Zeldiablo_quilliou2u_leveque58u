@@ -30,10 +30,13 @@ public class LabyDessin implements DessinJeu {
 
         // dessin monstre
         gc.setFill(Color.RED);
-        Monstre m = laby.getLaby().getMonstre();
-        double mx = m.getX();
-        double my = m.getY();
-        gc.fillOval(mx*40, my*40, 40, 40);
+        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
+            Monstre m = laby.getLaby().getMonstre(i);
+            double mx = m.getX();
+            double my = m.getY();
+            gc.fillOval(mx*40, my*40, 40, 40);
+        }
+
 
         for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
             // affiche la ligne

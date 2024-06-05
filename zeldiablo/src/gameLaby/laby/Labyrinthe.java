@@ -5,6 +5,8 @@ import com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -21,6 +23,8 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
 
+    public static final char M = 'M';
+
     /**
      * constantes actions possibles
      */
@@ -29,11 +33,13 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
+    public static int NBMONSTRE;
+
     /**
      * attribut du personnage
      */
     public Perso pj;
-    public Monstre monstre;
+    public List<Monstre> monstre;
 
     /**
      * les murs du labyrinthe
@@ -80,11 +86,13 @@ public class Labyrinthe {
      * @return labyrinthe cree
      * @throws IOException probleme a la lecture / ouverture
      */
-    public Labyrinthe(String nom) throws IOException {
+    public Labyrinthe(String nom,int nbM) throws IOException {
         // ouvrir fichier
         FileReader fichier = new FileReader(nom);
         BufferedReader bfRead = new BufferedReader(fichier);
 
+        boolean monstrePresent = false;
+        NBMONSTRE = 0;
         int nbLignes, nbColonnes;
         // lecture nblignes
         nbLignes = Integer.parseInt(bfRead.readLine());
@@ -94,7 +102,7 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
-        this.monstre = null;
+        this.monstre = new ArrayList<Monstre>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -121,6 +129,11 @@ public class Labyrinthe {
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
                         break;
+                    case M:
+                        this.monstre.add(new Monstre(colonne,numeroLigne));
+                        monstrePresent = true;
+                        NBMONSTRE++;
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -133,10 +146,17 @@ public class Labyrinthe {
             numeroLigne++;
         }
         //ajout d'un monstre
-        ajoutMonstreLaby();
+        if(!monstrePresent) {
+            NBMONSTRE = nbM;
+            for (int i = 0; i < Labyrinthe.NBMONSTRE; i++) {
+                ajoutMonstreLaby();
+            }
+        }
         // ferme fichier
         bfRead.close();
     }
+
+
 
     public void ajoutMonstreLaby() {
         Random random = new Random();
@@ -146,16 +166,16 @@ public class Labyrinthe {
             int largeur = random.nextInt((this.murs.length)-1);
             int longueur = random.nextInt((this.murs[0].length)-1);
             //si la case est libre, alors on place le monstre
-            if ((!this.murs[largeur][longueur])||((this.pj.getX()!=largeur)&&(this.pj.getY()!=longueur))) {
-                this.monstre = new Monstre(largeur, longueur);
+            if ((peutSeDeplacer(largeur,longueur))) {
+                this.monstre.add(new Monstre(largeur, longueur));
                 place = true;
             }
         }
 
     }
 
-    public Monstre getMonstre() {
-        return this.monstre;
+    public Monstre getMonstre(int i) {
+        return this.monstre.get(i);
     }
 
     /**
@@ -169,7 +189,9 @@ public class Labyrinthe {
     }
 
     public void deplacerMonstre() {
-        this.monstre.deplacer(this);
+        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
+            this.monstre.get(i).deplacer(this);
+        }
     }
 
     /**
@@ -178,21 +200,26 @@ public class Labyrinthe {
      * @param y coordonnées y
      * @return booléen indiquant la présence d'obstacle, true si il n'y en a pas, false sinon
      */
-    boolean peutSeDeplacer(int x,int y) {
-        if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) || ((this.monstre.getX() == x) && (this.monstre.getY() == y))) {
+    public boolean peutSeDeplacer(int x,int y) {
+        if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) ) {
             return false;
-        } else {
-            return true;
         }
+        for (int i = 0;i<this.monstre.size();i++) {
+            if(((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y))){
+                return false;
+            }
+        }
+        return true;
+
     }
 
     /**
      * methode estCerne
      * @return true si le monstre est cerne (ne peut plus bouger), false sinon
      */
-    boolean etreCerne() {
-        int x = this.monstre.getX();
-        int y = this.monstre.getY();
+    public boolean etreCerne(Monstre m) {
+        int x = m.getX();
+        int y = m.getY();
         int[] haut = getSuivant(x,y,HAUT);
         int[] bas = getSuivant(x,y,BAS);
         int[] gauche = getSuivant(x,y,GAUCHE);
@@ -204,7 +231,6 @@ public class Labyrinthe {
             return false;
         }
     }
-
 
 
     /**
