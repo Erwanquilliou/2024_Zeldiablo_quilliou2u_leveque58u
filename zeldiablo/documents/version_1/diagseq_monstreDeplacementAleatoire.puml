@@ -1,0 +1,23 @@
+@startuml
+hide footbox
+
+participant "LabyJeu" as lj
+participant "lab: Labyrinthe" as l
+participant "m : Monstre" as m
+participant "e : Entite" as e
+
+    activate lj
+    lj -> l : deplacerMonstre()
+    activate l
+    l -> m : deplacer()
+    activate m
+    m -> l : peutSeDeplacer()
+    l --> m : true
+    m -> e : setX()
+    m -> e : setY()
+    m --> l
+    deactivate m
+    l --> lj
+    deactivate l
+    deactivate lj
+@enduml
