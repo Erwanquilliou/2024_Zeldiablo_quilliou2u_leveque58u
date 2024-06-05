@@ -9,8 +9,8 @@ class Entite #FFB6C1{
 + getY(): int
 + setX(int)
 + setY(int)
-+ attaquer()
-+ subirDegats()
++ attaquer(Entite)
++ subirDegats(int)
 }
 
 Entite <|-- Monstre
