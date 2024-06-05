@@ -32,4 +32,16 @@ public class Monstre extends Position {
         }
     }
 
+    public boolean estProcheDePerso(Labyrinthe laby){
+        boolean b =false;
+        String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
+        for(int i = 0;i<4;i++){
+            int[] posPossible = getSuivant(this.getX(), this.getY(), actions[i]);
+            if ((posPossible[0] -laby.getPerso().getX() == 0) && (posPossible[1] -laby.getPerso().getY() == 0)) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
 }
