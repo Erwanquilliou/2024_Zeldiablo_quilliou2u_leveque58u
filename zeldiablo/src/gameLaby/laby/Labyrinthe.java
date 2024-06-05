@@ -48,7 +48,7 @@ public class Labyrinthe {
      * @param action action effectuee
      * @return case suivante
      */
-    static int[] getSuivant(int x, int y, String action) {
+    public static int[] getSuivant(int x, int y, String action) {
         switch (action) {
             case HAUT:
                 // on monte une ligne
@@ -171,11 +171,25 @@ public class Labyrinthe {
         // calcule case suivante
         int[] suivante = getSuivant(courante[0], courante[1], action);
 
-        // si c'est pas un mur, on effectue le deplacement
-        if (!this.murs[suivante[0]][suivante[1]]) {
+        // si il n'y a pas d'obstacles, on effectue le deplacement
+        if (peutSeDeplacer(suivante[0],suivante[1])) {
             // on met a jour personnage
             this.pj.setX(suivante[0]);
             this.pj.setY(suivante[1]);
+        }
+    }
+
+    /**
+     * methode peutSeDeplacer qui indique si le personnage peut se deplacer ou non
+     * @param x coordonnées x
+     * @param y coordonnées y
+     * @return booléen indiquant la présence d'obstacle, true si il n'y en a pas, false sinon
+     */
+    boolean peutSeDeplacer(int x,int y){
+        if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) || ((this.monstre.getX() == x) && (this.monstre.getY() == y))) {
+            return false;
+        } else {
+            return true;
         }
     }
 
