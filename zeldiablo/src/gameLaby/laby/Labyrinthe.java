@@ -168,6 +168,10 @@ public class Labyrinthe {
         this.pj.deplacer(this, action);
     }
 
+    public void deplacerMonstre() {
+        this.monstre.deplacer(this);
+    }
+
     /**
      * methode peutSeDeplacer qui indique si le personnage peut se deplacer ou non
      * @param x coordonnées x

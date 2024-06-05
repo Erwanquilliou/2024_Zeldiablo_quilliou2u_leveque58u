@@ -34,6 +34,7 @@ public class Position {
      * deplace le personnage en fonction de l'action.
      * gere la collision avec les murs
      *
+     * @param laby labyrinthe dans lequel on effectue le deplacement
      * @param action une des actions possibles
      */
     public void deplacer(Labyrinthe laby, String action) {
