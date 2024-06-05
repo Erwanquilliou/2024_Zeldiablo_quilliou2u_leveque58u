@@ -1,6 +1,6 @@
 @startuml
 
-class Entite #FFB6C1{
+class Entite {
 - x: int
 - y: int
 - pv: int
@@ -69,10 +69,5 @@ class LabyDessin{
 - LabyDessin()
 - dessinerJeu(Jeu, Canvas)
 }
-
-hide Labyrinthe
-hide LabyJeu
-hide Main
-hide LabyDessin
 
 @enduml
