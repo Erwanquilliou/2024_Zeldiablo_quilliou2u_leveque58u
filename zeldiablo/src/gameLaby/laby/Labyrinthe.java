@@ -133,6 +133,7 @@ public class Labyrinthe {
             numeroLigne++;
         }
         //ajout d'un monstre
+
         ajoutMonstreLaby();
         // ferme fichier
         bfRead.close();
