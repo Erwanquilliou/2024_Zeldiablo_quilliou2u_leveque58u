@@ -32,6 +32,7 @@ public class LabyJeu implements Jeu {
         if (clavier.bas) {
             this.laby.deplacerPerso("Bas");
         }
+        this.laby.deplacerMonstre();
     }
 
     @Override

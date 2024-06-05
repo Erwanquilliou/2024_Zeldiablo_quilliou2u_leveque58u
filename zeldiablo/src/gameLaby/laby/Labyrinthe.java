@@ -166,18 +166,11 @@ public class Labyrinthe {
      * @param action une des actions possibles
      */
     public void deplacerPerso(String action) {
-        // case courante
-        int[] courante = {this.pj.getX(), this.pj.getY()};
+        this.pj.deplacer(this, action);
+    }
 
-        // calcule case suivante
-        int[] suivante = getSuivant(courante[0], courante[1], action);
-
-        // si il n'y a pas d'obstacles, on effectue le deplacement
-        if (peutSeDeplacer(suivante[0],suivante[1])) {
-            // on met a jour personnage
-            this.pj.setX(suivante[0]);
-            this.pj.setY(suivante[1]);
-        }
+    public void deplacerMonstre() {
+        this.monstre.deplacer(this);
     }
 
     /**
@@ -186,11 +179,30 @@ public class Labyrinthe {
      * @param y coordonnées y
      * @return booléen indiquant la présence d'obstacle, true si il n'y en a pas, false sinon
      */
-    boolean peutSeDeplacer(int x,int y){
+    boolean peutSeDeplacer(int x,int y) {
         if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) || ((this.monstre.getX() == x) && (this.monstre.getY() == y))) {
             return false;
         } else {
             return true;
+        }
+    }
+
+    /**
+     * methode estCerne
+     * @return true si le monstre est cerne (ne peut plus bouger), false sinon
+     */
+    boolean etreCerne() {
+        int x = this.monstre.getX();
+        int y = this.monstre.getY();
+        int[] haut = getSuivant(x,y,HAUT);
+        int[] bas = getSuivant(x,y,BAS);
+        int[] gauche = getSuivant(x,y,GAUCHE);
+        int[] droite = getSuivant(x,y,DROITE);
+        //si le monstre ne peut se deplacer nul part (ni en haut, en bas, a gauche et a droite)
+        if ((!peutSeDeplacer(haut[0],haut[1]))&&(!peutSeDeplacer(bas[0],bas[1]))&&(!peutSeDeplacer(gauche[0],gauche[1]))&&(!peutSeDeplacer(droite[0],droite[1]))) {
+            return true;
+        } else {
+            return false;
         }
     }
 
