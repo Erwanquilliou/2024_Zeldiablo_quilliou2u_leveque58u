@@ -5,8 +5,8 @@ import java.util.Random;
 import static gameLaby.laby.Labyrinthe.*;
 
 public class Monstre extends Entite {
-    public Monstre(int x, int y) {
-        super(x,y);
+    public Monstre(int x, int y,int v) {
+        super(x,y,v);
     }
 
     /**

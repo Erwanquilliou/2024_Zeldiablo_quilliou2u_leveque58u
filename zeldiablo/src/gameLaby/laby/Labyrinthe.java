@@ -25,6 +25,10 @@ public class Labyrinthe {
 
     public static final char M = 'M';
 
+    public static final int VIEMONSTRE = 5;
+
+    public static final int VIEPERSO = 10;
+
     /**
      * constantes actions possibles
      */
@@ -127,10 +131,10 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne);
+                        this.pj = new Perso(colonne, numeroLigne,VIEPERSO);
                         break;
                     case M:
-                        this.monstre.add(new Monstre(colonne,numeroLigne));
+                        this.monstre.add(new Monstre(colonne,numeroLigne,VIEMONSTRE));
                         monstrePresent = true;
                         NBMONSTRE++;
                         break;
@@ -167,7 +171,7 @@ public class Labyrinthe {
             int longueur = random.nextInt((this.murs[0].length)-1);
             //si la case est libre, alors on place le monstre
             if ((peutSeDeplacer(largeur,longueur))) {
-                this.monstre.add(new Monstre(largeur, longueur));
+                this.monstre.add(new Monstre(largeur, longueur,VIEMONSTRE));
                 place = true;
             }
         }
@@ -192,10 +196,7 @@ public class Labyrinthe {
         for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
             this.monstre.get(i).deplacer(this);
         }
-
-        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            System.out.println(this.monstre.get(i).estProcheDePerso(this));
-        }
+        
 
     }
 
