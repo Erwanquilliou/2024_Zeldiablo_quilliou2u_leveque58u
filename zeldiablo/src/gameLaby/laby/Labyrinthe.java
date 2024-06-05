@@ -31,7 +31,7 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    public static final int NBMONSTRE = 3;
+    public static int NBMONSTRE;
 
     /**
      * attribut du personnage
@@ -84,11 +84,11 @@ public class Labyrinthe {
      * @return labyrinthe cree
      * @throws IOException probleme a la lecture / ouverture
      */
-    public Labyrinthe(String nom) throws IOException {
+    public Labyrinthe(String nom,int nbM) throws IOException {
         // ouvrir fichier
         FileReader fichier = new FileReader(nom);
         BufferedReader bfRead = new BufferedReader(fichier);
-
+        NBMONSTRE = nbM;
         int nbLignes, nbColonnes;
         // lecture nblignes
         nbLignes = Integer.parseInt(bfRead.readLine());
