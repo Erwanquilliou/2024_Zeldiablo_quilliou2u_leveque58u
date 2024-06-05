@@ -2,6 +2,8 @@ package gameLaby.laby;
 
 import java.util.Random;
 
+import static gameLaby.laby.Labyrinthe.*;
+
 public class Monstre extends Position {
     public Monstre(int x, int y) {
         super(x,y);
@@ -10,21 +12,21 @@ public class Monstre extends Position {
     /**
      * déplace aléatoirement le monstre
      */
-    public void deplacerAleatoire() {
+    public void deplacerAleatoire(Labyrinthe laby) {
         Random random = new Random();
-        String[] actions = {HAUT, BAS, GAUCHE, DROITE};
+        String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
         boolean deplace = false;
 
         while (!deplace) {
 
             String action = actions[random.nextInt(actions.length)];
-            int[] courante = {this.monstre.getX(), this.monstre.getY()};
+            int[] courante = {this.getX(), this.getY()};
             int[] suivante = getSuivant(courante[0], courante[1], action);
             // vérifier si la case suivante est dans les limites du labyrinthe et n'est pas un mur
-            if (suivante[0] >= 0 && suivante[0] < murs.length && suivante[1] >= 0 && suivante[1] < murs[0].length && !this.murs[suivante[0]][suivante[1]]) {
+            if (suivante[0] >= 0 && suivante[0] < laby.murs.length && suivante[1] >= 0 && suivante[1] < laby.murs[0].length && !laby.murs[suivante[0]][suivante[1]]) {
                 // mettre à jour les coordonnées du monstre
-                this.monstre.setX(suivante[0]);
-                this.monstre.setY(suivante[1]);
+                this.setX(suivante[0]);
+                this.setY(suivante[1]);
                 deplace = true;
             }
         }
