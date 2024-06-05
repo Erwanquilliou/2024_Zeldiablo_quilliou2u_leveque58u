@@ -10,37 +10,35 @@ class Position{
 + setY(int)
 }
 
-Position <-- Monstre : appartient
+Position <|-- Monstre
 
 class Monstre{
 + Monstre(int, int)
-
++ deplacer(Labyrinthe)
 }
 
-Position <-- Perso : appartient
+Position <|-- Perso
 
 class Perso{
 + Perso(int, int)
 + etrePresent (int, int)
 }
 
-Monstre "*" <-- "1" Labyrinthe : appartient
-Perso "*" <-- "1" Labyrinthe : appartient
+Monstre "*" <-- "1" Labyrinthe : -monstre
+Perso "1" <-- "1" Labyrinthe : - pj
 
 class Labyrinthe{
-- pj: Perso
-- monstre: Monstre
 - murs: boolean[][]
 + getSuivant(int, int, String)
 + Labyrinthe(String)
 + ajoutMonstreLaby()
 + getMonstre()
 + deplacerPerso(String)
-+ deplacerAleatoire()
++ peutSeDeplacer(int ,int): boolean
 + etreFini(): boolean
 + getLengthY(): int
 + getLength(): int
-+ getMur(int x, int y): boolean
++ getMur(int, int): boolean
 + getPerso(): Perso
 }
 
