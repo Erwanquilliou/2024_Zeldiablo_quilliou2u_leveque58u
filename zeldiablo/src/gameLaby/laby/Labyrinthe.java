@@ -192,11 +192,15 @@ public class Labyrinthe {
         this.pj.deplacer(this, action);
     }
 
-    public void deplacerMonstre() {
+    public void actionMonstre() {
         for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            this.monstre.get(i).deplacer(this);
+            if (this.monstre.get(i).estProcheDePerso(this)) {
+                this.monstre.get(i).attaquer(this.getPerso());
+            }else{
+                this.monstre.get(i).deplacer(this);
+            }
         }
-        
+
 
     }
 

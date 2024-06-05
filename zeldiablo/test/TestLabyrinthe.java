@@ -266,7 +266,7 @@ public class TestLabyrinthe {
         boolean changement = false;
         int tempX = l.getMonstre(0).getX();
         int tempY = l.getMonstre(0).getY();
-        l.deplacerMonstre();
+        l.actionMonstre();
         if ((tempX!=l.getMonstre(0).getX()) || (tempY!=l.getMonstre(0).getY())) {
             changement = true;
         }
