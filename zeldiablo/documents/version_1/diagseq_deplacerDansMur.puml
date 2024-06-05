@@ -1,0 +1,24 @@
+@startuml
+hide footbox
+
+participant "Clavier" as c
+participant "lab: Labyrinthe" as l
+participant "p: Perso" as p
+participant "e: Entite" as e
+
+
+    c -> l : deplacerPerso()
+    activate l
+    l -> p : deplacer()
+    activate p
+    p -> l : peutSeDeplacer()
+    l --> p : true
+    p -> e : setX()
+    activate e
+     p -> e : setY()
+    deactivate p
+    e --> l
+    deactivate e
+    l--> c
+    deactivate l
+@enduml
