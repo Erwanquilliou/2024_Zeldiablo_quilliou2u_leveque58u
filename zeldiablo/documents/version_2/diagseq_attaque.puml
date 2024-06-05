@@ -2,15 +2,25 @@
 hide footbox
 
 participant "main" as m
+participant "l: LabyJeu" as lj
+participant "laby: Labyrinthe" as lb
 participant "m: Monstre" as ms
 participant "p: Perso" as p
 
-m -> ms : attaquer(Perso p)
+m -> lj : update()
+activate lj
+lj -> lb : actionMonstre()
+activate lb
+lb -> ms : attaquer(Entite e)
 activate ms
 ms -> p : subirDegats(int)
 activate p
 p --> ms
 deactivate p
-ms --> m
+ms --> lb
 deactivate ms
+lb --> lj
+deactivate lb
+lj --> m
+deactivate lj
 @enduml
