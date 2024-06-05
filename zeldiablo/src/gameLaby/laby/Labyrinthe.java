@@ -125,12 +125,12 @@ public class Labyrinthe {
                 }
             }
             //ajout d'un monstre
-            ajoutMonstreLaby();
+
             // lecture
             ligne = bfRead.readLine();
             numeroLigne++;
         }
-
+        ajoutMonstreLaby();
         // ferme fichier
         bfRead.close();
     }
