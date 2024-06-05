@@ -145,7 +145,6 @@ public class Labyrinthe {
         while (!place) {
             int largeur = random.nextInt((this.murs.length)-1);
             int longueur = random.nextInt((this.murs[0].length)-1);
-            System.out.println(largeur + " " + longueur);
             //si la case est libre, alors on place le monstre
             if ((!this.murs[largeur][longueur])||((this.pj.getX()!=largeur)&&(this.pj.getY()!=longueur))) {
                 this.monstre = new Monstre(largeur, longueur);
