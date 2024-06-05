@@ -194,10 +194,12 @@ public class Labyrinthe {
 
     public void actionMonstre() {
         for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            if (this.monstre.get(i).estProcheDePerso(this)) {
-                this.monstre.get(i).attaquer(this.getPerso());
-            }else{
-                this.monstre.get(i).deplacer(this);
+            if(!this.monstre.get(i).etreMort()) {
+                if (this.monstre.get(i).estProcheDePerso(this)) {
+                    this.monstre.get(i).attaquer(this.getPerso());
+                } else {
+                    this.monstre.get(i).deplacer(this);
+                }
             }
         }
 

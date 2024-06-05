@@ -32,6 +32,10 @@ public class LabyJeu implements Jeu {
         if (clavier.bas) {
             this.laby.deplacerPerso("Bas");
         }
+
+        if(clavier.coup) {
+            this.laby.getPerso().estProcheDeMonstre(laby);
+        }
         this.laby.actionMonstre();
 
     }
