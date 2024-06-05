@@ -2,7 +2,7 @@
 
 class Position{
 - x: int
-- y:  int
+- y: int
 + Position(int, int)
 + getX(): int
 + getY(): int
@@ -14,18 +14,33 @@ Position <-- Monstre : appartient
 
 class Monstre{
 + Monstre(int, int)
+
 }
 
-Position <-- Personnage : appartient
+Position <-- Perso : appartient
 
-class Personnage{
-+ Personnage(int, int)
+class Perso{
++ Perso(int, int)
++ etrePresent (int, int)
 }
 
 Monstre "*" <-- "1" Labyrinthe : appartient
-Personnage "*" <-- "1" Labyrinthe : appartient
+Perso "*" <-- "1" Labyrinthe : appartient
 
 class Labyrinthe{
+- pj: Perso
+- monstre: Monstre
+- murs: boolean[][]
++ getSuivant(int, int, String)
++ Labyrinthe(String)
++ ajoutMonstreLaby()
++ getMonstre()
++ deplacerPerso(String)
++ etreFini(): boolean
++ getLengthY(): int
++ getLength(): int
++ getMur(int x, int y): boolean
++ getPerso(): Perso
 }
 
 
