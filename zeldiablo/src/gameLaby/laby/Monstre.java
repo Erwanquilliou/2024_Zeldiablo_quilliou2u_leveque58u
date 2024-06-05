@@ -18,7 +18,7 @@ public class Monstre extends Position {
         String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
         boolean deplace = false;
 
-        while (!deplace) {
+        while ((!deplace)&&(!laby.etreCerne())) {
             String action = actions[random.nextInt(actions.length)];
             int[] courante = {this.getX(), this.getY()};
             int[] suivante = getSuivant(courante[0], courante[1], action);

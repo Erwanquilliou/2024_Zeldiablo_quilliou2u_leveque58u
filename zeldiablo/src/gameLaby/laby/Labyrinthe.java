@@ -186,6 +186,25 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * methode estCerne
+     * @return true si le monstre est cerne (ne peut plus bouger), false sinon
+     */
+    boolean etreCerne() {
+        int x = this.monstre.getX();
+        int y = this.monstre.getY();
+        int[] haut = getSuivant(x,y,HAUT);
+        int[] bas = getSuivant(x,y,BAS);
+        int[] gauche = getSuivant(x,y,GAUCHE);
+        int[] droite = getSuivant(x,y,DROITE);
+        //si le monstre ne peut se deplacer nul part (ni en haut, en bas, a gauche et a droite)
+        if ((!peutSeDeplacer(haut[0],haut[1]))&&(!peutSeDeplacer(bas[0],bas[1]))&&(!peutSeDeplacer(gauche[0],gauche[1]))&&(!peutSeDeplacer(droite[0],droite[1]))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 
     /**
