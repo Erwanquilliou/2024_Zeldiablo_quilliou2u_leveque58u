@@ -192,6 +192,11 @@ public class Labyrinthe {
         for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
             this.monstre.get(i).deplacer(this);
         }
+
+        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
+            System.out.println(this.monstre.get(i).estProcheDePerso(this));
+        }
+
     }
 
     /**

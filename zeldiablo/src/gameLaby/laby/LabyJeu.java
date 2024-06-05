@@ -33,6 +33,7 @@ public class LabyJeu implements Jeu {
             this.laby.deplacerPerso("Bas");
         }
         this.laby.deplacerMonstre();
+
     }
 
     @Override

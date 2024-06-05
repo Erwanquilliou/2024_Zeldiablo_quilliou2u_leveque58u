@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static gameLaby.laby.Labyrinthe.*;
 
-public class Monstre extends Position {
+public class Monstre extends Entite {
     public Monstre(int x, int y) {
         super(x,y);
     }
@@ -30,6 +30,18 @@ public class Monstre extends Position {
                 deplace = true;
             }
         }
+    }
+
+    public boolean estProcheDePerso(Labyrinthe laby){
+        boolean b =false;
+        String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
+        for(int i = 0;i<4;i++){
+            int[] posPossible = getSuivant(this.getX(), this.getY(), actions[i]);
+            if ((posPossible[0] -laby.getPerso().getX() == 0) && (posPossible[1] -laby.getPerso().getY() == 0)) {
+                b = true;
+            }
+        }
+        return b;
     }
 
 }
