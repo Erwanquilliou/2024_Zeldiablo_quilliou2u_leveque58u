@@ -1,0 +1,30 @@
+@startuml
+
+class Entite{
+- x: int
+- y: int
+- pV: int
++ Position(int, int)
++ getX(): int
++ getY(): int
++ setX(int)
++ setY(int)
++ attaquer()
++ subirDegats()
+}
+
+Entite <|-- Monstre
+
+class Monstre{
++ Monstre(int, int)
++ deplacer(Labyrinthe)
+}
+
+Entite <|-- Perso
+
+class Perso{
++ Perso(int, int)
++ etrePresent (int, int)
+}
+
+@enduml

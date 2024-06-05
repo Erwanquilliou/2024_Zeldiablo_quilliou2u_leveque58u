@@ -30,7 +30,7 @@ Perso "1" <-- "1" Labyrinthe : - pj
 class Labyrinthe{
 - murs: boolean[][]
 + getSuivant(int, int, String)
-+ Labyrinthe(String)
++ Labyrinthe(String, int)
 + ajoutMonstreLaby()
 + getMonstre()
 + deplacerPerso(String)
