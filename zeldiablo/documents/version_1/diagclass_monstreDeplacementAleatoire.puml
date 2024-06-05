@@ -12,7 +12,7 @@ class Position{
 
 Position <|-- Monstre
 
-class Monstre{
+class Monstre #FFB6C1{
 + Monstre(int, int)
 + deplacer(Labyrinthe)
 }
@@ -27,7 +27,7 @@ class Perso{
 Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
 
-class Labyrinthe{
+class Labyrinthe #FFB6C1{
 - murs: boolean[][]
 + getSuivant(int, int, String)
 + Labyrinthe(String, int)
