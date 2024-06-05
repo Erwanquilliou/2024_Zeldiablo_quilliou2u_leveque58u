@@ -23,6 +23,8 @@ public class Labyrinthe {
     public static final char PJ = 'P';
     public static final char VIDE = '.';
 
+    public static final char M = 'M';
+
     /**
      * constantes actions possibles
      */
@@ -88,7 +90,9 @@ public class Labyrinthe {
         // ouvrir fichier
         FileReader fichier = new FileReader(nom);
         BufferedReader bfRead = new BufferedReader(fichier);
-        NBMONSTRE = nbM;
+
+        boolean monstrePresent = false;
+        NBMONSTRE = 0;
         int nbLignes, nbColonnes;
         // lecture nblignes
         nbLignes = Integer.parseInt(bfRead.readLine());
@@ -125,6 +129,11 @@ public class Labyrinthe {
                         // ajoute PJ
                         this.pj = new Perso(colonne, numeroLigne);
                         break;
+                    case M:
+                        this.monstre.add(new Monstre(colonne,numeroLigne));
+                        monstrePresent = true;
+                        NBMONSTRE++;
+                        break;
 
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -137,12 +146,17 @@ public class Labyrinthe {
             numeroLigne++;
         }
         //ajout d'un monstre
-        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            ajoutMonstreLaby();
+        if(!monstrePresent) {
+            NBMONSTRE = nbM;
+            for (int i = 0; i < Labyrinthe.NBMONSTRE; i++) {
+                ajoutMonstreLaby();
+            }
         }
         // ferme fichier
         bfRead.close();
     }
+
+
 
     public void ajoutMonstreLaby() {
         Random random = new Random();
