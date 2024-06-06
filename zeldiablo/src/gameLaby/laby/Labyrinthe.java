@@ -172,6 +172,7 @@ public class Labyrinthe {
             //si la case est libre, alors on place le monstre
             if ((peutSeDeplacer(largeur,longueur))) {
                 this.monstre.add(new Monstre(largeur, longueur,VIEMONSTRE));
+                NBMONSTRE++;
                 place = true;
             }
         }
