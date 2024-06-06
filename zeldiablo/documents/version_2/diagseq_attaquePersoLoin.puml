@@ -1,0 +1,30 @@
+@startuml
+hide footbox
+
+participant "main" as m
+participant "l: LabyJeu" as lj
+participant "laby: Labyrinthe" as lb
+participant "m: Monstre" as ms
+activate lj
+m -> lj : update()
+
+activate lb
+lj -> lb : actionMonstre()
+activate ms
+lb -> ms : estProcheDePerso(Labyrinthe l)
+ms --> lb : false
+
+
+lb -> ms : deplacer(Labyrinthe l)
+
+
+ms --> lb
+
+
+lb --> lj
+deactivate ms
+
+lj --> m
+deactivate lb
+deactivate lj
+@enduml
