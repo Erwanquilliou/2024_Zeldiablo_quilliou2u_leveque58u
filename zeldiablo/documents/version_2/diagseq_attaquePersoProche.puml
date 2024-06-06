@@ -6,21 +6,29 @@ participant "l: LabyJeu" as lj
 participant "laby: Labyrinthe" as lb
 participant "m: Monstre" as ms
 participant "p: Perso" as p
-
-m -> lj : update()
 activate lj
-lj -> lb : actionMonstre()
+m -> lj : update()
+
 activate lb
-lb -> ms : attaquer(Entite e)
+lj -> lb : actionMonstre()
 activate ms
-ms -> p : subirDegats(int)
+lb -> ms : estProcheDePerso(Labyrinthe l)
+ms --> lb : true
+
+
+lb -> ms : attaquer(Entite e)
 activate p
+ms -> p : subirDegats(int)
+
 p --> ms
-deactivate p
+
 ms --> lb
-deactivate ms
+deactivate p
+
 lb --> lj
-deactivate lb
+deactivate ms
+
 lj --> m
+deactivate lb
 deactivate lj
 @enduml
