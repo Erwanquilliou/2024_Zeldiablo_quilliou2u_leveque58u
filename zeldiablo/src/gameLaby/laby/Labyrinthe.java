@@ -152,9 +152,10 @@ public class Labyrinthe {
         //ajout d'un monstre
         if(!monstrePresent) {
             NBMONSTRE = nbM;
-            for (int i = 0; i < Labyrinthe.NBMONSTRE; i++) {
+            for (int i = 0; i < nbM; i++) {
                 ajoutMonstreLaby();
             }
+            NBMONSTRE -= nbM;
         }
         // ferme fichier
         bfRead.close();
