@@ -22,7 +22,11 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         // dessin personnage
-        gc.setFill(Color.GREEN);
+        if(!laby.getLaby().getPerso().etreMort()) {
+            gc.setFill(Color.GREEN);
+        }else{
+            gc.setFill(Color.LIGHTGREEN);
+        }
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
