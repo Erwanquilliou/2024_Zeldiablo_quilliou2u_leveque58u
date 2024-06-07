@@ -25,6 +25,8 @@ public class Labyrinthe {
 
     public static final char M = 'M';
 
+    public static final char EFF = 'C';
+
     public static final int VIEMONSTRE = 5;
 
     public static final int VIEPERSO = 10;
@@ -43,8 +45,10 @@ public class Labyrinthe {
      * attribut du personnage
      */
     public Perso pj;
+
     public List<Monstre> monstre;
 
+    private List<CaseEffet> casesEffet;
     /**
      * les murs du labyrinthe
      */
@@ -138,7 +142,9 @@ public class Labyrinthe {
                         monstrePresent = true;
                         NBMONSTRE++;
                         break;
-
+                    case EFF:
+                        this.casesEffet.add(new CaseEffet(colonne, numeroLigne, "Sortie"));
+                        break;
                     default:
                         throw new Error("caractere inconnu " + c);
                 }
@@ -192,6 +198,19 @@ public class Labyrinthe {
      */
     public void deplacerPerso(String action) {
         this.pj.deplacer(this, action);
+        if (this.estCaseEffet()) {
+
+        }
+    }
+
+    public boolean estCaseEffet() {
+        boolean res = false;
+        for (int i=0; i<this.casesEffet.size();i++) {
+            if ( (this.pj.getX()==this.casesEffet.get(i).getX()) && (this.pj.getY()==this.casesEffet.get(i).getY()) ) {
+                res = true;
+            }
+        }
+        return res;
     }
 
     public void actionMonstre() {
