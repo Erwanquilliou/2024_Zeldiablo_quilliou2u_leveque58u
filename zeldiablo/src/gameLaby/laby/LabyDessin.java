@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
@@ -19,29 +20,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class LabyDessin implements DessinJeu {
-
-    public void setImageToFrame(BufferedImage image) {
-        ImageIcon imageIcon = new ImageIcon(image);
-
-        JFrame jFrame = new JFrame();
-        jFrame.setLayout(new FlowLayout());
-        jFrame.setSize(700, 500);
-
-        JLabel jLabel = new JLabel();
-        jLabel.setIcon(imageIcon);
-
-        jFrame.add(jLabel);
-        jFrame.setVisible(true);
-
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException {
         LabyJeu laby = (LabyJeu) jeu;
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
-        Image im = new Image(getClass().getResource("perso.png").toString());
+        Image im = new Image(new File("perso.png").toURI().toURL().toExternalForm());
+
         // dessin fond
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
