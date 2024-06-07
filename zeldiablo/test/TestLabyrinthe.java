@@ -7,22 +7,6 @@ import gameLaby.laby.Labyrinthe;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestLabyrinthe {
-    //getMur true
-    //getMur false
-
-    //getSuivant haut
-    //getSuivant bas
-    //getSuivant gauche
-    //getSuivant droite
-
-    //deplacerPerso avec une action existante haut
-    //deplacerPerso avec une action existante bas
-    //deplacerPerso avec une action existante gauche
-    //deplacerPerso avec une action existante droite
-
-    //etreFini true
-    //etreFini false
-
     @Test
     public void test_getMur_true() throws Exception {
         // utilise laby0.txt
@@ -216,15 +200,15 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe("labySimple/couloir.txt", 1);
 
         // met le monstre en haut
-        l.monstre.getFirst().setX(1);
-        l.monstre.getFirst().setY(1);
+        l.monstre.get(0).setX(1);
+        l.monstre.get(0).setY(1);
 
         // bloque le monstre avec le perso
         l.deplacerPerso(Labyrinthe.HAUT);
         l.deplacerPerso(Labyrinthe.HAUT);
 
         // verifie que le monstre est bien coince
-        assertTrue(l.etreCerne(l.monstre.getFirst()));
+        assertTrue(l.etreCerne(l.monstre.get(0)));
     }
 
 

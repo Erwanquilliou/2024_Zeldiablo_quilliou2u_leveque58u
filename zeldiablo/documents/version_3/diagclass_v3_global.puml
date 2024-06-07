@@ -1,0 +1,86 @@
+@startuml
+class Position {
+- x: int
+- y: int
++ Position(int, int)
++ getX(): int
++ getY(): int
++ setX(int)
++ setY(int)
+}
+
+class CaseEffet {
+- effet: String
++ getEffet()
+}
+
+Position <|-- CaseEffet
+
+Position <|-- Entite
+
+class Entite {
+- pv: int
++ Entite(int, int, pv)
+
++ attaquer(Entite)
++ subirDegats(int)
+}
+
+Entite <|-- Monstre
+
+class Monstre{
++ Monstre(int, int)
++ deplacer(Labyrinthe)
++ estProcheDePerso()
+}
+
+Entite <|-- Perso
+
+class Perso{
++ Perso(int, int)
++ etrePresent (int, int)
+}
+
+Monstre "*" <-- "1" Labyrinthe : -monstre
+Perso "1" <-- "1" Labyrinthe : - pj
+
+class Labyrinthe {
+- murs: boolean[][]
++ getSuivant(int, int, String)
++ Labyrinthe(String, int)
++ ajoutMonstreLaby()
++ getMonstre()
++ deplacerPerso(String)
++ peutSeDeplacer(int ,int): boolean
++ etreFini(): boolean
++ getLengthY(): int
++ getLength(): int
++ getMur(int, int): boolean
++ getPerso(): Perso
+}
+
+Labyrinthe "1" <--* "1" LabyJeu : - Laby
+
+class LabyJeu{
++ LabyJeu(Labyrinthe)
++ update(double, Clavier)
++ etreFini(): boolean
++ init()
+}
+
+LabyJeu <.. Main
+
+class Main{
+- main()
+- main(String[])
+}
+
+Labyrinthe <.. Main
+LabyDessin <.. Main
+
+class LabyDessin{
+- LabyDessin()
+- dessinerJeu(Jeu, Canvas)
+}
+
+@enduml
