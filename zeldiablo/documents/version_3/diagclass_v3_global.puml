@@ -1,14 +1,27 @@
 @startuml
-
-class Entite {
+class Position {
 - x: int
 - y: int
-- pv: int
 + Position(int, int)
 + getX(): int
 + getY(): int
 + setX(int)
 + setY(int)
+}
+
+class CaseEffet {
+- effet: String
++ getEffet()
+}
+
+Position <|-- CaseEffet
+
+Position <|-- Entite
+
+class Entite {
+- pv: int
++ Entite(int, int, pv)
+
 + attaquer(Entite)
 + subirDegats(int)
 }
