@@ -9,6 +9,7 @@ class Entite {
 + getY(): int
 + setX(int)
 + setY(int)
++ deplacer(Labyrinthe, String)
 + attaquer(Entite)
 + subirDegats(int)
 }
