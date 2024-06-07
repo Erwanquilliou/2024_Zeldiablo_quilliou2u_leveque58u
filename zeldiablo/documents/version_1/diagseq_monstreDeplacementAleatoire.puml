@@ -17,7 +17,6 @@ participant "e : Entite" as e
     l --> m : true
     deactivate l
 
-
     m -> e : setX()
     m -> e : setY()
     m --> l
