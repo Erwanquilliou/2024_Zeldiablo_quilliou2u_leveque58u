@@ -26,7 +26,7 @@ public class LabyDessin implements DessinJeu {
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
-        gc.fillOval(px*40, py*40, 40, 40);
+        gc.fillOval(px*20, py*20, 20, 20);
 
         // dessin monstre
         gc.setFill(Color.RED);
@@ -35,10 +35,10 @@ public class LabyDessin implements DessinJeu {
             double mx = m.getX();
             double my = m.getY();
             if(!laby.getLaby().getMonstre(i).etreMort()) {
-                gc.fillOval(mx * 40, my * 40, 40, 40);
+                gc.fillOval(mx * 20, my * 20, 20, 20);
             }else{
                 gc.setFill(Color.ORANGE);
-                gc.fillOval(mx * 40, my * 40, 40, 40);
+                gc.fillOval(mx * 20, my * 20, 20, 20);
                 gc.setFill(Color.RED);
             }
         }
@@ -49,7 +49,7 @@ public class LabyDessin implements DessinJeu {
             for (int x = 0; x < laby.getLaby().getLength(); x++) {
                 if (laby.getLaby().getMur(x, y)) {
                     gc.setFill(Color.BLACK);
-                    gc.fillRect(x*40, y * 40, 40, 40);
+                    gc.fillRect(x*20, y * 20, 20, 20);
                 }
             }
 

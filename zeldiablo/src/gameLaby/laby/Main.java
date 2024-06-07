@@ -11,13 +11,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         // charge le labyrinthe
-        Labyrinthe laby = new Labyrinthe("labySimple/laby1.txt",3);
+        Labyrinthe laby = new Labyrinthe("labySimple/laby3.txt",3);
 
 
         LabyJeu l = new LabyJeu(laby);
         LabyDessin ld = new LabyDessin();
         MoteurJeu.setTaille(800,600);
-        MoteurJeu.setFPS(1);
+        MoteurJeu.setFPS(20);
         MoteurJeu.launch(l,ld);
     }
 }

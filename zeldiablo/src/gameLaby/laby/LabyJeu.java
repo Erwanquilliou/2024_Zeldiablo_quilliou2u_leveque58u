@@ -10,12 +10,13 @@ public class LabyJeu implements Jeu {
         this.laby = l;
     }
 
+    int compteur;
+
     /**
 <<<<<<< HEAD
      * met a jour l'etat du jeu
      */
     public void update(double secondes, Clavier clavier) {
-
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
             this.laby.deplacerPerso("Droite");
@@ -36,7 +37,10 @@ public class LabyJeu implements Jeu {
         if(clavier.coup) {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
-        this.laby.actionMonstre();
+        if(compteur % 10 == 0) {
+            this.laby.actionMonstre();
+        }
+        compteur++;
 
     }
 
