@@ -1,6 +1,8 @@
 @startuml
 hide footbox
 
+title test
+
 participant "Clavier" as c
 participant "lab: Labyrinthe" as l
 participant "p: Perso" as p
@@ -20,5 +22,10 @@ participant "e: Entite" as e
     e --> l
     deactivate e
     l--> c
-    deactivate l
+    deactivate
+
+note across
+note ici
+end note
+
 @enduml

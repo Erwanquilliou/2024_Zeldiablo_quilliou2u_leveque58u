@@ -9,10 +9,15 @@ participant "e : Entite" as e
     activate lj
     lj -> l : deplacerMonstre()
     activate l
-    l -> m : deplacer()
+    l -> m : deplacer(lab)
     activate m
+
     m -> l : peutSeDeplacer()
+    activate l
     l --> m : true
+    deactivate l
+
+
     m -> e : setX()
     m -> e : setY()
     m --> l

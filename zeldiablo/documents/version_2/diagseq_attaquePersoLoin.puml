@@ -5,26 +5,29 @@ participant "main" as m
 participant "l: LabyJeu" as lj
 participant "laby: Labyrinthe" as lb
 participant "m: Monstre" as ms
-activate lj
 m -> lj : update()
+activate lj
 
-activate lb
 lj -> lb : actionMonstre()
-activate ms
+activate lb
+
 lb -> ms : estProcheDePerso(Labyrinthe l)
+activate ms
 ms --> lb : false
+deactivate ms
 
 
 lb -> ms : deplacer(Labyrinthe l)
-
+activate ms
 
 ms --> lb
+deactivate ms
 
 
 lb --> lj
 deactivate ms
+deactivate lb
 
 lj --> m
-deactivate lb
 deactivate lj
 @enduml
