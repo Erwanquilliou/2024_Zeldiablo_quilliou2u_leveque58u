@@ -13,4 +13,14 @@ public class CaseEffet extends Position {
         super(x,y);
         this.effet = e;
     }
+
+    public CaseEffet getCaseEffet(Labyrinthe l, int x, int y) {
+        CaseEffet res = null;
+        for (CaseEffet c : l.getCasesEffet()) {
+            if ((c.getX()==x) && (c.getY()==y)) {
+                res = c;
+            }
+        }
+        return res;
+    }
 }

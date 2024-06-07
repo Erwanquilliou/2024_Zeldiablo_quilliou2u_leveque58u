@@ -198,16 +198,14 @@ public class Labyrinthe {
      */
     public void deplacerPerso(String action) {
         this.pj.deplacer(this, action);
-        if (this.estCaseEffet()) {
-
-        }
     }
 
     public boolean estCaseEffet() {
         boolean res = false;
         for (int i=0; i<this.casesEffet.size();i++) {
-            if ( (this.pj.getX()==this.casesEffet.get(i).getX()) && (this.pj.getY()==this.casesEffet.get(i).getY()) ) {
+            if ((this.pj.getX() == this.casesEffet.get(i).getX()) && (this.pj.getY() == this.casesEffet.get(i).getY())) {
                 res = true;
+                break;
             }
         }
         return res;
@@ -309,6 +307,8 @@ public class Labyrinthe {
         // utilise le tableau de boolean
         return this.murs[x][y];
     }
+
+    public List<CaseEffet> getCasesEffet() { return this.casesEffet; }
 
     public Perso getPerso() {
         return this.pj;
