@@ -5,32 +5,52 @@ import gameArkanoid.Balle;
 import gameArkanoid.Raquette;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public class LabyDessin implements DessinJeu {
+
+    public static int LANCEMENT = 0;
+    public static int TAILLE_JEU = 80;
+
     @Override
-    public void dessinerJeu(Jeu jeu, Canvas canvas) {
+    public void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException {
         LabyJeu laby = (LabyJeu) jeu;
+        if (LANCEMENT == 0){
+            LANCEMENT++;
+            Sprite.init();
+        }
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        /*
+        Image im = new Image(new File("heros.png").toURI().toURL().toExternalForm());// dessin fond
 
-        // dessin fond
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
+        */
         // dessin personnage
-        if(!laby.getLaby().getPerso().etreMort()) {
-            gc.setFill(Color.GREEN);
-        }else{
-            gc.setFill(Color.LIGHTGREEN);
-        }
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
-        gc.fillOval(px*20, py*20, 20, 20);
+        if(!laby.getLaby().getPerso().etreMort()) {
+            gc.drawImage(Sprite.IMG_HEROS,px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+        }else{
+            gc.drawImage(Sprite.IMG_MONSTRE,px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+        }
+
 
         // dessin monstre
         gc.setFill(Color.RED);
@@ -39,11 +59,9 @@ public class LabyDessin implements DessinJeu {
             double mx = m.getX();
             double my = m.getY();
             if(!laby.getLaby().getMonstre(i).etreMort()) {
-                gc.fillOval(mx * 20, my * 20, 20, 20);
+                gc.drawImage(Sprite.IMG_MONSTRE,mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
             }else{
-                gc.setFill(Color.ORANGE);
-                gc.fillOval(mx * 20, my * 20, 20, 20);
-                gc.setFill(Color.RED);
+                gc.drawImage(Sprite.IMG_MONSTRE_MORT,mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
             }
         }
 
@@ -52,12 +70,12 @@ public class LabyDessin implements DessinJeu {
             // affiche la ligne
             for (int x = 0; x < laby.getLaby().getLength(); x++) {
                 if (laby.getLaby().getMur(x, y)) {
-                    gc.setFill(Color.BLACK);
-                    gc.fillRect(x*20, y * 20, 20, 20);
+                    gc.drawImage(Sprite.IMG_MUR,x*TAILLE_JEU/2,y*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
                 }
             }
 
         }
+
 
     }
 }

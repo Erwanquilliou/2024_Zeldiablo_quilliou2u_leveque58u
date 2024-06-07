@@ -1,13 +1,15 @@
 @startuml
 hide footbox
 
+title Deplacer le Personnage
+
 participant "Clavier" as c
 participant "lab: Labyrinthe" as l
 participant "p: Perso" as p
 participant "e: Entite" as e
 
 
-    c -> l : deplacerPerso()
+    c -> l : deplacerPerso(String)
     activate l
     l -> p : deplacer()
     activate p
@@ -20,5 +22,17 @@ participant "e: Entite" as e
     e --> l
     deactivate e
     l--> c
-    deactivate l
+    deactivate
+
+note across
+La classe clavier commence par effectuer un appel sur la methode deplacerPerso grace a une action
+de deplacement donnee en parametre.
+Ensuite le labyrinthe lab appelle la methode deplacer du Peros p prennant en parametre le labyrinthe
+sur lequel est fait l'appel et l'action tapée.
+Cette methode appelle a son tour une methode pour verifier qu'il n'y a ni mur, ni monstre, ni qu'il
+n'est deja a cette position et renvoie alors true et sinon false.
+Si elle retourne true le personnage peut alors appeller les methodes setX et setY de son parent Entite
+e pour redefinir la position du personnage dans le labyrinthe.
+end note
+
 @enduml

@@ -8,6 +8,7 @@ class Position{
 + getY(): int
 + setX(int)
 + setY(int)
++ deplacer(Labyrinthe, String)
 }
 
 Position <|-- Monstre
