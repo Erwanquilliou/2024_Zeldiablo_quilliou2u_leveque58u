@@ -62,4 +62,81 @@ public class TestPerso {
         assertEquals(l.getMonstre(0).getVie(),5);
     }
 
+    @Test
+    public void test_estProcheDeMonstre_attaque_true() throws IOException {
+        // charge laby0.txt
+        Labyrinthe l = new Labyrinthe("labySimple/laby0.txt", 0);
+
+        // ajout d'un monstre a cote du perso
+        l.ajoutMonstreLaby();
+        l.getMonstre(0).setX(3);
+        l.getMonstre(0).setY(2);
+
+        // initialiser la vie du monstre
+        int vieInitiale = l.getMonstre(0).getVie();
+
+        // le personnage attaque le monstre s'il est proche
+        if (l.getMonstre(0).estProcheDePerso(l)) {
+            l.getPerso().attaquer(l.getMonstre(0));
+        }
+
+        // verifie que le monstre a subi 1 de degat
+        assertEquals(l.getMonstre(0).getVie(), vieInitiale--);
+    }
+
+    @Test
+    public void test_estProcheDeMonstre_attaque_false() throws IOException {
+        // charge laby0
+        Labyrinthe l = new Labyrinthe("labySimple/laby0.txt", 0);
+
+        // ajout d'un monstre a cote du perso
+        l.ajoutMonstreLaby();
+        l.getMonstre(0).setX(3);
+        l.getMonstre(0).setY(2);
+
+        // initialiser la vie du monstre
+        int vieInitiale = l.getMonstre(0).getVie();
+
+        // verifie que le monstre n'a pas subi de degats
+        assertEquals(l.getMonstre(0).getVie(), vieInitiale);
+    }
+
+    @Test
+    public void test_attaque_estLoinDeMonstre() throws IOException {
+        // charge laby0.txt
+        Labyrinthe l = new Labyrinthe("labySimple/laby0.txt", 0);
+
+        // ajout d'un monstre loin du perso
+        l.ajoutMonstreLaby();
+        l.getMonstre(0).setX(0);
+        l.getMonstre(0).setY(0);
+
+        // initialiser la vie du monstre
+        int vieInitiale = l.getMonstre(0).getVie();
+
+        // verifie que le perso n'attaque pas le monstre
+        if (l.getMonstre(0).estProcheDePerso(l)) {
+            l.getPerso().attaquer(l.getMonstre(0));
+        }
+
+        // verifie que la vie du monstre n'a pas change
+        assertEquals(l.getMonstre(0).getVie(), vieInitiale);
+    }
+
+    @Test
+    public void test_subir_degats() throws IOException {
+        // charge laby0.txt
+        Labyrinthe l = new Labyrinthe("labySimple/laby0.txt", 0);
+
+        // initialiser la vie du perso
+        int vieInitiale = l.getPerso().getVie();
+
+        // le perso subit des dégâts
+        int degats = 2;
+        l.getPerso().subirDegats(degats);
+
+        // verifie que le perso a bien subi les degats
+        assertEquals(l.getPerso().getVie(), vieInitiale - degats);
+    }
 }
+
