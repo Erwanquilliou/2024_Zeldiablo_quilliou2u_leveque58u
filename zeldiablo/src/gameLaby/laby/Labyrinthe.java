@@ -152,9 +152,10 @@ public class Labyrinthe {
         //ajout d'un monstre
         if(!monstrePresent) {
             NBMONSTRE = nbM;
-            for (int i = 0; i < Labyrinthe.NBMONSTRE; i++) {
+            for (int i = 0; i < nbM; i++) {
                 ajoutMonstreLaby();
             }
+            NBMONSTRE -= nbM;
         }
         // ferme fichier
         bfRead.close();
@@ -172,6 +173,7 @@ public class Labyrinthe {
             //si la case est libre, alors on place le monstre
             if ((peutSeDeplacer(largeur,longueur))) {
                 this.monstre.add(new Monstre(largeur, longueur,VIEMONSTRE));
+                NBMONSTRE++;
                 place = true;
             }
         }
