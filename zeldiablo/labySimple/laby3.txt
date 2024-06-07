@@ -22,4 +22,6 @@ XX........XXX......X
 X......XXX.........X
 XXX.....XXX........X
 X..X........XX.....X
+X.................XX
+XX.......X.........X
 XXXXXXXXXXXXXXXXXXXX
