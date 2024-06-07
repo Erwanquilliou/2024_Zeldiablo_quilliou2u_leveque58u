@@ -82,5 +82,19 @@ class LabyDessin{
 - LabyDessin()
 - dessinerJeu(Jeu, Canvas)
 }
+Sprite <.. LabyDessin
+class Sprite {
+    -img_heros : Image
+    -img_monstre : Image
+    -img_mostre_mort : Image
+    -img_mur : Image
+    +setImgMur()
+    +setImgHeros()
+    +setImgMonstreMort()
+    +getImgHeros()
+    +getImgMonstre()
+    +getImgMonstreMort()
+
+}
 
 @enduml
