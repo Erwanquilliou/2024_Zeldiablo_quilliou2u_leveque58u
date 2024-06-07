@@ -23,13 +23,14 @@ public class LabyDessin implements DessinJeu {
 
     public static int LANCEMENT = 0;
     public static int TAILLE_JEU = 80;
+    private Sprite sprite;
 
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException {
         LabyJeu laby = (LabyJeu) jeu;
         if (LANCEMENT == 0){
             LANCEMENT++;
-            Sprite.init();
+            this.sprite = new Sprite();
         }
 
         // recupere un pinceau pour dessiner
@@ -46,9 +47,9 @@ public class LabyDessin implements DessinJeu {
         double px = p.getX();
         double py = p.getY();
         if(!laby.getLaby().getPerso().etreMort()) {
-            gc.drawImage(Sprite.IMG_HEROS,px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+            gc.drawImage(sprite.getImgHeros(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
         }else{
-            gc.drawImage(Sprite.IMG_MONSTRE,px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+            gc.drawImage(sprite.getImgMonstre(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
         }
 
 
@@ -59,9 +60,9 @@ public class LabyDessin implements DessinJeu {
             double mx = m.getX();
             double my = m.getY();
             if(!laby.getLaby().getMonstre(i).etreMort()) {
-                gc.drawImage(Sprite.IMG_MONSTRE,mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+                gc.drawImage(sprite.getImgMonstre(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
             }else{
-                gc.drawImage(Sprite.IMG_MONSTRE_MORT,mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+                gc.drawImage(sprite.getImgMonstreMort(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
             }
         }
 
@@ -70,7 +71,7 @@ public class LabyDessin implements DessinJeu {
             // affiche la ligne
             for (int x = 0; x < laby.getLaby().getLength(); x++) {
                 if (laby.getLaby().getMur(x, y)) {
-                    gc.drawImage(Sprite.IMG_MUR,x*TAILLE_JEU/2,y*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+                    gc.drawImage(sprite.getImgMur(),x*TAILLE_JEU/2,y*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
                 }
             }
 
