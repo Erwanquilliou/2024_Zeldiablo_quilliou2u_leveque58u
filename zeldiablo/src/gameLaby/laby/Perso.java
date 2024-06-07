@@ -32,9 +32,8 @@ public class Perso extends Entite {
 
     public void estProcheDeMonstre(Labyrinthe laby){
         for (int i =0;i<laby.NBMONSTRE;i++){
-            if (laby.getMonstre(i).estProcheDePerso(laby)){
+            if (laby.getMonstre(i).estProcheDePerso(laby) && (!this.etreMort())){
                 this.attaquer(laby.getMonstre(i));
-                System.out.println(laby.getMonstre(i).getVie());
             }
         }
     }

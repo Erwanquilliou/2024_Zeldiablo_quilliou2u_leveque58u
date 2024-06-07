@@ -5,17 +5,28 @@ import gameArkanoid.Balle;
 import gameArkanoid.Raquette;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public class LabyDessin implements DessinJeu {
     @Override
-    public void dessinerJeu(Jeu jeu, Canvas canvas) {
+    public void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException {
         LabyJeu laby = (LabyJeu) jeu;
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
+        Image im = new Image(new File("perso.png").toURI().toURL().toExternalForm());
 
         // dessin fond
         gc.setFill(Color.LIGHTGRAY);
@@ -58,6 +69,7 @@ public class LabyDessin implements DessinJeu {
             }
 
         }
+        gc.drawImage(im,0,0,10,10);
 
     }
 }

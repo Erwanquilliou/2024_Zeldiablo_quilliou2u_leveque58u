@@ -25,9 +25,9 @@ public class Labyrinthe {
 
     public static final char M = 'M';
 
-    public static final int VIEMONSTRE = 5;
+    public static final int VIEMONSTRE = 2;
 
-    public static final int VIEPERSO = 10;
+    public static final int VIEPERSO = 5;
 
     /**
      * constantes actions possibles
