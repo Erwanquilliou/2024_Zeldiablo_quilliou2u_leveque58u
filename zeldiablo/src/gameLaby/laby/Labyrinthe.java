@@ -195,8 +195,10 @@ public class Labyrinthe {
     }
 
     public void actionMonstre() {
+        Random r = new Random();
         for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            if(!this.monstre.get(i).etreMort()) {
+            int action = r.nextInt(3);
+            if(!this.monstre.get(i).etreMort() && (action == 2)) {
                 if (this.monstre.get(i).estProcheDePerso(this)) {
                     this.monstre.get(i).attaquer(this.getPerso());
                 } else {
