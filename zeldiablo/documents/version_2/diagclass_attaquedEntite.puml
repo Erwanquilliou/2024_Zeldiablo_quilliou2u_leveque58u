@@ -9,6 +9,7 @@ class Entite #FFB6C1{
 + getY(): int
 + setX(int)
 + setY(int)
++ deplacer(Labyrinthe, String)
 + attaquer(Entite)
 + subirDegats(int)
 }
