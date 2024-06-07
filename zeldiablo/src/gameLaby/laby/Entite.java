@@ -72,6 +72,9 @@ public class Entite {
      */
     public int attaquer(Entite e) {
         int degats = 1;
+        if (this.etreMort()) {
+            degats = 0;
+        }
         e.subirDegats(degats);
         return degats;
     }
