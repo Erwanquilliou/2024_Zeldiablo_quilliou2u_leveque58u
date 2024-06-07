@@ -26,9 +26,8 @@ public class LabyDessin implements DessinJeu {
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
-        Image im = new Image(new File("perso.png").toURI().toURL().toExternalForm());
-
-        // dessin fond
+        Image im = new Image(new File("heros.png").toURI().toURL().toExternalForm());// dessin fond
+        /*
         gc.setFill(Color.LIGHTGRAY);
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
@@ -69,7 +68,8 @@ public class LabyDessin implements DessinJeu {
             }
 
         }
-        gc.drawImage(im,0,0,10,10);
+        */
+        gc.drawImage(im,0,0,50,50);
 
     }
 }
