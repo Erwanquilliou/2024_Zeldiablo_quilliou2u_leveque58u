@@ -14,7 +14,7 @@ public class CaseEffet extends Position {
         this.effet = e;
     }
 
-    public CaseEffet getCaseEffet(Labyrinthe l, int x, int y) {
+    public static CaseEffet getCaseEffet(Labyrinthe l, int x, int y) {
         CaseEffet res = null;
         for (CaseEffet c : l.getCasesEffet()) {
             if ((c.getX()==x) && (c.getY()==y)) {
@@ -23,4 +23,14 @@ public class CaseEffet extends Position {
         }
         return res;
     }
+
+    public static void executerEffet(Labyrinthe l, String e){
+        switch (e) {
+            case SORTIE:
+
+                break;
+        }
+    }
+
+    public String getEffet() { return this.effet; }
 }

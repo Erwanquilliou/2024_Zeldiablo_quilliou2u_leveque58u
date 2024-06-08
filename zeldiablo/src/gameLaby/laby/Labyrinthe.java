@@ -111,6 +111,7 @@ public class Labyrinthe {
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
         this.monstre = new ArrayList<Monstre>();
+        this.casesEffet = new ArrayList<CaseEffet>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -198,17 +199,10 @@ public class Labyrinthe {
      */
     public void deplacerPerso(String action) {
         this.pj.deplacer(this, action);
-    }
-
-    public boolean estCaseEffet() {
-        boolean res = false;
-        for (int i=0; i<this.casesEffet.size();i++) {
-            if ((this.pj.getX() == this.casesEffet.get(i).getX()) && (this.pj.getY() == this.casesEffet.get(i).getY())) {
-                res = true;
-                break;
-            }
+        if (this.pj.estSurCaseEffet(this)) {
+            CaseEffet caseTemp = CaseEffet.getCaseEffet(this, pj.getX(), pj.getY());
+            CaseEffet.executerEffet(this, caseTemp.getEffet());
         }
-        return res;
     }
 
     public void actionMonstre() {

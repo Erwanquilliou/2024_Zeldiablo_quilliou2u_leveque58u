@@ -38,4 +38,19 @@ public class Perso extends Entite {
         }
     }
 
+    public boolean estSurCaseEffet(Labyrinthe l) {
+        boolean res = false;
+        for (int i=0; i<l.getCasesEffet().size();i++) {
+            if ((l.pj.getX() == l.getCasesEffet().get(i).getX()) && (l.pj.getY() == l.getCasesEffet().get(i).getY())) {
+                res = true;
+                break;
+            }
+        }
+        return res;
+    }
+
+    public void changerLabyrinthe() {
+
+    }
+
 }
