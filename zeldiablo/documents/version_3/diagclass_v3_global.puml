@@ -24,6 +24,8 @@ class Entite {
 + deplacer(Labyrinthe, String)
 + attaquer(Entite)
 + subirDegats(int)
++ getPv()
++ setPv()
 }
 
 Entite <|-- Monstre
