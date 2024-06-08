@@ -21,6 +21,7 @@ Position <|-- Entite
 class Entite {
 - pv: int
 + Entite(int, int, pv)
++ deplacer(Labyrinthe, String)
 + attaquer(Entite)
 + subirDegats(int)
 }
@@ -42,6 +43,7 @@ class Perso{
 
 Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
+CaseEffet "*" <-- "1" Labyrinthe : - ce
 
 class Labyrinthe {
 - murs: boolean[][]
@@ -50,13 +52,14 @@ class Labyrinthe {
 + ajoutMonstreLaby()
 + getMonstre()
 + deplacerPerso(String)
++ actionMonstre()
 + peutSeDeplacer(int ,int): boolean
 + etreFini(): boolean
 + getLengthY(): int
 + getLength(): int
 + getMur(int, int): boolean
 + getPerso(): Perso
-+ etreCaseEffet(Position)
++ etreCaseEffet(int, int): boolean
 }
 
 Labyrinthe "1" <--* "1" LabyJeu : - Laby
