@@ -1,47 +1,16 @@
 package gameLaby.laby;
 
-public class Entite {
-    private int x;
-    private int y;
+public class Entite extends Position{
     private int vie;
 
     public Entite(int dx, int dy, int v){
-        this.x = dx;
-        this.y = dy;
+        super(dx,dy);
         this.vie = v;
     }
-    /**
-     * @return position x de l'entite
-     */
-    public int getX(){
-        return this.x;
-    }
-
-    /**
-     * @return position y de l'entite
-     */
-    public int getY(){
-        return this.y;
-    }
-
     /**
      * @return vie de l'entite
      */
     public int getVie() { return this.vie; }
-
-    /**
-     * @param dx nouvelle coordonne
-     */
-    public void setX(int dx){
-        this.x = dx;
-    }
-
-    /**
-     * @param dy nouvelle coordonne
-     */
-    public void setY(int dy){
-        this.y = dy;
-    }
 
     /**
      * deplace l'entite en fonction de l'action.

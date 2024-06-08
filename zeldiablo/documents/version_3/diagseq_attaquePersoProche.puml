@@ -1,0 +1,34 @@
+@startuml
+hide footbox
+
+participant "main" as m
+participant "l: LabyJeu" as lj
+participant "laby: Labyrinthe" as lb
+participant "m: Monstre" as ms
+participant "p: Perso" as p
+activate lj
+m -> lj : update()
+
+activate lb
+lj -> lb : deplacerPerso()
+activate ms
+lb -> ms : estProcheDePerso(Labyrinthe l)
+ms --> lb : true
+
+
+lb -> ms : attaquer(Entite e)
+activate p
+ms -> p : subirDegats(int)
+
+p --> ms
+
+ms --> lb
+deactivate p
+
+lb --> lj
+deactivate ms
+
+lj --> m
+deactivate lb
+deactivate lj
+@enduml
