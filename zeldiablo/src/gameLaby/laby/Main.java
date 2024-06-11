@@ -17,7 +17,7 @@ public class Main {
                 "labyComplexe/map1/laby4-1.txt","labyComplexe/map1/laby4-2.txt","labyComplexe/map1/laby4-3.txt","labyComplexe/map1/laby4-4.txt"
         };
 
-        LabyJeu l = new LabyJeu("labySimple/laby4.txt");
+        LabyJeu l = new LabyJeu(map1);
         LabyDessin ld = new LabyDessin();
         MoteurJeu.setTaille(800,700);
         MoteurJeu.setFPS(20);
