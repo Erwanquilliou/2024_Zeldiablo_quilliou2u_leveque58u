@@ -1,0 +1,35 @@
+@startuml
+hide footbox
+
+title Methode executerEffet activée avec une case sortie
+
+participant "Main" as m
+participant "jeu: LabyJeu" as j
+participant "lab: Labyrinthe" as l
+participant "entite: Entite" as e
+participant "ce: CaseEffet" as ce
+
+m -> j : update()
+activate j
+    j -> l : deplacerPerso(action, jeu)
+    activate l
+        l -> ce : getCaseEffet(lab, lab.pj.getX(), lab.pj.getY())
+        activate ce
+            ce --> l : caseTemp: CaseEffet
+            deactivate ce
+            l -> ce : executerEffet(jeu, lab, caseTemp.getEffet())
+            activate ce
+                ce -> j : changerLabyrinthe()
+                activate j
+                    j --> ce
+                deactivate j
+                ce --> l
+            deactivate ce
+            l --> j
+    deactivate l
+    j --> m
+deactivate j
+
+note across
+end note
+@enduml
