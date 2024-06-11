@@ -81,8 +81,7 @@ public class LabyJeu implements Jeu {
 <<<<<<< HEAD
      * met a jour l'etat du jeu
      */
-
-    public void update(double secondes, Clavier clavier, boolean enFeu) {
+    public void update(double secondes, Clavier clavier) {
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
             this.laby.deplacerPerso("Droite", this);
@@ -107,19 +106,17 @@ public class LabyJeu implements Jeu {
             this.laby.actionMonstre();
         }
 
-
-        if(compteurFeu<=3){
-            if (compteur % 10 == 0) {
-                compteurFeu++;
+        if (enFeu) {
+            if (compteurFeu <= 3) {
+                if (compteur % 10 == 0) {
+                    this.laby.getPerso().subirDegats(1);
+                    compteurFeu++;
+                }
+            } else {
+                enFeu = false;
             }
-        } else {
-
         }
         compteur++;
-
-
-
-
     }
 
     @Override
@@ -134,5 +131,9 @@ public class LabyJeu implements Jeu {
 
     public Labyrinthe getLaby() {
         return this.laby;
+    }
+
+    public void setFeu(boolean f) {
+        this.enFeu = f;
     }
 }

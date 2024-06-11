@@ -1,18 +1,8 @@
 package gameLaby.laby;
 
-public class CaseEffet extends Position {
-
-    /**
-     * caractere correspondant a une sortie menant
-     */
-    public final static String SORTIE = "Sortie";
-    public final static String FEU = "Feu";
-
-    private String effet;
-
-    public CaseEffet(int x, int y, String e) {
+public abstract class CaseEffet extends Position {
+    public CaseEffet(int x, int y) {
         super(x,y);
-        this.effet = e;
     }
 
     public static CaseEffet getCaseEffet(Labyrinthe l, int x, int y) {
@@ -25,25 +15,5 @@ public class CaseEffet extends Position {
         return res;
     }
 
-    public static void executerEffet(LabyJeu lj, Labyrinthe l, String e){
-        switch (e) {
-            case SORTIE:
-                Perso p = l.getPerso();
-                if (p.getX()==0) {
-                    lj.changerLabyrinthe(Labyrinthe.GAUCHE);
-                } else if (p.getX()==l.getLength()-1) {
-                    lj.changerLabyrinthe(Labyrinthe.DROITE);
-                } else if (p.getY()==0) {
-                    lj.changerLabyrinthe(Labyrinthe.HAUT);
-                } else if (p.getY()==l.getLengthY()-1) {
-                    lj.changerLabyrinthe(Labyrinthe.BAS);
-                }
-                break;
-            case FEU:
-                Perso p = l.getPerso().subirDegats(1);
-
-        }
-    }
-
-    public String getEffet() { return this.effet; }
+    public abstract void executerEffet(LabyJeu lj, Labyrinthe l);
 }
