@@ -100,7 +100,7 @@ public class Labyrinthe {
         BufferedReader bfRead = new BufferedReader(fichier);
 
         boolean monstrePresent = false;
-        NBMONSTRE = 0;
+        NBMONSTRE = nbM;
         int nbLignes, nbColonnes;
         // lecture nblignes
         nbLignes = Integer.parseInt(bfRead.readLine());

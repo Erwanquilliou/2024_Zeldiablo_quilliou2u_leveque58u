@@ -11,12 +11,15 @@ public class Sprite {
     public Image img_monstre_mort;
     public Image img_mur;
 
+    public Image img_sol;
+
 
     public Sprite() throws MalformedURLException {
         this.img_heros = new Image(new File("heros.png").toURI().toURL().toExternalForm());
         this.img_monstre = new Image(new File("monstre1.png").toURI().toURL().toExternalForm());
         this.img_monstre_mort = new Image(new File("monstre1_mort.png").toURI().toURL().toExternalForm());
         this.img_mur = new Image(new File("arbre.png").toURI().toURL().toExternalForm());
+        this.img_sol = new Image(new File("sol.jpg").toURI().toURL().toExternalForm());
     }
 
     /**
@@ -37,6 +40,10 @@ public class Sprite {
 
     public Image getImgMur() {
         return this.img_mur;
+    }
+
+    public Image getImgSol() {
+        return this.img_sol;
     }
 
     /**

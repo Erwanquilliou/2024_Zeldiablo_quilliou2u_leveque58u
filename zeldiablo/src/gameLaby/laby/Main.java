@@ -20,7 +20,7 @@ public class Main {
         LabyJeu l = new LabyJeu("labySimple/laby4.txt");
         LabyDessin ld = new LabyDessin();
         MoteurJeu.setTaille(800,700);
-        MoteurJeu.setFPS(20);
+        MoteurJeu.setFPS(10);
         MoteurJeu.launch(l,ld);
     }
 }

@@ -33,9 +33,16 @@ public class LabyDessin implements DessinJeu {
             this.sprite = new Sprite();
         }
 
+
+
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
+            for (int x = 0; x < laby.getLaby().getLength(); x++) {
+            gc.drawImage(sprite.getImgSol(), x * TAILLE_JEU / 2, y * TAILLE_JEU / 2, TAILLE_JEU / 2, TAILLE_JEU / 2);
+            }
+        }
         /*
         Image im = new Image(new File("heros.png").toURI().toURL().toExternalForm());// dessin fond
 
