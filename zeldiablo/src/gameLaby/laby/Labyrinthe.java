@@ -227,7 +227,7 @@ public class Labyrinthe {
                 return false;
             }
             for (int i = 0; i < this.monstre.size(); i++) {
-                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y))) {
+                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y) && (!this.monstre.get(i).etreMort()))) {
                     return false;
                 }
             }
@@ -264,6 +264,9 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
+        if (!this.pj.etreMort()) {
+            return true;
+        }
         return false;
     }
 

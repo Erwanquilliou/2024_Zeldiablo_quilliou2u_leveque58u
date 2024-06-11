@@ -33,9 +33,16 @@ public class LabyDessin implements DessinJeu {
             this.sprite = new Sprite();
         }
 
+
+
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
+            for (int x = 0; x < laby.getLaby().getLength(); x++) {
+            gc.drawImage(sprite.getImgSol(), x * TAILLE_JEU / 2, y * TAILLE_JEU / 2, TAILLE_JEU / 2, TAILLE_JEU / 2);
+            }
+        }
         /*
         Image im = new Image(new File("heros.png").toURI().toURL().toExternalForm());// dessin fond
 
@@ -43,14 +50,7 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         */
         // dessin personnage
-        Perso p = laby.getLaby().getPerso();
-        double px = p.getX();
-        double py = p.getY();
-        if(!laby.getLaby().getPerso().etreMort()) {
-            gc.drawImage(sprite.getImgHeros(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
-        }else{
-            gc.drawImage(sprite.getImgMonstre(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
-        }
+
 
 
         // dessin monstre
@@ -62,8 +62,17 @@ public class LabyDessin implements DessinJeu {
             if(!laby.getLaby().getMonstre(i).etreMort()) {
                 gc.drawImage(sprite.getImgMonstre(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
             }else{
-                gc.drawImage(sprite.getImgMonstreMort(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+                gc.drawImage(sprite.getImgMonstreMort(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2+10,TAILLE_JEU,TAILLE_JEU);
             }
+        }
+
+        Perso p = laby.getLaby().getPerso();
+        double px = p.getX();
+        double py = p.getY();
+        if(!laby.getLaby().getPerso().etreMort()) {
+            gc.drawImage(sprite.getImgHeros(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+        }else{
+            gc.drawImage(sprite.getImgMonstre(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
         }
 
 
