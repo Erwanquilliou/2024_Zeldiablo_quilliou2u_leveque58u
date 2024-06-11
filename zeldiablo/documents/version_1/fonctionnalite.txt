@@ -1,32 +1,48 @@
-1. Donner une position initiale au monstre
-- Descriptif :
-  - le monstre débute sur une case décrite dans le fichier labyrinthe.
-- Critères de validation :
-  - le monstre doit avoir une position initiale.
-  - le monstre se trouve sur la case indiquée dans le fichier labyrinthe.
-  - le monstre est représenté par le caractère 'M' dans le fichier labyrinthe.
-  - le monstre ne se trouve pas sur la même case que le personnage.
+1.1 Création d'un labyrinthe par défaut
+Au lancement du jeu, un labyrinthe par défaut est créé et le personnage est placé
+au centre de celui-ci.
+Critères de validation
+• Le labyrinthe par défaut est constitué d'une arène de taille 10*10 ;
+• Le personnage est placé au centre de l'arène ;
+• Les monstres (s'il y en a) sont placés sur des cases vides (à adapter).
 
-2. Afficher le monstre
-- Descriptif :
-  - le jeu doit afficher le monstre à sa position.
-- Critères de validation :
-  - le monstre doit être affiché à la bonne position dans le labyrinthe.
-  - le monstre sera représenté sous la forme d'un cercle violet de la taille du personnage.
+1.2 Collision avec les Murs
+Lorsque le joueur demande à déplacer le personnage en direction d'un mur, le personnage reste bloqué et ne se déplace pas.
+Critères de validation
+• La collision fonctionne dans les 4 directions ;
+• Si la case est vide, le personnage avance.
 
-3. Considérer le monstre dans les déplacements du personnage
-- Descriptif :
-  - lorsque le jeu évolue, le personnage ne peut pas se déplacer sur la case du monstre.
-- Critères de validation :
-  - le monstre constitue un obstacle pour le personnage.
-  - le monstre et le personnage ne peuvent pas se trouver sur la même case.
-  - le personnage ne peut pas traverser la case du monstre
+1.3 Gestion des niveaux
+Le jeu est constitué de plusieurs niveaux.
+Critères de validation
+• Un niveau décrit le labyrinthe et les monstres qui y sont contenus.
+• Il est possible de choisir le niveau à lancer au démarrage de l'application (en
+modifiant la chaine de caractère passée dans le main).
+• Testez en ajoutant un second niveau à définir au préalable.
 
-4. Déplacer le monstre (optionnel en fonction avancée)
-- Descriptif :
-  - lorsque le jeu évolue, le monstre choisit une case adjacente de manière aléatoire et tente de s'y déplacer.
-- Critères de validation :
-  - le monstre doit se déplacer sur une case adjacente. Il considère les 4 directions de déplacement possibles.
-  - le monstre ne peut pas se déplacer sur mur. S'il tente de se déplacer sur cette case, il ne bouge pas.
-  - le monstre ne peut pas se trouver sur la même case que le personnage.
+2.1 Génération de monstres immobiles
+Au lancement du jeu, le jeu ajoute différents monstres dans l'environnement. Les
+monstres restent immobiles.
+Critères de validation
+• Il est possible de construire un labyrinthe par défaut contenant quelques monstres
+(le labyrinthe par défaut est à définir).
+• Les monstres sont créés sur des cases vides.
+• Il n'est pas possible de générer des monstres sur des cases non vides (position du
+joueur, d'autres monstres ou de murs)
+• Les monstres doivent apparaitre dans l'interface graphique sous la forme d'un
+cercle rouge.
+• Les monstres ne se déplacent pas (mais attaquent éventuellement le héros s'il passe
+à proximité - cf taches attaque dans les parties suivantes).
 
+2.2 Déplacement aléatoire des monstres
+Régulièrement, le jeu demande aux monstres de se déplacer dans une direction
+aléatoire.
+Critères de validation
+• A chaque évolution du jeu, que le joueur se déplace ou non, les monstres se déplacent.
+• Les monstres sont bloqués par les obstacles. S'ils ont choisi de se diriger vers un
+obstacle (mur, joueur, ...), leur mouvement est alors annulé (sauf s'il s'agit de
+fantômes).
+• Deux monstres ou un monstre et un joueur ne peuvent pas se trouver sur la même
+case (Si la tache Collision entre monstre est fonctionnelle).
+• A chaque évolution, tous les monstres tentent de se déplacer.
+• L'interface graphique se met à jour en fonction des déplacements des Monstres.

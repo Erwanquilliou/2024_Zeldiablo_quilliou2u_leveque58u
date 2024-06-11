@@ -1,0 +1,12 @@
+11.1 Affchage avec des sprites
+Diffculté : 88899
+La fenêtre n'affiche plus des figures de base (rond, ...) mais des sprites représentant
+les personnages et les objets
+(http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+Critères de validation
+• Les sprites concernent les murs, les monstres et le héros.
+• Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent
+être affichés dans le JPanel grâce à la méthode drawImage.
+• Vous pourrez utiliser l'image http://www.qcfdesign.com/?p=354 qui est un ensemble de sprites pour le jeu Desktop Dungeons. Ces sprites sont disposés régulièrement dans l'image et sont donc facile à extraire à partir de l'Image.
+• Il est possible de charger une image (de type BufferedImage en mémoire grâce à
+la classe ImageIO et la méthode statique read).

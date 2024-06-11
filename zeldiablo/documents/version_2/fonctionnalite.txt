@@ -15,3 +15,11 @@ Critères de validation
 • TOUS les monstres éloignés du joueur ne subissent pas de dégâts.
 • S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
 le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
+
+3.1 Collision avec un monstre
+Lorsque le joueur demande au personnage de se déplacer vers une case contenant
+un monstre, le personnage ne se déplace pas.
+Critères de validation
+• La collision fonctionne dans les 4 directions.
+• Si la case est vide, le personnage avance.
+• Le monstre se déplace à chaque fois après le joueur.
