@@ -81,6 +81,7 @@ public class LabyJeu implements Jeu {
 <<<<<<< HEAD
      * met a jour l'etat du jeu
      */
+
     public void update(double secondes, Clavier clavier, boolean enFeu) {
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
