@@ -187,21 +187,17 @@ public class Labyrinthe {
 
     }
 
-    public Monstre getMonstre(int i) {
-        return this.monstre.get(i);
-    }
-
     /**
      * deplace le personnage en fonction de l'action.
      * gere la collision avec les murs
      *
      * @param action une des actions possibles
      */
-    public void deplacerPerso(String action) {
+    public void deplacerPerso(String action, LabyJeu lj) {
         this.pj.deplacer(this, action);
         if (this.pj.estSurCaseEffet(this)) {
             CaseEffet caseTemp = CaseEffet.getCaseEffet(this, pj.getX(), pj.getY());
-            CaseEffet.executerEffet(this, caseTemp.getEffet());
+            CaseEffet.executerEffet(lj, this, caseTemp.getEffet());
         }
     }
 
@@ -228,16 +224,20 @@ public class Labyrinthe {
      * @return booléen indiquant la présence d'obstacle, true si il n'y en a pas, false sinon
      */
     public boolean peutSeDeplacer(int x,int y) {
-        if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y)) ) {
-            return false;
-        }
-        for (int i = 0;i<this.monstre.size();i++) {
-            if(((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y))){
+        try {
+            if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y))) {
                 return false;
             }
+            for (int i = 0; i < this.monstre.size(); i++) {
+                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y))) {
+                    return false;
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            pj.estSurCaseEffet(this);
+            return false;
         }
         return true;
-
     }
 
     /**
@@ -267,6 +267,14 @@ public class Labyrinthe {
      */
     public boolean etreFini() {
         return false;
+    }
+
+    // ##################################
+    // SETTER
+    // ##################################
+
+    public void setPJ(Perso p) {
+        this.pj = p;
     }
 
     // ##################################
@@ -300,6 +308,10 @@ public class Labyrinthe {
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean
         return this.murs[x][y];
+    }
+
+    public Monstre getMonstre(int i) {
+        return this.monstre.get(i);
     }
 
     public List<CaseEffet> getCasesEffet() { return this.casesEffet; }

@@ -11,7 +11,9 @@ class Position {
 
 class CaseEffet {
 - effet: String
-+ getEffet()
++ executerEffet(LabyJeu,Labyrinthe,String)
++ getEffet(): String
++ getCaseEffet(Labyrinthe,int,int): CaseEffet
 }
 
 Position <|-- CaseEffet

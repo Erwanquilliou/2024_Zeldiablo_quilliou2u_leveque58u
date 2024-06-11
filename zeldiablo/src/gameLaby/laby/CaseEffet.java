@@ -24,10 +24,19 @@ public class CaseEffet extends Position {
         return res;
     }
 
-    public static void executerEffet(Labyrinthe l, String e){
+    public static void executerEffet(LabyJeu lj, Labyrinthe l, String e){
         switch (e) {
             case SORTIE:
-
+                Perso p = l.getPerso();
+                if (p.getX()==0) {
+                    lj.changerLabyrinthe(Labyrinthe.GAUCHE);
+                } else if (p.getX()==l.getLength()-1) {
+                    lj.changerLabyrinthe(Labyrinthe.DROITE);
+                } else if (p.getY()==0) {
+                    lj.changerLabyrinthe(Labyrinthe.HAUT);
+                } else if (p.getY()==l.getLengthY()-1) {
+                    lj.changerLabyrinthe(Labyrinthe.BAS);
+                }
                 break;
         }
     }
