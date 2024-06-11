@@ -92,7 +92,7 @@ class LabyDessin{
 - LabyDessin()
 - dessinerJeu(Jeu, Canvas)
 }
-Sprite <.. LabyDessin
+Sprite "1" <-- "*" LabyDessin
 class Sprite #FFB6C1{
     -img_heros : Image
     -img_monstre : Image
