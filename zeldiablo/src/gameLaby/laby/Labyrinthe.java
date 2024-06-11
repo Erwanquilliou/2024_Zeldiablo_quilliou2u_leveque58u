@@ -264,6 +264,9 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
+        if (!this.pj.etreMort()) {
+            return true;
+        }
         return false;
     }
 
