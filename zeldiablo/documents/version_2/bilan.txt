@@ -4,14 +4,14 @@ conséquent, réitéré la même erreur d'organisation en début d'itération :
 - Erwan et Tuline s'occupaient de la rédaction des méthodes attaquer et subirDegats;
 
 Suite à une réunion avec notre enseignant, nous avons réalisé que notre répartition des tâches était mauvaise :
-nous devions la faire en fonction des nouvelles fonctionnalités que nous allions ajoutées afin d'avoir tous une
+nous devions la faire en fonction des nouvelles fonctionnalités que nous allions ajouter afin d'avoir tous une
 diversification et une participation dans chaque partie du projet (que se soient dans les diagrammes, les test
 ou encore les méthodes);
 
-A partir de ce moment nous avons formé deux groupes qui géraient chacun une nouvelle fonctionnalité :
+A partir de ce moment, nous avons formé deux groupes qui géraient chacun une nouvelle fonctionnalité :
 - Olivier et Vivien;
 - Erwan et Tuline;
 
-Nénamoins, pour cette fin d'itération, nous nous sommes concentré sur la finalisation et la prise en compte
-des remarques de notre enseignant afon d'améliorer notre travail, notamment à travers la modification des
+Néanmoins, pour cette fin d'itération, nous nous sommes concentré sur la finalisation et la prise en compte
+des remarques de notre enseignant avons d'améliorer notre travail, notamment à travers la modification des
 digrammes de classe et de séquence.

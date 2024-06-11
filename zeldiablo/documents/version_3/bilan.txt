@@ -1,0 +1,8 @@
+Pour cette troisième version, nous avons mis en place notre nouvelle organisation en 2 groupes :
+- Vivien et Olivier se sont penchés sur les fonctionnalités
+- Erwan et Tuline se sont concentrés sur la fonctionnalité 11.1 (Affichage avec des sprites).
+
+L'affichage avec les sprites n'était pas une mince à faire. Nous avons passé beaucoup de temps sur la
+conceptualisation afin de bien comprendre le fonctionnement de LabyDessin. Nous avons donc opté pour la
+rédaction d'une nouvelle classe Sprite, utilisée dans LabyDessin qui permet de stocker les apparences du
+personnage, des monstres (morts et vivants), des murs et du sol.
