@@ -41,6 +41,5 @@ public class ArkanoidDessin implements DessinJeu {
         double bx = balle.getPx();
         double by = balle.getPy();
         gc.fillOval(bx - 5, by - 5, 10, 10);
-
     }
 }

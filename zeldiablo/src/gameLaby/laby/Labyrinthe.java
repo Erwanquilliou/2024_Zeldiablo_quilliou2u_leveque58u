@@ -1,7 +1,5 @@
 package gameLaby.laby;
 
-import com.sun.scenario.effect.impl.sw.java.JSWBlend_SRC_OUTPeer;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,7 +37,7 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    public static int NBMONSTRE;
+    public int nbMonstre;
 
     /**
      * attribut du personnage
@@ -100,7 +98,7 @@ public class Labyrinthe {
         BufferedReader bfRead = new BufferedReader(fichier);
 
         boolean monstrePresent = false;
-        NBMONSTRE = nbM;
+        nbMonstre = 0;
         int nbLignes, nbColonnes;
         // lecture nblignes
         nbLignes = Integer.parseInt(bfRead.readLine());
@@ -141,7 +139,7 @@ public class Labyrinthe {
                     case M:
                         this.monstre.add(new Monstre(colonne,numeroLigne,VIEMONSTRE));
                         monstrePresent = true;
-                        NBMONSTRE++;
+                        nbMonstre++;
                         break;
                     case EFF:
                         this.casesEffet.add(new CaseEffet(colonne, numeroLigne, "Sortie"));
@@ -158,11 +156,11 @@ public class Labyrinthe {
         }
         //ajout d'un monstre
         if(!monstrePresent) {
-            NBMONSTRE = nbM;
+            nbMonstre = nbM;
             for (int i = 0; i < nbM; i++) {
                 ajoutMonstreLaby();
             }
-            NBMONSTRE -= nbM;
+            nbMonstre -= nbM;
         }
         // ferme fichier
         bfRead.close();
@@ -180,7 +178,7 @@ public class Labyrinthe {
             //si la case est libre, alors on place le monstre
             if ((peutSeDeplacer(largeur,longueur))) {
                 this.monstre.add(new Monstre(largeur, longueur,VIEMONSTRE));
-                NBMONSTRE++;
+                nbMonstre++;
                 place = true;
             }
         }
@@ -203,7 +201,7 @@ public class Labyrinthe {
 
     public void actionMonstre() {
         Random r = new Random();
-        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
+        for (int i = 0; i<nbMonstre; i++) {
             int action = r.nextInt(3);
             if(!this.monstre.get(i).etreMort() && (action == 2)) {
                 if (this.monstre.get(i).estProcheDePerso(this)) {
@@ -229,7 +227,7 @@ public class Labyrinthe {
                 return false;
             }
             for (int i = 0; i < this.monstre.size(); i++) {
-                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y))) {
+                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y) && (!this.monstre.get(i).etreMort()))) {
                     return false;
                 }
             }

@@ -50,6 +50,22 @@ public class LabyDessin implements DessinJeu {
         gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         */
         // dessin personnage
+
+
+
+        // dessin monstre
+        gc.setFill(Color.RED);
+        for (int i = 0;i<laby.getLaby().nbMonstre;i++) {
+            Monstre m = laby.getLaby().getMonstre(i);
+            double mx = m.getX();
+            double my = m.getY();
+            if(!laby.getLaby().getMonstre(i).etreMort()) {
+                gc.drawImage(sprite.getImgMonstre(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
+            }else{
+                gc.drawImage(sprite.getImgMonstreMort(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2+10,TAILLE_JEU,TAILLE_JEU);
+            }
+        }
+
         Perso p = laby.getLaby().getPerso();
         double px = p.getX();
         double py = p.getY();
@@ -57,20 +73,6 @@ public class LabyDessin implements DessinJeu {
             gc.drawImage(sprite.getImgHeros(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
         }else{
             gc.drawImage(sprite.getImgMonstre(),px*TAILLE_JEU/2,py*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
-        }
-
-
-        // dessin monstre
-        gc.setFill(Color.RED);
-        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
-            Monstre m = laby.getLaby().getMonstre(i);
-            double mx = m.getX();
-            double my = m.getY();
-            if(!laby.getLaby().getMonstre(i).etreMort()) {
-                gc.drawImage(sprite.getImgMonstre(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
-            }else{
-                gc.drawImage(sprite.getImgMonstreMort(),mx*TAILLE_JEU/2,my*TAILLE_JEU/2,TAILLE_JEU,TAILLE_JEU);
-            }
         }
 
 

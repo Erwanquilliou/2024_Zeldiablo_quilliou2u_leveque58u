@@ -13,7 +13,7 @@ public class LabyJeu implements Jeu {
     private int y;
 
     public LabyJeu(String l) throws IOException {
-        this.laby = new Labyrinthe(l, 5);
+        this.laby = new Labyrinthe(l, 10);
     }
 
     public LabyJeu(String[] labys) throws IOException {
@@ -89,7 +89,7 @@ public class LabyJeu implements Jeu {
         if(clavier.coup) {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
-        if(compteur % 5 == 0) {
+        if(compteur % 10 == 0) {
             this.laby.actionMonstre();
         }
         compteur++;
