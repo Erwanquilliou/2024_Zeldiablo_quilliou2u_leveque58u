@@ -200,15 +200,15 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe("labySimple/couloir.txt", 1);
 
         // met le monstre en haut
-        l.monstre.get(0).setX(1);
-        l.monstre.get(0).setY(1);
+        l.getMonstre(0).setX(1);
+        l.getMonstre(0).setY(1);
 
         // bloque le monstre avec le perso
         l.deplacerPerso(Labyrinthe.HAUT);
         l.deplacerPerso(Labyrinthe.HAUT);
 
         // verifie que le monstre est bien coince
-        assertTrue(l.etreCerne(l.monstre.get(0)));
+        assertTrue(l.etreCerne(l.getMonstre(0)));
     }
 
 

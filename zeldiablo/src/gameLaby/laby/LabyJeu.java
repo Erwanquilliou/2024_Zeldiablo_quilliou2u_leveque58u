@@ -78,6 +78,7 @@ public class LabyJeu implements Jeu {
     }
 
     /**
+<<<<<<< HEAD
      * met a jour l'etat du jeu
      */
     public void update(double secondes, Clavier clavier) {
@@ -98,10 +99,10 @@ public class LabyJeu implements Jeu {
             this.laby.deplacerPerso("Bas", this);
         }
 
-        if (clavier.coup) {
+        if(clavier.coup) {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
-        if (compteur % 10 == 0) {
+        if(compteur % 10 == 0) {
             this.laby.actionMonstre();
         }
 

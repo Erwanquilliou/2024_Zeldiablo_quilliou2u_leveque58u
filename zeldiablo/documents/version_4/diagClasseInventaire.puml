@@ -1,0 +1,58 @@
+@startuml
+class Labyrinthe #FFB6C1 {
+- inventaire: String[]
+- amulette: Entite
+- pj: perso
+- monstre: List<Monstre>
+- caseEffet: List<CaseEffet>
+- murs: boolean[][]
++ getSuivant(int, int, String)
++ Labyrinthe(String, int)
++ ajoutMonstreLaby()
++ getMonstre()
++ deplacerPerso(String, LabyJeu)
++ actionMonstre()
++ peutSeDeplacer(int ,int): boolean
++ etreFini(): boolean
++ setPJ(Perso)
++ getLengthY(): int
++ getLength(): int
++ getMur(int, int): boolean
++ getPerso(): Perso
++ getNbMonstre(): int
++ getInventaire(): String[]
++ ajouterItemInventaire(String s)
+}
+class Main{
+- main()
+- main(String[])
+}
+
+Labyrinthe <.. Main
+LabyDessin <.. Main
+
+class LabyDessin{
+- LabyDessin()
+- dessinerJeu(Jeu, Canvas)
+}
+Sprite "1" <-- "*" LabyDessin
+class Sprite #FFB6C1{
+    -img_heros : Image
+    -img_monstre : Image
+    -img_monstre_mort : Image
+    -img_mur : Image
+    -img_amulette: Image
+    -img_sol: Image
+    +setImgMur(Image)
+    +setImgHeros(Image)
+    +setImgMonstreMort(Image)
+    +getImgHeros(): Image
+    +getImgMonstre(): Image
+    +getImgMonstreMort(): Image
+    +getImgSol(): Image
+    +getImgAmulette(): Image
+
+}
+}
+
+@enduml

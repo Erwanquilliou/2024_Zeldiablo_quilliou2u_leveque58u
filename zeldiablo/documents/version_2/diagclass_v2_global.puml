@@ -33,18 +33,23 @@ Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
 
 class Labyrinthe {
+- pj: perso
+- monstre: List<Monstre>
 - murs: boolean[][]
 + getSuivant(int, int, String)
 + Labyrinthe(String, int)
 + ajoutMonstreLaby()
 + getMonstre()
-+ deplacerPerso(String)
++ deplacerPerso(String, LabyJeu)
++ actionMonstre()
 + peutSeDeplacer(int ,int): boolean
 + etreFini(): boolean
++ setPJ(Perso)
 + getLengthY(): int
 + getLength(): int
 + getMur(int, int): boolean
 + getPerso(): Perso
++ getNbMonstre(): int
 }
 
 Labyrinthe "1" <--* "1" LabyJeu : - Laby
