@@ -28,6 +28,10 @@ public class LabyJeu implements Jeu {
         y = 0;
     }
 
+    /**
+     * change l'attribut laby du jeu en fonction de la direction dans laquelle est allé le perso
+     * @param dir est la direction dans laquelle le personnage
+     */
     public void changerLabyrinthe(String dir) {
         Perso pTemp = this.laby.getPerso();
         switch (dir) {
