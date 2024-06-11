@@ -6,3 +6,4 @@ Critères de validation
 • Vous pourrez utiliser l'image http://www.qcfdesign.com/?p=354 qui est un ensemble de sprites pour le jeu Desktop Dungeons. Ces sprites sont disposés régulièrement dans l'image et sont donc facile à extraire à partir de l'Image.
 • Il est possible de charger une image (de type BufferedImage en mémoire grâce à
 la classe ImageIO et la méthode statique read).
+
