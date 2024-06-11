@@ -55,7 +55,7 @@ public class LabyDessin implements DessinJeu {
 
         // dessin monstre
         gc.setFill(Color.RED);
-        for (int i = 0;i<Labyrinthe.NBMONSTRE;i++) {
+        for (int i = 0;i<laby.getLaby().nbMonstre;i++) {
             Monstre m = laby.getLaby().getMonstre(i);
             double mx = m.getX();
             double my = m.getY();
