@@ -1,0 +1,12 @@
+Pour cette première version, nous avons opté pour une distribution du travail (que l'on découvrira à
+l'avenir) peu efficace :
+- Vivien s'occupait des diagrammes de classe, une méthode et a apporté les derniers tests;
+- Erwan et Tuline ce sont chargés de nouvelles méthodes, de la réorganisation du projet;
+- Olivier des diagrammes de sequences, s'est chargé des tests;
+
+Nous avons ajouté des fonctionnalités de base, comme l'ajout de monstres, ou encore l'amélioration des
+collisions du joueur. Initialement, nous n'avions pas prévu de faire la fonctionnalité de collisions.
+Néanmoins, après avoir terminé la classe Monstre, nous avions ressenti le besoin de l'ajouter et avons fait
+les modifications en conséquences.
+L'ajout de cette classe nous a poussé à revoir l'arrangement de notre diagramme :
+- les classes Perso et Monstre ont hérité de la nouvelle classe Position.

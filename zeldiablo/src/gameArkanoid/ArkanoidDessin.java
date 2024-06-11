@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
+import java.io.IOException;
+
 /**
  * permet d'afficher un jeu de type arkanoid
  */
