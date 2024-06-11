@@ -31,4 +31,8 @@ deactivate ms
 lj --> m
 deactivate lb
 deactivate lj
+
+note across
+Dans la méthode actionMonstre appelée dans update,
+end note
 @enduml
