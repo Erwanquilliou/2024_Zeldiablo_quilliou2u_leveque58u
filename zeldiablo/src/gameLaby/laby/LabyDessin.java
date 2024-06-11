@@ -9,13 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -88,6 +85,7 @@ public class LabyDessin implements DessinJeu {
             }
         } else {
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            gc.setFont(new Font("Comic sans MS", 100));
             gc.fillText("GAME OVER", canvas.getWidth()/2 -50, canvas.getHeight()/2);
         }
 

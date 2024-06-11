@@ -1,0 +1,26 @@
+@startuml
+hide footbox
+
+participant "laby: Labyrinthe" as l
+participant "labyDes: LabyDessin" as ld
+participant "sp: Sprite" as s
+
+create ld
+l -> ld : new
+activate ld
+    l -> ld : dessinerJeu()
+    activate s
+        ld -> s : getImgSol()
+        s --> ld : Image
+        ld -> s : getImgHeros()
+        s --> ld : Image
+        ld -> s : getImgMonstre()
+        s --> ld : Image
+        ld -> s : getImgMonstreMort()
+        s --> ld : Image
+        ld -> s : getImgMur()
+        s --> ld : Image
+    deactivate s
+    ld --> l
+deactivate ld
+@enduml
