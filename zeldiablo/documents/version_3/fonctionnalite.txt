@@ -1,8 +1,4 @@
-11.1 Affchage avec des sprites
-Diffculté : 88899
-La fenêtre n'affiche plus des figures de base (rond, ...) mais des sprites représentant
-les personnages et les objets
-(http://fr.wikipedia.org/wiki/Sprite_%28jeu_vid%C3%A9o%29).
+11.1 Affichage avec des sprites
 Critères de validation
 • Les sprites concernent les murs, les monstres et le héros.
 • Ils sont chargés une fois pour toute au lancement de l'application et ils peuvent
