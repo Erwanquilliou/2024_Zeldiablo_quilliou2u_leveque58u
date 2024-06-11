@@ -12,6 +12,13 @@ public class LabyJeu implements Jeu {
     private int x;
     private int y;
 
+    private int compteur;
+
+    private boolean enFeu;
+    private int compteurFeu;
+
+
+
     public LabyJeu(String l) throws IOException {
         this.laby = new Labyrinthe(l, 10);
     }
@@ -66,13 +73,15 @@ public class LabyJeu implements Jeu {
         }
     }
 
-    int compteur;
+    public void activerFeu() {
+        this.enFeu = true;
+    }
 
     /**
 <<<<<<< HEAD
      * met a jour l'etat du jeu
      */
-    public void update(double secondes, Clavier clavier) {
+    public void update(double secondes, Clavier clavier, boolean enFeu) {
         // deplace la raquette en fonction des touches
         if (clavier.droite) {
             this.laby.deplacerPerso("Droite", this);
@@ -96,7 +105,19 @@ public class LabyJeu implements Jeu {
         if(compteur % 10 == 0) {
             this.laby.actionMonstre();
         }
+
+
+        if(compteurFeu<=3){
+            if (compteur % 10 == 0) {
+                compteurFeu++;
+            }
+        } else {
+
+        }
         compteur++;
+
+
+
 
     }
 
