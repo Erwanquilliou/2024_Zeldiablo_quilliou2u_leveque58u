@@ -113,6 +113,7 @@ public class LabyJeu implements Jeu {
                 }
             } else {
                 enFeu = false;
+                compteurFeu = 0;
             }
         }
         compteur++;

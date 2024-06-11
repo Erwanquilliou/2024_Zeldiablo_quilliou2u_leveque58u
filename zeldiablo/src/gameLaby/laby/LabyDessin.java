@@ -54,6 +54,13 @@ public class LabyDessin implements DessinJeu {
             */
             // dessin personnage
 
+            gc.setFill(Color.RED);
+            for (CaseEffet c : laby.getLaby().getCasesEffet()) {
+                if (c.getClass() == Feu.class) {
+                    gc.fillRect(10,10,c.getX(),c.getY());
+                }
+            }
+
 
             // dessin monstre
             gc.setFill(Color.RED);
