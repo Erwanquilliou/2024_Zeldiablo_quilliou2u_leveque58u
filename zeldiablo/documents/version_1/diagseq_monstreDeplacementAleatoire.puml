@@ -1,8 +1,8 @@
 @startuml
 hide footbox
 
-participant "LabyJeu" as lj
-participant "lab: Labyrinthe" as l
+participant "labyJ : LabyJeu" as lj
+participant "lab : Labyrinthe" as l
 participant "m : Monstre" as m
 participant "e : Entite" as e
 
@@ -24,4 +24,14 @@ participant "e : Entite" as e
     l --> lj
     deactivate l
     deactivate lj
+
+note across
+Le LabyJeu appelle la methode deplacerMonstre() du Labyrinthe.
+Cette methode appelle elle-meme la methode deplacer(lab) de Monstre
+qui teste si le monstre peut se deplacer ou non (avec la methode)
+peutSeDeplacer() de Labyrinthe. Si le monstre peut se deplacer, alors
+les coordonnees du monstre sont changees grace aux setters de son
+parent Entite. Le monstre est alors deplace.
+end note
+
 @enduml

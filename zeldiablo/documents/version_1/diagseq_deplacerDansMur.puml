@@ -6,14 +6,27 @@ participant "lab: Labyrinthe" as l
 participant "p: Perso" as p
 
 
-    c -> l : deplacerPerso()
-    activate l
+c -> l : deplacerPerso()
+activate l
     l -> p : deplacer()
     activate p
-    p -> l : peutSeDeplacer()
-    l --> p : false
-    p --> l
+        p -> l : peutSeDeplacer()
+        activate l
+            l --> p : false
+        deactivate l
+        p --> l
     deactivate p
     l--> c
-    deactivate l
+deactivate l
+
+note across
+En fonction de la touche pressee, le Clavier appelle
+la methode deplacerPerso() de Labyrinthe qui elle-meme
+appelle la methode deplacer() de Perso. Afin de savoir si
+le personnage peut se deplacer, la classe Perso utilise
+la methode peutSeDeplacer du Labyrinthe qui renvoie false
+si le personnage ne peut pas se deplacer. Dans ce cas,
+le personnage ne fait rien.
+end note
+
 @enduml

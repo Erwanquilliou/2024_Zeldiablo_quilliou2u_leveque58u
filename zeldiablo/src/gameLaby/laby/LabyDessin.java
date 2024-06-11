@@ -87,13 +87,13 @@ public class LabyDessin implements DessinJeu {
                 }
 
             }
-            for (int i = 0;i<3;i++){
+            for (int i = 0;i<laby.getLaby().getInventaire().length;i++){
                 gc.setFill(Color.YELLOW);
                 gc.setStroke(Color.ORANGE);
                 Rectangle rect = new Rectangle(20,20,20,20);
                 gc.setLineWidth(10);
-                gc.fillRect(i*canvas.getWidth()/3,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/3, canvas.getHeight()/6);
-                gc.strokeRect(i*canvas.getWidth()/3,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/3, canvas.getHeight()/6);
+                gc.fillRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
+                gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
             }
         } else {
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -103,7 +103,7 @@ public class LabyDessin implements DessinJeu {
             gc.setFill(Color.RED);
 
             gc.setFont(new Font("Comic sans MS", 100));
-            gc.fillText("GAME OVER", canvas.getWidth()/2 -50, canvas.getHeight()/2);
+            gc.fillText("GAME OVER", canvas.getWidth()/3 -50, canvas.getHeight()/2);
         }
 
 
