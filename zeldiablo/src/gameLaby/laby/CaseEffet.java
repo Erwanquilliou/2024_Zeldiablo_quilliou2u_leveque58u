@@ -6,6 +6,7 @@ public class CaseEffet extends Position {
      * caractere correspondant a une sortie menant
      */
     public final static String SORTIE = "Sortie";
+    public final static String FEU = "Feu";
 
     private String effet;
 
@@ -38,6 +39,9 @@ public class CaseEffet extends Position {
                     lj.changerLabyrinthe(Labyrinthe.BAS);
                 }
                 break;
+            case FEU:
+                Perso p = l.getPerso().subirDegats(1);
+
         }
     }
 

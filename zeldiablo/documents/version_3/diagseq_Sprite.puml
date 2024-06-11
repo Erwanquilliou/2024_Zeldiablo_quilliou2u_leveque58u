@@ -5,8 +5,7 @@ participant "laby: Labyrinthe" as l
 participant "labyDes: LabyDessin" as ld
 participant "sp: Sprite" as s
 
-create ld
-l -> ld : new
+
 activate ld
     l -> ld : dessinerJeu()
     activate s
@@ -23,4 +22,12 @@ activate ld
     deactivate s
     ld --> l
 deactivate ld
+
+note across
+La classe Labyrinthe appelle la methode dessinerJeu de LabyDessin
+qui elle-meme apppelle les getters (getImgSol, getImgHeros...) de la
+classe Sprite qui renvoie donc les Images correspondantes au personnage,
+au sol, aux monstres...
+end note
+
 @enduml
