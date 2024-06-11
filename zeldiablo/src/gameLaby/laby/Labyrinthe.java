@@ -83,15 +83,13 @@ public class Labyrinthe {
             default:
                 throw new Error("action inconnue");
         }
-        int[] res = {x, y};
-        return res;
+        return new int[]{x, y};
     }
 
     /**
      * charge le labyrinthe
      *
      * @param nom nom du fichier de labyrinthe
-     * @return labyrinthe cree
      * @throws IOException probleme a la lecture / ouverture
      */
     public Labyrinthe(String nom,int nbM) throws IOException {
@@ -110,8 +108,8 @@ public class Labyrinthe {
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
         this.pj = null;
-        this.monstre = new ArrayList<Monstre>();
-        this.casesEffet = new ArrayList<CaseEffet>();
+        this.monstre = new ArrayList<>();
+        this.casesEffet = new ArrayList<>();
 
         // lecture des cases
         String ligne = bfRead.readLine();
@@ -228,8 +226,8 @@ public class Labyrinthe {
             if ((this.murs[x][y]) || ((this.pj.getX() == x) && (this.pj.getY() == y))) {
                 return false;
             }
-            for (int i = 0; i < this.monstre.size(); i++) {
-                if (((this.monstre.get(i).getX() == x) && (this.monstre.get(i).getY() == y) && (!this.monstre.get(i).etreMort()))) {
+            for (Monstre value : this.monstre) {
+                if (((value.getX() == x) && (value.getY() == y) && (!value.etreMort()))) {
                     return false;
                 }
             }
@@ -266,10 +264,7 @@ public class Labyrinthe {
      * @return fin du jeu
      */
     public boolean etreFini() {
-        if (this.pj.etreMort()) {
-            return true;
-        }
-        return false;
+        return (this.pj.etreMort());
     }
 
     // ##################################
@@ -285,18 +280,15 @@ public class Labyrinthe {
     // ##################################
 
     /**
-     * return taille selon Y
      *
-     * @return
+     * @return taille selon Y
      */
     public int getLengthY() {
         return murs[0].length;
     }
 
     /**
-     * return taille selon X
-     *
-     * @return
+     * @return taille selon X
      */
     public int getLength() {
         return murs.length;
@@ -304,9 +296,9 @@ public class Labyrinthe {
 
     /**
      * return mur en (i,j)
-     * @param x
-     * @param y
-     * @return
+     * @param x longueur
+     * @param y largeur
+     * @return true s'il y a un mur a la position donnee, faux sinon
      */
     public boolean getMur(int x, int y) {
         // utilise le tableau de boolean

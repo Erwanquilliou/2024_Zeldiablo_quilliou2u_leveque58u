@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
@@ -101,10 +102,9 @@ public class LabyDessin implements DessinJeu {
 
             gc.setFill(Color.RED);
 
+            gc.setFont(new Font("Comic sans MS", 100));
             gc.fillText("GAME OVER", canvas.getWidth()/2 -50, canvas.getHeight()/2);
         }
-
-
 
 
     }
