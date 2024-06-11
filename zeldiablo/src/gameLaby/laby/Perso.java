@@ -1,8 +1,6 @@
 package gameLaby.laby;
 
 
-import static gameLaby.laby.Labyrinthe.getSuivant;
-
 /**
  * gere un personnage situe en x,y
  */
@@ -31,7 +29,7 @@ public class Perso extends Entite {
     }
 
     public void estProcheDeMonstre(Labyrinthe laby){
-        for (int i =0;i<laby.NBMONSTRE;i++){
+        for (int i = 0; i<laby.nbMonstre; i++){
             if (laby.getMonstre(i).estProcheDePerso(laby) && (!this.etreMort())){
                 this.attaquer(laby.getMonstre(i));
             }

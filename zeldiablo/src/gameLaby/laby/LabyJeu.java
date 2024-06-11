@@ -13,7 +13,7 @@ public class LabyJeu implements Jeu {
     private int y;
 
     public LabyJeu(String l) throws IOException {
-        this.laby = new Labyrinthe(l, 0);
+        this.laby = new Labyrinthe(l, 10);
     }
 
     public LabyJeu(String[] labys) throws IOException {
