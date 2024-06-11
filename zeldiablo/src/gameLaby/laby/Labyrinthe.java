@@ -38,22 +38,22 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
-    public int nbMonstre;
+    private int nbMonstre;
 
     /**
      * attribut du personnage
      */
-    public Perso pj;
+    private Perso pj;
 
-    public List<Monstre> monstre;
+    private List<Monstre> monstre;
 
     private List<CaseEffet> casesEffet;
 
-    public String[] inventaire;
+    private String[] inventaire;
     /**
      * les murs du labyrinthe
      */
-    public boolean[][] murs;
+    private boolean[][] murs;
 
     /**
      * retourne la case suivante selon une actions
@@ -319,7 +319,17 @@ public class Labyrinthe {
         return this.pj;
     }
 
-    public String[] getInventaire(){
+    public String[] getInventaire() {
         return this.inventaire;
     }
+
+    public int getNbMonstre() {return this.nbMonstre;}
+    public void ajouterItem(String item){
+        int i = 0;
+        while(this.inventaire[i] != null){
+            i++;
+        }
+        this.inventaire[i] = item;
+    }
+
 }

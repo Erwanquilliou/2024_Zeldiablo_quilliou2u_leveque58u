@@ -68,6 +68,9 @@ Sortie "*" <-- "1" Labyrinthe : - sortie
 Feu "*" <-- "1" Labyrinthe : - feu
 
 class Labyrinthe #FFB6C1 {
+- pj: perso
+- monstre: List<Monstre>
+- caseEffet: List<CaseEffet>
 - murs: boolean[][]
 + getSuivant(int, int, String)
 + Labyrinthe(String, int)
@@ -82,6 +85,7 @@ class Labyrinthe #FFB6C1 {
 + getLength(): int
 + getMur(int, int): boolean
 + getPerso(): Perso
++ getNbMonstre(): int
 }
 
 Labyrinthe "1" <--* "1" LabyJeu : - Laby
@@ -110,17 +114,16 @@ class LabyDessin{
 }
 Sprite "1" <-- "*" LabyDessin
 class Sprite #FFB6C1{
-    -img_heros : Image
-    -img_monstre : Image
-    -img_monstre_mort : Image
-    -img_mur : Image
-    +setImgMur()
-    +setImgHeros()
-    +setImgMonstreMort()
-    +getImgHeros()
-    +getImgMonstre()
-    +getImgMonstreMort()
-
+     -img_heros : Image
+     -img_monstre : Image
+     -img_monstre_mort : Image
+     -img_mur : Image
+     +setImgMur(Image)
+     +setImgHeros(Image)
+     +setImgMonstreMort(Image)
+     +getImgHeros(): Image
+     +getImgMonstre(): Image
+     +getImgMonstreMort(): Image
 }
 
 @enduml
