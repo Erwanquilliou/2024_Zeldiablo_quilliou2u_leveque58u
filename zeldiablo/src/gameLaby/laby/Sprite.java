@@ -46,22 +46,4 @@ public class Sprite {
         return this.img_sol;
     }
 
-    /**
-     * SETTERS
-     * @param img image a remplacer
-     */
-    public void setImgHeros(Image img) {
-        this.img_heros = img;
-    }
-
-    public void setImgMonstre(Image img) {
-        this.img_monstre = img;
-    }
-
-    public void setImgMonstreMort(Image img) {
-        this.img_monstre_mort = img;
-    }
-    public void setImgMur(Image img) {
-        this.img_mur = img;
-    }
 }

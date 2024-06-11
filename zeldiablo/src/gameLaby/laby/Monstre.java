@@ -37,8 +37,9 @@ public class Monstre extends Entite {
         String[] actions = {Labyrinthe.HAUT, Labyrinthe.BAS, Labyrinthe.GAUCHE, Labyrinthe.DROITE};
         for(int i = 0;i<4;i++){
             int[] posPossible = getSuivant(this.getX(), this.getY(), actions[i]);
-            if ((posPossible[0] -laby.getPerso().getX() == 0) && (posPossible[1] -laby.getPerso().getY() == 0)) {
+            if ((posPossible[0] - laby.getPerso().getX() == 0) && (posPossible[1] - laby.getPerso().getY() == 0)) {
                 b = true;
+                break;
             }
         }
         return b;
