@@ -9,30 +9,33 @@ participant "p: Perso" as p
 participant "e: Entite" as e
 
 
-    c -> l : deplacerPerso(String)
-    activate l
+c -> l : deplacerPerso(String)
+activate l
     l -> p : deplacer()
     activate p
-    p -> l : peutSeDeplacer()
-    l --> p : true
-    p -> e : setX()
-    activate e
-     p -> e : setY()
+        p -> l : peutSeDeplacer()
+        activate l
+            l --> p : true
+        deactivate l
+        p -> e : setX()
+        activate e
+         p -> e : setY()
     deactivate p
     e --> l
     deactivate e
     l--> c
-    deactivate
+deactivate l
 
 note across
-La classe clavier commence par effectuer un appel sur la methode deplacerPerso grace a une action
-de deplacement donnee en parametre.
-Ensuite le labyrinthe lab appelle la methode deplacer du Peros p prennant en parametre le labyrinthe
-sur lequel est fait l'appel et l'action tapée.
-Cette methode appelle a son tour une methode pour verifier qu'il n'y a ni mur, ni monstre, ni qu'il
-n'est deja a cette position et renvoie alors true et sinon false.
-Si elle retourne true le personnage peut alors appeller les methodes setX et setY de son parent Entite
-e pour redefinir la position du personnage dans le labyrinthe.
+En fonction de la touche pressee, le Clavier appelle
+la methode deplacerPerso() de Labyrinthe qui elle-meme
+appelle la methode deplacer() de Perso. Afin de savoir si
+le personnage peut se deplacer, la classe Perso utilise
+la methode peutSeDeplacer du Labyrinthe qui renvoie true
+si le personnage peut se deplacer. Dans ce cas, la classe
+Personnage attribue de nouvelles coordonnees au heros en
+utilisant les setters de son parent Entite. Le personnage a
+donc bien ete deplace.
 end note
 
 @enduml
