@@ -1,4 +1,6 @@
 @startuml
+
+
 class Position {
 - x: int
 - y: int
@@ -9,7 +11,7 @@ class Position {
 + setY(int)
 }
 
-class CaseEffet #FFB6C1{
+abstract CaseEffet #FFB6C1{
 - effet: String
 + executerEffet(LabyJeu,Labyrinthe,String)
 + getEffet(): String
@@ -30,6 +32,7 @@ class Entite {
 + setPv()
 }
 
+
 Entite <|-- Monstre
 
 class Monstre{
@@ -47,9 +50,22 @@ class Perso #FFB6C1{
 + estSurCaseEffet(Labyrinthe): boolean
 }
 
+CaseEffet <|-- Sortie
+
+class Sortie {
+executerEffet(LabyJeu, Labyrinthe, String)
+}
+
+CaseEffet <|-- Feu
+
+class Feu {
+executerEffet(LabyJeu, Labyrinthe, String)
+}
+
 Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
-CaseEffet "*" <-- "1" Labyrinthe : - casesEffet
+Sortie "*" <-- "1" Labyrinthe : - sortie
+Feu "*" <-- "1" Labyrinthe : - feu
 
 class Labyrinthe #FFB6C1 {
 - murs: boolean[][]
@@ -96,7 +112,7 @@ Sprite "1" <-- "*" LabyDessin
 class Sprite #FFB6C1{
     -img_heros : Image
     -img_monstre : Image
-    -img_mostre_mort : Image
+    -img_monstre_mort : Image
     -img_mur : Image
     +setImgMur()
     +setImgHeros()
