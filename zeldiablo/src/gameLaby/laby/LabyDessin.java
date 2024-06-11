@@ -13,6 +13,10 @@ import javafx.scene.text.Font;
 import moteurJeu.Jeu;
 import moteurJeu.DessinJeu;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -37,8 +41,8 @@ public class LabyDessin implements DessinJeu {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
         if (!jeu.etreFini()) {
-            for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
-                for (int x = 0; x < laby.getLaby().getLength(); x++) {
+            for (int y = 0; y < laby.getLaby().getLengthY()+1; y++) {
+                for (int x = 0; x < laby.getLaby().getLength()+1; x++) {
                     gc.drawImage(sprite.getImgSol(), x * TAILLE_JEU / 2, y * TAILLE_JEU / 2, TAILLE_JEU / 2, TAILLE_JEU / 2);
                 }
             }
@@ -83,8 +87,21 @@ public class LabyDessin implements DessinJeu {
                 }
 
             }
+            for (int i = 0;i<3;i++){
+                gc.setFill(Color.YELLOW);
+                gc.setStroke(Color.ORANGE);
+                Rectangle rect = new Rectangle(20,20,20,20);
+                gc.setLineWidth(10);
+                gc.fillRect(i*canvas.getWidth()/3,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/3, canvas.getHeight()/6);
+                gc.strokeRect(i*canvas.getWidth()/3,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/3, canvas.getHeight()/6);
+            }
         } else {
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            gc.setFill(Color.BLACK);
+            gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+
+            gc.setFill(Color.RED);
+
             gc.setFont(new Font("Comic sans MS", 100));
             gc.fillText("GAME OVER", canvas.getWidth()/2 -50, canvas.getHeight()/2);
         }

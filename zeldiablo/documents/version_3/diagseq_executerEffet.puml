@@ -6,13 +6,17 @@ title Methode executerEffet activée avec une case sortie
 participant "Main" as m
 participant "jeu: LabyJeu" as j
 participant "lab: Labyrinthe" as l
-participant "entite: Entite" as e
+participant "p: Perso" as p
 participant "ce: CaseEffet" as ce
 
 m -> j : update()
 activate j
     j -> l : deplacerPerso(action, jeu)
     activate l
+        l -> p : estSurCaseEffet(lab)
+        activate p
+        p --> l
+        deactivate p
         l -> ce : getCaseEffet(lab, lab.pj.getX(), lab.pj.getY())
         activate ce
             ce --> l : caseTemp: CaseEffet
@@ -31,5 +35,10 @@ activate j
 deactivate j
 
 note across
+Lorsque la méthode deplacerPerso est appelée, un test est réalisé pour savoir
+si le perso est sur une case effet, si c'est le cas, on récupère la CaseEffet
+située à la position du personnage avec getCaseEffet et on exécute son effet
+avec executerEffet. Dans le cas d'un effet sortie, la méthode changerLabyrinthe
+de LabyJeu est appelée pour changer le labyrinthe à afficher.
 end note
 @enduml
