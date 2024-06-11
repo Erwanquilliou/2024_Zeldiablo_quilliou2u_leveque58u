@@ -1,38 +1,37 @@
 @startuml
 hide footbox
 
-participant "main" as m
-participant "l: LabyJeu" as lj
-participant "laby: Labyrinthe" as lb
-participant "m: Monstre" as ms
-participant "p: Perso" as p
+participant "moteur : Moteur" as m
+participant "labyJ : LabyJeu" as lj
+participant "laby : Labyrinthe" as lb
+participant "monstre : Monstre" as ms
+participant "perso : Perso" as p
+
 activate lj
-m -> lj : update()
-
-activate lb
-lj -> lb : actionMonstre()
-activate ms
-lb -> ms : estProcheDePerso(Labyrinthe l)
-ms --> lb : true
-
-
-lb -> ms : attaquer(Entite e)
-activate p
-ms -> p : subirDegats(int)
-
-p --> ms
-
-ms --> lb
-deactivate p
-
-lb --> lj
-deactivate ms
-
-lj --> m
-deactivate lb
+    m -> lj : update()
+    activate lb
+        lj -> lb : actionMonstre()
+        activate ms
+            lb -> ms : estProcheDePerso(Labyrinthe l)
+            activate lb
+                ms --> lb : true
+            deactivate lb
+            lb -> ms : attaquer(Entite e)
+            activate p
+                ms -> p : subirDegats(int)
+                p --> ms
+                ms --> lb
+            deactivate p
+            lb --> lj
+        deactivate ms
+        lj --> m
+    deactivate lb
 deactivate lj
 
 note across
-Dans la méthode actionMonstre appelée dans update,
+Le MoteurJeu appelle la methode update() de LabyJeu qui s'occupe d'appeller la methode actionMonstre()
+dans Labyrinthe qui a pour but de deplacer le monstre. Cette derniere methode teste si le monstre est
+assez proche du personnage pour l'attaquer. S'il l'est, alors la methode attaquer() de Monstre est
+appellee. Cette methode utilise la methode subirDegats de Perso qui fait subir des degats au heros.
 end note
 @enduml

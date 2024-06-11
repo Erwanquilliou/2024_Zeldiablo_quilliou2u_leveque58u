@@ -6,6 +6,10 @@ Critères de validation
 le Héros perd 1 point de vie.
 • Lorsque le monstre est loin du joueur, il n'attaque pas mais se déplace.
 
+==> Erwan et Tuline
+
+
+
 5.2 Attaque du joueur
 Lorsque le joueur appuie sur une touche donnée (par défaut la touche espace), il
 exectue une attaque contre les monstres qui se trouvent à côté de lui.
@@ -16,6 +20,10 @@ Critères de validation
 • S'il n'y a aucun monstre autour du joueur, l'attaque à quand même lieu et empêche
 le déplacement du joueur, mais les monstres ne prennent pas de dégâts.
 
+==> Erwan et Tuline
+
+
+
 3.1 Collision avec un monstre
 Lorsque le joueur demande au personnage de se déplacer vers une case contenant
 un monstre, le personnage ne se déplace pas.
@@ -23,3 +31,5 @@ Critères de validation
 • La collision fonctionne dans les 4 directions.
 • Si la case est vide, le personnage avance.
 • Le monstre se déplace à chaque fois après le joueur.
+
+==> Erwan et Tuline

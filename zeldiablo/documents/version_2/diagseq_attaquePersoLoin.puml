@@ -1,33 +1,37 @@
 @startuml
 hide footbox
 
-participant "main" as m
-participant "l: LabyJeu" as lj
-participant "laby: Labyrinthe" as lb
-participant "m: Monstre" as ms
-m -> lj : update()
-activate lj
+participant "moteur : MoteurJeu" as m
+participant "labyJ : LabyJeu" as lj
+participant "laby : Labyrinthe" as lb
+participant "monstre : Monstre" as ms
 
-lj -> lb : actionMonstre()
-activate lb
+activate m
+    m -> lj : update()
+    activate lj
+        lj -> lb : actionMonstre()
+        activate lb
+            lb -> ms : estProcheDePerso(Labyrinthe l)
+            activate ms
+                ms --> lb : false
+            deactivate ms
+            lb -> ms : deplacer(Labyrinthe l)
+            activate ms
+                ms --> lb
+            deactivate ms
+            lb --> lj
+            deactivate ms
+        deactivate lb
+        lj --> m
+    deactivate lj
+deactivate m
 
-lb -> ms : estProcheDePerso(Labyrinthe l)
-activate ms
-ms --> lb : false
-deactivate ms
+note across
+Le MoteurJeu appelle la methode update() de LabyJeu qui s'occupe d'appeller la methode
+actionMonstre() dans Labyrinthe qui a pour but de deplacer le monstre. Cette derniere
+methode teste si le monstre est assez proche du personnage pour l'attaquer. S'il ne
+l'est pas, alors le monstre se deplace (de maniere aleatoire -> voir diagramme
+deplacerMonstre).
+end note
 
-
-lb -> ms : deplacer(Labyrinthe l)
-activate ms
-
-ms --> lb
-deactivate ms
-
-
-lb --> lj
-deactivate ms
-deactivate lb
-
-lj --> m
-deactivate lj
 @enduml
