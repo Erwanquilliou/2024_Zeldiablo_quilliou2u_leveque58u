@@ -23,7 +23,8 @@ public class Labyrinthe {
 
     public static final char M = 'M';
 
-    public static final char EFF = 'C';
+    public static final char SORTIE = 'S';
+    public static final char FEU = 'F';
 
     public static final int VIEMONSTRE = 5;
 
@@ -141,8 +142,11 @@ public class Labyrinthe {
                         monstrePresent = true;
                         nbMonstre++;
                         break;
-                    case EFF:
-                        this.casesEffet.add(new CaseEffet(colonne, numeroLigne, "Sortie"));
+                    case SORTIE:
+                        this.casesEffet.add(new Sortie(colonne, numeroLigne));
+                        break;
+                    case FEU:
+                        this.casesEffet.add(new Feu(colonne, numeroLigne));
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -194,8 +198,7 @@ public class Labyrinthe {
     public void deplacerPerso(String action, LabyJeu lj) {
         this.pj.deplacer(this, action);
         if (this.pj.estSurCaseEffet(this)) {
-            CaseEffet caseTemp = CaseEffet.getCaseEffet(this, pj.getX(), pj.getY());
-            CaseEffet.executerEffet(lj, this, caseTemp.getEffet());
+            CaseEffet.getCaseEffet(this, pj.getX(), pj.getY()).executerEffet(lj, this);
         }
     }
 
