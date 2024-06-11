@@ -47,6 +47,8 @@ public class Labyrinthe {
     public List<Monstre> monstre;
 
     private List<CaseEffet> casesEffet;
+
+    public String[] inventaire;
     /**
      * les murs du labyrinthe
      */
@@ -319,5 +321,9 @@ public class Labyrinthe {
 
     public Perso getPerso() {
         return this.pj;
+    }
+
+    public String[] getInventaire(){
+        return this.inventaire;
     }
 }

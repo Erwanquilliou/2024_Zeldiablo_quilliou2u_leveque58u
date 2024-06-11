@@ -19,7 +19,7 @@ public class Main {
 
         LabyJeu l = new LabyJeu(map1);
         LabyDessin ld = new LabyDessin();
-        MoteurJeu.setTaille(800,700);
+        MoteurJeu.setTaille(700,900);
         MoteurJeu.setFPS(10);
         MoteurJeu.launch(l,ld);
     }
