@@ -37,7 +37,7 @@ public class LabyDessin implements DessinJeu {
 
             // dessin monstre
             gc.setFill(Color.RED);
-            for (int i = 0; i < laby.getLaby().nbMonstre; i++) {
+            for (int i = 0; i < laby.getLaby().getNbMonstre(); i++) {
                 Monstre m = laby.getLaby().getMonstre(i);
                 double mx = m.getX();
                 double my = m.getY();
@@ -73,6 +73,13 @@ public class LabyDessin implements DessinJeu {
                 gc.setLineWidth(10);
                 gc.fillRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
                 gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
+                if(laby.getLaby().getInventaire()[i] != null){
+                    switch (laby.getLaby().getInventaire()[i]) {
+                        case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
+                    }
+                }
+
+
             }
         } else {
             gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());

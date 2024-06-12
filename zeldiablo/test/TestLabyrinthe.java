@@ -1,3 +1,4 @@
+import gameLaby.laby.LabyJeu;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -68,9 +69,10 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_haut() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // execution de la methode
-        l.deplacerPerso(Labyrinthe.HAUT);
+        l.deplacerPerso(Labyrinthe.HAUT, lj);
 
         // verifie que le personnage est bien aux bonnes coordonees
         assertEquals(l.getPerso().getX(), 3);
@@ -84,9 +86,10 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_bas() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // execution de la methode
-        l.deplacerPerso(Labyrinthe.BAS);
+        l.deplacerPerso(Labyrinthe.BAS, lj);
 
         // verifie que le personnage est bien aux bonnes coordonees
         assertEquals(l.getPerso().getX(), 3);
@@ -100,9 +103,10 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_gauche() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // execution de la methode
-        l.deplacerPerso(Labyrinthe.GAUCHE);
+        l.deplacerPerso(Labyrinthe.GAUCHE, lj);
 
         // verifie que le personnage est bien aux bonnes coordonees
         assertEquals(l.getPerso().getX(), 2);
@@ -116,9 +120,10 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_droite() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // execution de la methode
-        l.deplacerPerso(Labyrinthe.DROITE);
+        l.deplacerPerso(Labyrinthe.DROITE, lj);
 
         // verifie que le personnage est bien aux bonnes coordonees
         assertEquals(l.getPerso().getX(), 4);
@@ -157,10 +162,11 @@ public class TestLabyrinthe {
     public void test_peutSeDeplacer_false() throws Exception {
         // charge laby0
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // deplace le perso contre un mur
-        l.deplacerPerso(Labyrinthe.DROITE);
-        l.deplacerPerso(Labyrinthe.DROITE);
+        l.deplacerPerso(Labyrinthe.DROITE, lj);
+        l.deplacerPerso(Labyrinthe.DROITE, lj);
 
         // verifie que la methode renvoie false
         assertEquals(l.peutSeDeplacer(6, 2), false);
@@ -198,17 +204,18 @@ public class TestLabyrinthe {
     public void test_etreCerne_true() throws Exception {
         // charge couloir.txt
         Labyrinthe l = new Labyrinthe("labySimple/couloir.txt", 1);
+        LabyJeu lj = new LabyJeu("labySimple/couloir.txt");
 
         // met le monstre en haut
-        l.monstre.get(0).setX(1);
-        l.monstre.get(0).setY(1);
+        l.getMonstre(0).setX(1);
+        l.getMonstre(0).setY(1);
 
         // bloque le monstre avec le perso
-        l.deplacerPerso(Labyrinthe.HAUT);
-        l.deplacerPerso(Labyrinthe.HAUT);
+        l.deplacerPerso(Labyrinthe.HAUT, lj);
+        l.deplacerPerso(Labyrinthe.HAUT, lj);
 
         // verifie que le monstre est bien coince
-        assertTrue(l.etreCerne(l.monstre.get(0)));
+        assertTrue(l.etreCerne(l.getMonstre(0)));
     }
 
 
@@ -240,11 +247,12 @@ public class TestLabyrinthe {
     public void test_deplacerMonstre() throws Exception {
         // charge laby0
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",1);
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
 
         // ajoute un monstre
         l.getMonstre(0).setX(4);
         l.getMonstre(0).setY(2);
-        l.deplacerPerso(Labyrinthe.GAUCHE);
+        l.deplacerPerso(Labyrinthe.GAUCHE, lj);
 
         // teste si il y a bien un changement dans les coordonees du monstre
         boolean changement = false;

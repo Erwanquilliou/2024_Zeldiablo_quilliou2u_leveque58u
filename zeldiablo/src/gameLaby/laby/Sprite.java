@@ -10,7 +10,7 @@ public class Sprite {
     public Image img_monstre;
     public Image img_monstre_mort;
     public Image img_mur;
-
+    public Image img_amulette;
     public Image img_sol;
 
 
@@ -20,6 +20,7 @@ public class Sprite {
         this.img_monstre_mort = new Image(new File("images/monstre1_mort.png").toURI().toURL().toExternalForm());
         this.img_mur = new Image(new File("images/arbre.png").toURI().toURL().toExternalForm());
         this.img_sol = new Image(new File("images/sol.jpg").toURI().toURL().toExternalForm());
+        this.img_amulette= new Image(new File("images/amulette.jpg").toURI().toURL().toExternalForm());
     }
 
     /**
@@ -46,4 +47,5 @@ public class Sprite {
         return this.img_sol;
     }
 
+    public Image getImgAmulette() {return this.img_amulette;}
 }

@@ -1,0 +1,43 @@
+@startuml
+hide footbox
+
+participant "laby: Labyrinthe" as l
+participant "labyDes: LabyDessin" as ld
+participant "sp: Sprite" as s
+
+
+activate ld
+    l -> ld : dessinerJeu()
+    activate s
+        ld -> s : getImgSol()
+        s --> ld : Image
+        ld -> s : getImgHeros()
+        s --> ld : Image
+        ld -> s : getImgMonstre()
+        s --> ld : Image
+        ld -> s : getImgMonstreMort()
+        s --> ld : Image
+        ld -> s : getImgMur()
+        s --> ld : Image
+        activate l
+            ld -> l : getInventaire
+            l --> ld : String[]
+
+        deactivate l
+        alt 'amulette' dans String[]
+        ld -> s : getImgAmulette()
+        s --> ld : Image
+        end
+    deactivate s
+    ld --> l
+deactivate ld
+
+note across
+La classe Labyrinthe appelle la methode dessinerJeu de LabyDessin
+qui elle-meme apppelle les getters (getImgSol, getImgHeros...) de la
+classe Sprite qui renvoie donc les Images correspondantes au personnage,
+au sol, aux monstres... Elle demande aussi la liste des objets de l'inventaire,
+si "amulette" est dans la liste alors le sprite amulette est demandé
+end note
+
+@enduml

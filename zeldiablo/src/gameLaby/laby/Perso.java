@@ -29,7 +29,7 @@ public class Perso extends Entite {
     }
 
     public void estProcheDeMonstre(Labyrinthe laby){
-        for (int i = 0; i<laby.nbMonstre; i++){
+        for (int i = 0; i<laby.getNbMonstre(); i++){
             if (laby.getMonstre(i).estProcheDePerso(laby) && (!this.etreMort())){
                 this.attaquer(laby.getMonstre(i));
             }
@@ -39,7 +39,7 @@ public class Perso extends Entite {
     public boolean estSurCaseEffet(Labyrinthe l) {
         boolean res = false;
         for (int i=0; i<l.getCasesEffet().size();i++) {
-            if ((l.pj.getX() == l.getCasesEffet().get(i).getX()) && (l.pj.getY() == l.getCasesEffet().get(i).getY())) {
+            if ((l.getPerso().getX() == l.getCasesEffet().get(i).getX()) && (l.getPerso().getY() == l.getCasesEffet().get(i).getY())) {
                 res = true;
                 break;
             }
