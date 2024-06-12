@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+
+import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
 import gameLaby.laby.*;
@@ -44,7 +46,7 @@ public class TestFeu {
     }
 
     @Test
-    public void testFeuEffectSurPerso() throws IOException {
+    public void testFeuEffectSurPerso() throws IOException, InterruptedException {
         // Initialisation du jeu avec la carte complexe
         String[] map1 = new String[]{
                 "labyComplexe/map1/laby1-1.txt", "labyComplexe/map1/laby1-2.txt",
@@ -56,7 +58,8 @@ public class TestFeu {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu(map1, ld);
         Labyrinthe laby = lj.getLaby();
 
         // Trouver une case de feu dans le labyrinthe
