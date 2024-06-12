@@ -1,3 +1,4 @@
+import gameLaby.laby.LabyDessin;
 import gameLaby.laby.LabyJeu;
 import org.junit.jupiter.api.Test;
 
@@ -69,7 +70,8 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_haut() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // execution de la methode
         l.deplacerPerso(Labyrinthe.HAUT, lj);
@@ -86,7 +88,8 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_bas() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // execution de la methode
         l.deplacerPerso(Labyrinthe.BAS, lj);
@@ -103,7 +106,8 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_gauche() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // execution de la methode
         l.deplacerPerso(Labyrinthe.GAUCHE, lj);
@@ -120,7 +124,8 @@ public class TestLabyrinthe {
     public void test_deplacerPerso_droite() throws Exception {
         // utilise laby0.txt avec perso en (2,3)
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // execution de la methode
         l.deplacerPerso(Labyrinthe.DROITE, lj);
@@ -162,7 +167,8 @@ public class TestLabyrinthe {
     public void test_peutSeDeplacer_false() throws Exception {
         // charge laby0
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // deplace le perso contre un mur
         l.deplacerPerso(Labyrinthe.DROITE, lj);
@@ -204,7 +210,8 @@ public class TestLabyrinthe {
     public void test_etreCerne_true() throws Exception {
         // charge couloir.txt
         Labyrinthe l = new Labyrinthe("labySimple/couloir.txt", 1);
-        LabyJeu lj = new LabyJeu("labySimple/couloir.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // met le monstre en haut
         l.getMonstre(0).setX(1);
@@ -247,7 +254,8 @@ public class TestLabyrinthe {
     public void test_deplacerMonstre() throws Exception {
         // charge laby0
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",1);
-        LabyJeu lj = new LabyJeu("labySimple/laby0.txt");
+        LabyDessin ld = new LabyDessin();
+        LabyJeu lj = new LabyJeu("labySimple/laby0.txt",ld);
 
         // ajoute un monstre
         l.getMonstre(0).setX(4);
@@ -258,7 +266,7 @@ public class TestLabyrinthe {
         boolean changement = false;
         int tempX = l.getMonstre(0).getX();
         int tempY = l.getMonstre(0).getY();
-        l.actionMonstre();
+        l.actionMonstre(lj);
         if ((tempX!=l.getMonstre(0).getX()) || (tempY!=l.getMonstre(0).getY())) {
             changement = true;
         }

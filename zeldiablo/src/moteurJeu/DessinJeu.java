@@ -1,5 +1,6 @@
 package moteurJeu;
 
+import gameLaby.laby.Sprite;
 import javafx.scene.canvas.Canvas;
 
 import java.io.IOException;
@@ -17,5 +18,10 @@ public interface DessinJeu {
      * @param canvas canvas dans lequel dessiner l'etat du jeu
      */
     void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException;
+
+    /**
+     * @return Sprite
+     */
+    Sprite getSprite();
 
 }

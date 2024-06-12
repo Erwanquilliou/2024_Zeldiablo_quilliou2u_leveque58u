@@ -36,7 +36,6 @@ public class LabyDessin implements DessinJeu {
             }
 
             // dessin monstre
-            gc.setFill(Color.RED);
             for (int i = 0; i < laby.getLaby().getNbMonstre(); i++) {
                 Monstre m = laby.getLaby().getMonstre(i);
                 double mx = m.getX();
@@ -47,6 +46,14 @@ public class LabyDessin implements DessinJeu {
                     gc.drawImage(sprite.getImgMonstreMort(), mx * TAILLE_JEU / 2, my * TAILLE_JEU / 2 + 10, TAILLE_JEU, TAILLE_JEU);
                 }
             }
+
+            //dessin case a effet
+            for (CaseEffet c : laby.getLaby().getCasesEffet()) {
+                if (c instanceof Feu) {
+                    gc.drawImage(sprite.getImgFeu(), c.getX() * TAILLE_JEU / 2, c.getY() * TAILLE_JEU / 2 + 10, TAILLE_JEU, TAILLE_JEU);
+                }
+            }
+
 
             Perso p = laby.getLaby().getPerso();
             double px = p.getX();
@@ -94,5 +101,10 @@ public class LabyDessin implements DessinJeu {
 
 
     }
+
+    /**
+     * @return sprite
+     */
+    public Sprite getSprite() {return this.sprite;}
 
 }
