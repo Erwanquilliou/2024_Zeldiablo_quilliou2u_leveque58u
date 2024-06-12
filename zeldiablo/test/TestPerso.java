@@ -1,3 +1,4 @@
+import gameLaby.laby.LabyDessin;
 import gameLaby.laby.LabyJeu;
 import org.junit.jupiter.api.Test;
 
@@ -152,7 +153,7 @@ public class TestPerso {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
         Labyrinthe laby = lj.getLaby();
 
         // Trouver une case de feu dans le labyrinthe

@@ -1,9 +1,9 @@
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import gameLaby.laby.*;
+import gameLaby.laby.LabyJeu;
 import moteurJeu.Clavier;
-import org.junit.Before;
-import org.junit.Test;
 import java.io.IOException;
 
 public class TestFeu {
@@ -22,7 +22,7 @@ public class TestFeu {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
 
         // Placer le personnage sur une case sans effet
         lj.getLaby().setPJ(new Perso(1, 1, Labyrinthe.VIEPERSO));
@@ -56,7 +56,7 @@ public class TestFeu {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
         Labyrinthe laby = lj.getLaby();
 
         // Trouver une case de feu dans le labyrinthe

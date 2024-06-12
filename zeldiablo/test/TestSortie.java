@@ -1,13 +1,7 @@
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import gameLaby.laby.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import gameLaby.laby.CaseEffet;
-import gameLaby.laby.LabyJeu;
-import gameLaby.laby.Labyrinthe;
-import gameLaby.laby.Perso;
-import moteurJeu.Clavier;
-import org.junit.Before;
-import org.junit.Test;
 import java.io.IOException;
 
 public class TestSortie {
@@ -25,7 +19,7 @@ public class TestSortie {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
 
 
         // Placer le personnage près de la sortie droite
@@ -61,7 +55,7 @@ public class TestSortie {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
 
         // Placer le personnage près de la sortie droite
         lj.getLaby().setPJ(new Perso(lj.getLaby().getLength() - 1, 8, Labyrinthe.VIEPERSO));
@@ -88,7 +82,7 @@ public class TestSortie {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
 
         lj.getLaby().setPJ(new Perso(8, lj.getLaby().getLengthY() - 1, Labyrinthe.VIEPERSO));
 
@@ -118,7 +112,7 @@ public class TestSortie {
                 "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
                 "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
         };
-        LabyJeu lj = new LabyJeu(map1);
+        LabyJeu lj = new LabyJeu(map1, new LabyDessin());
 
         // Placer le personnage près de la sortie basse
         lj.getLaby().setPJ(new Perso(8, lj.getLaby().getLengthY() - 1, Labyrinthe.VIEPERSO));

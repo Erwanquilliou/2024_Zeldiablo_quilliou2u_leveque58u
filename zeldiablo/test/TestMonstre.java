@@ -24,11 +24,8 @@ public class TestMonstre {
 
         // teste si le monstre s'est bien deplace
 
-        boolean deplace = false;
+        boolean deplace = !((l.getMonstre(0).getX() == temp[0]) && (l.getMonstre(0).getY() == temp[1]));
         // teste si les coordonees du monstre ont changees
-        if (!( (l.getMonstre(0).getX()==temp[0]) && (l.getMonstre(0).getY()==temp[1]) )) {
-            deplace = true;
-        }
         assertTrue(deplace);
     }
 
@@ -52,11 +49,8 @@ public class TestMonstre {
 
         // verifie que le monstre ne s'est pas deplace
 
-        boolean deplace = false;
+        boolean deplace = !((l.getMonstre(0).getX() == temp[0]) && (l.getMonstre(0).getY() == temp[1]));
         // teste si les coordonees du monstre ont changees
-        if (!( (l.getMonstre(0).getX()==temp[0]) && (l.getMonstre(0).getY()==temp[1]) )) {
-            deplace = true;
-        }
         assertFalse(deplace);
     }
 
@@ -107,7 +101,7 @@ public class TestMonstre {
         }
 
         // verifie que le personnage a subi 1 de degat
-        assertEquals(l.getPerso().getVie(), vieInitiale--);
+        assertEquals(l.getPerso().getVie(), vieInitiale-1);
     }
 
     @Test

@@ -151,7 +151,7 @@ public class TestLabyrinthe {
      * doit donc generer une IOException
      */
     @Test
-    public void test_chargerLaby_nomIncorrect() throws Exception {
+    public void test_chargerLaby_nomIncorrect() {
         boolean b = false;
         // essaie de charger un labyrinthe inexistant
         try {
@@ -175,7 +175,7 @@ public class TestLabyrinthe {
         l.deplacerPerso(Labyrinthe.DROITE, lj);
 
         // verifie que la methode renvoie false
-        assertEquals(l.peutSeDeplacer(6, 2), false);
+        assertFalse(l.peutSeDeplacer(6, 2));
     }
 
     @Test
@@ -184,7 +184,7 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe("labySimple/laby0.txt",0);
 
         // verifie que le perso peut bien se deplacer
-        assertEquals(l.peutSeDeplacer(4, 2), true);
+        assertTrue(l.peutSeDeplacer(4, 2));
     }
 
     /**
