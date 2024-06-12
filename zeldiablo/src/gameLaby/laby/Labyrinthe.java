@@ -200,13 +200,18 @@ public class Labyrinthe {
         this.pj.deplacer(this, action);
     }
 
-    public void actionMonstre() {
+    public void actionMonstre(LabyJeu lj) {
         Random r = new Random();
         for (int i = 0; i<nbMonstre; i++) {
             int action = r.nextInt(3);
             if(!this.monstre.get(i).etreMort() && (action == 2)) {
                 if (this.monstre.get(i).estProcheDePerso(this)) {
                     this.monstre.get(i).attaquer(this.getPerso());
+                    try {
+                        lj.getLabyD().getSprite().changementHerosDegat();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 } else {
                     this.monstre.get(i).deplacer(this);
                 }

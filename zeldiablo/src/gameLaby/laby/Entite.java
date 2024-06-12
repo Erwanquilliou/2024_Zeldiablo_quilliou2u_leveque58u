@@ -24,6 +24,11 @@ public class Entite extends Position{
     public int getVie() { return this.vie; }
 
     /**
+     * @param v vie a donner au perso
+     */
+    public void setVie(int v) {this.vie = v;}
+
+    /**
      * deplace l'entite en fonction de l'action.
      * gere la collision avec les murs
      *

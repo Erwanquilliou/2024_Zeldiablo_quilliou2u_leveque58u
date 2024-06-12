@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class LabyJeu implements Jeu {
     private Labyrinthe laby;
+    private LabyDessin labyD;
 
     private Labyrinthe[][] map;
     private int x;
@@ -19,11 +20,13 @@ public class LabyJeu implements Jeu {
 
 
 
-    public LabyJeu(String l) throws IOException {
+    public LabyJeu(String l, LabyDessin ld) throws IOException {
         this.laby = new Labyrinthe(l, 10);
+        this.labyD = ld;
     }
 
-    public LabyJeu(String[] labys) throws IOException {
+    public LabyJeu(String[] labys, LabyDessin ld) throws IOException {
+        this.labyD = ld;
         map = new Labyrinthe[4][4];
         for (int i=0; i<4; i++) {
             for (int j=0; j<4; j++) {
@@ -107,7 +110,7 @@ public class LabyJeu implements Jeu {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
         if(compteur % 10 == 0) {
-            this.laby.actionMonstre();
+            this.laby.actionMonstre(this);
         }
 
         if (enFeu) {
@@ -115,6 +118,11 @@ public class LabyJeu implements Jeu {
                 if (compteur % 10 == 0) {
                     this.laby.getPerso().subirDegats(1);
                     compteurFeu++;
+                    try {
+                        this.labyD.getSprite().changementHerosDegat();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             } else {
                 enFeu = false;
@@ -137,6 +145,10 @@ public class LabyJeu implements Jeu {
 
     public Labyrinthe getLaby() {
         return this.laby;
+    }
+
+    public LabyDessin getLabyD() {
+        return this.labyD;
     }
 
     public void setFeu(boolean f) {

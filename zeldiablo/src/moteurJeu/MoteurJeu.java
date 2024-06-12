@@ -45,6 +45,7 @@ public class MoteurJeu extends Application {
      */
     private static Jeu jeu = null;
     private static DessinJeu dessin = null;
+    private static int NBFRAME = 0;
 
     /**
      * touches appuyee entre deux frame
@@ -189,8 +190,17 @@ public class MoteurJeu extends Application {
 
             }
         };
-
+        if (NBFRAME < 10) {
+            NBFRAME++;
+        }
         // lance l'animation
         timer.start();
+        if ((NBFRAME == 10)&&(this.dessin.getSprite().getChang())) {
+            try {
+                this.jeu.getLabyD().getSprite().changementHerosDegat();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

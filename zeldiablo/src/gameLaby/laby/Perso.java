@@ -46,5 +46,4 @@ public class Perso extends Entite {
         }
         return res;
     }
-
 }

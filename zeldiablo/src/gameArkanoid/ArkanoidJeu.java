@@ -1,5 +1,6 @@
 package gameArkanoid;
 
+import gameLaby.laby.LabyDessin;
 import moteurJeu.Clavier;
 import moteurJeu.Jeu;
 
@@ -59,6 +60,11 @@ public class ArkanoidJeu implements Jeu {
     public boolean etreFini() {
         // le jeu ne s'arrete jamais
         return false;
+    }
+
+    @Override
+    public LabyDessin getLabyD() {
+        return null;
     }
 
 

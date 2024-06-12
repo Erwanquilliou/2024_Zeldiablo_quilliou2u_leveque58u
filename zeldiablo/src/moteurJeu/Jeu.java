@@ -1,6 +1,8 @@
 package moteurJeu;
 
 
+import gameLaby.laby.LabyDessin;
+
 /**
  * modele de jeu
  */
@@ -23,4 +25,9 @@ public interface Jeu {
      * @return booleen true si le jeu est fini
      */
     boolean etreFini();
+
+    /**
+     * @return LabyDessin
+     */
+    LabyDessin getLabyD();
 }

@@ -1,5 +1,6 @@
 package gameArkanoid;
 
+import gameLaby.laby.Sprite;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -43,5 +44,10 @@ public class ArkanoidDessin implements DessinJeu {
         double bx = balle.getPx();
         double by = balle.getPy();
         gc.fillOval(bx - 5, by - 5, 10, 10);
+    }
+
+    @Override
+    public Sprite getSprite() {
+        return null;
     }
 }
