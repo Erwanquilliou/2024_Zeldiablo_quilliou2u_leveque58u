@@ -10,10 +10,28 @@ import java.io.IOException;
 
 public class LabyDessin implements DessinJeu {
 
+    /**
+     * Variable de classe qui passe a 1 a la premiere execution de dessinerJeu.
+     * Permet d'executer une seule fois la creation d'un objet Sprite.
+     */
     public static int LANCEMENT = 0;
+
+    /**
+     * taille permettant d'ajuster la taille d'affichage
+     */
     public static int TAILLE_JEU = 80;
+
+    /**
+     * objet Sprite qui permet d'enregistrer les textures du jeu
+     */
     private Sprite sprite;
 
+    /**
+     * dessine sur un Canvas tous les elements du jeu a afficher
+     * @param jeu jeu a afficher
+     * @param canvas canvas dans lequel dessiner l'etat du jeu
+     * @throws IOException
+     */
     @Override
     public void dessinerJeu(Jeu jeu, Canvas canvas) throws IOException {
         LabyJeu laby = (LabyJeu) jeu;
