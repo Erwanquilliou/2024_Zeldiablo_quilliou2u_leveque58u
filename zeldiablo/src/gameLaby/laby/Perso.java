@@ -6,7 +6,7 @@ package gameLaby.laby;
  */
 public class Perso extends Entite {
 
-
+    private static Inventaire inventaire = new Inventaire();
     /**
      * constructeur
      *
@@ -46,4 +46,9 @@ public class Perso extends Entite {
         }
         return res;
     }
+
+    public Inventaire getInventaire() {
+        return this.inventaire;
+    }
+
 }

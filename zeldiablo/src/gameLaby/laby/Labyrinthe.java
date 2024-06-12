@@ -51,6 +51,8 @@ public class Labyrinthe {
      */
     private int nbMonstre;
 
+    public static int COMPTEURLABY = 0;
+
     /**
      * attribut du personnage
      */
@@ -64,7 +66,7 @@ public class Labyrinthe {
 
     private List<CaseEffet> casesEffet;
 
-    private String[] inventaire;
+
     /**
      * les murs du labyrinthe
      */
@@ -111,7 +113,13 @@ public class Labyrinthe {
      * @throws IOException probleme a la lecture / ouverture
      */
     public Labyrinthe(String nom,int nbM) throws IOException {
-        this.inventaire = new String[]{null, null, null};
+
+        if (COMPTEURLABY == 0){
+            COMPTEURLABY = 1;
+            System.out.println(COMPTEURLABY);
+            this.pj = new Perso(0,0,VIEPERSO);
+        }
+
         // ouvrir fichier
         FileReader fichier = new FileReader(nom);
         BufferedReader bfRead = new BufferedReader(fichier);
@@ -126,7 +134,6 @@ public class Labyrinthe {
 
         // creation labyrinthe vide
         this.murs = new boolean[nbColonnes][nbLignes];
-        this.pj = null;
         this.monstre = new ArrayList<>();
         this.casesEffet = new ArrayList<>();
 
@@ -153,7 +160,8 @@ public class Labyrinthe {
                         // pas de mur
                         this.murs[colonne][numeroLigne] = false;
                         // ajoute PJ
-                        this.pj = new Perso(colonne, numeroLigne,VIEPERSO);
+                        this.pj.setX(colonne);
+                        this.pj.setY(numeroLigne);
                         break;
                     case M:
                         this.monstre.add(new Monstre(colonne,numeroLigne,VIEMONSTRE));
@@ -173,8 +181,6 @@ public class Labyrinthe {
                         throw new Error("caractere inconnu " + c);
                 }
             }
-
-
             // lecture
             ligne = bfRead.readLine();
             numeroLigne++;
@@ -187,6 +193,7 @@ public class Labyrinthe {
             }
             nbMonstre -= nbM;
         }
+
         // ferme fichier
         bfRead.close();
     }
@@ -336,18 +343,10 @@ public class Labyrinthe {
         return this.pj;
     }
 
-    public String[] getInventaire() {
-        return this.inventaire;
-    }
+
 
     public int getNbMonstre() {return this.nbMonstre;}
-    public void ajouterItem(String item){
-        int i = 0;
-        while(this.inventaire[i] != null){
-            i++;
-        }
-        this.inventaire[i] = item;
-    }
+
 
     public Position getAmulette() {
         return this.amulette;
@@ -357,7 +356,7 @@ public class Labyrinthe {
         if(this.amulette !=null) {
             if (this.amulette.getX() == this.pj.getX() && this.amulette.getY() == this.pj.getY()) {
                 this.amulette = null;
-                this.ajouterItem("amulette");
+                this.pj.getInventaire().ajouterItem("amulette");
                 return true;
             }
         }
