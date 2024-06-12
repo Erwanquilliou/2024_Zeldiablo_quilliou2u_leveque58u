@@ -155,6 +155,7 @@ class Clavier{
 - bas: boolean
 - gauche: boolean
 - droite: boolean
+- coup: boolean
 + appuyerTouche(event : KeyEvent)
 + relacherTouche(event : KeyEvent)
 }
