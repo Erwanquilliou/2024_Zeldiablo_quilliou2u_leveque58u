@@ -7,6 +7,25 @@ Critères de validation
 ==> Erwan et Tuline
 
 
+7.1 Inventaire
+Des objets (sans utilité pour le moment) sont disposés dans des cases vides du labyrinthe, lorsque le héros appuie sur la touche d'utilisation ("E" par défaut), il récupère
+les objets de la case où il se trouve et les ajoute dans son inventaire.
+Critères de validation
+• L'inventaire est de taille infinie.
+• Lorsque le joueur cherche à prendre un objet alors qu'il n'y a rien sur la case où
+il se trouve, rien ne se passe.
+• Lorsqu'un joueur prend un objet, l'objet disparait du labyrinthe (et n'est plus
+affiché) mais apparait dans son inventaire.
+• A chaque évolution du jeu, le jeu affiche dans la console l'inventaire du héros.
+• Les objets sont affichés dans le labyrinthe tant qu'ils sont présents (sous la forme
+d'un cercle noir)
+
+==> Erwan
+
+
+Affichage des dégats du feu
+Le personnage change de couleur quand il prend des dégats liés au feu.
+
 
 Cases de feu
 Lorsqu'une entité (héros ou monstre) arrive sur une case piégée, il subit des dégâts.
