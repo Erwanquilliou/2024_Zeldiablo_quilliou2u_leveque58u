@@ -14,7 +14,6 @@ class Position {
 abstract CaseEffet {
 - effet: String
 + executerEffet(LabyJeu,Labyrinthe,String)
-+ getEffet(): String
 + getCaseEffet(Labyrinthe,int,int): CaseEffet
 }
 
@@ -23,29 +22,30 @@ Position <|-- CaseEffet
 Position <|-- Entite
 
 class Entite {
-- pv: int
+- vie: int
 + Entite(int, int, pv)
 + deplacer(Labyrinthe, String)
-+ attaquer(Entite)
++ attaquer(Entite) : int
 + subirDegats(int)
-+ getPv()
-+ setPv()
++ etreMort() : boolean
++ getVie() : int
++ setVie(int)
 }
 
 
 Entite <|-- Monstre
 
 class Monstre{
-+ Monstre(int, int)
++ Monstre(int, int, int)
 + deplacer(Labyrinthe)
-+ estProcheDePerso()
++ estProcheDePerso(Labyrinthe) : boolean
 }
 
 Entite <|-- Perso
 
-class Perso #FFB6C1{
-+ Perso(int, int)
-+ etrePresent(int, int)
+class Perso{
++ Perso(int, int, int)
++ etrePresent(int, int) : boolean
 + estProcheDeMonstre(Labyrinthe)
 + estSurCaseEffet(Labyrinthe): boolean
 }
@@ -53,13 +53,15 @@ class Perso #FFB6C1{
 CaseEffet <|-- Sortie
 
 class Sortie {
-executerEffet(LabyJeu, Labyrinthe, String)
++ Sortie(int, int)
++ executerEffet(LabyJeu, Labyrinthe, String)
 }
 
 CaseEffet <|-- Feu
 
 class Feu {
-executerEffet(LabyJeu, Labyrinthe, String)
++ Feu(int, int)
++ executerEffet(LabyJeu, Labyrinthe, String)
 }
 
 Monstre "*" <-- "1" Labyrinthe : -monstre
@@ -67,32 +69,53 @@ Perso "1" <-- "1" Labyrinthe : - pj
 Sortie "*" <-- "1" Labyrinthe : - sortie
 Feu "*" <-- "1" Labyrinthe : - feu
 
-class Labyrinthe #FFB6C1 {
-- pj: perso
+class Labyrinthe {
+- nbMonstre : int
+- pj: Perso
 - monstre: List<Monstre>
 - caseEffet: List<CaseEffet>
+- inventaire: String[]
 - murs: boolean[][]
-+ getSuivant(int, int, String)
+- amulette: Position
++ getSuivant(int, int, String) : int[][]
 + Labyrinthe(String, int)
 + ajoutMonstreLaby()
-+ getMonstre()
 + deplacerPerso(String, LabyJeu)
 + actionMonstre()
 + peutSeDeplacer(int ,int): boolean
++ etreCerne(Monstre): boolean
 + etreFini(): boolean
 + setPJ(Perso)
 + getLengthY(): int
 + getLength(): int
 + getMur(int, int): boolean
 + getPerso(): Perso
++ getMonstre()
 + getNbMonstre(): int
++ getInventaire(): String[]
++ getAmulette(): Position
++ estSurAmulette(): boolean
++ ajouterItem(String)
 }
 
 Labyrinthe "1" <--* "1" LabyJeu : - Laby
 
 class LabyJeu{
-+ LabyJeu(Labyrinthe)
-+ LabyJeu(String[])
+- laby: Labyrinthe
+- labyD: LabyDessin
+- map: Labyrinthe[][]
+- x: int
+- y: int
+- compteurFeu: int
+- compteur: int
+- enFeu: boolean
++ LabyJeu(Labyrinthe, LabyDessin)
++ LabyJeu(String[], LabyDessin)
++ changerLabyrinthe(String)
++ getEnFeu(): boolean
++ getLaby(): Labyrinthe
++ getLabyD(): LabyDessin
++ setFeu(boolean)
 }
 
 LabyJeu <.. Main
@@ -105,27 +128,41 @@ class Main{
 LabyDessin <.. Main
 
 class LabyDessin{
-- LabyDessin()
-- dessinerJeu(Jeu, Canvas)
+- sprite: Sprite
++ dessinerJeu(Jeu, Canvas)
++ getSprite(): Sprite
 }
+
 Sprite "1" <-- "*" LabyDessin
-class Sprite #FFB6C1{
+class Sprite {
      -img_heros : Image
      -img_monstre : Image
      -img_monstre_mort : Image
      -img_mur : Image
+     -img_feu : Image
+     -img_amulette : Image
+     -img_sol : Image
+     -img_heros_degat : Image
+     -img_intermediaire : Image
+     -changement: boolean
      +setImgMur(Image)
      +setImgHeros(Image)
      +setImgMonstreMort(Image)
      +getImgHeros(): Image
      +getImgMonstre(): Image
      +getImgMonstreMort(): Image
+     +getImgSol(): Image
+     +getImgFeu(): Image
+     +getImgAmulette(): Image
+     +getChang(): boolean
+     +changementHerosDegat()
 }
 
 interface Jeu {
     + update(double, Clavier)
     + etreFini(): boolean
     + init()
+    + getLabyD(): LabyDessin
 }
 
 Jeu <|.. LabyJeu
@@ -146,6 +183,7 @@ MoteurJeu "1" --> "1" Jeu : - <static> jeu
 
 interface DessinJeu{
 + dessinerJeu(jeu: Jeu, canvas: Canvas)
++ getSprite(): Sprite
 }
 
 MoteurJeu "1" --> "1" DessinJeu : - <static> dessin
