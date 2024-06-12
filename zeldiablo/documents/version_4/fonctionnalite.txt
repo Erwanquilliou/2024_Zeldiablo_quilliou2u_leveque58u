@@ -9,7 +9,7 @@ Critères de validation
 
 
 Cases de feu
-Lorsque une entité (héros ou monstre) arrive sur une case piégée, il subit des dégâts.
+Lorsqu'une entité (héros ou monstre) arrive sur une case piégée, il subit des dégâts.
 Critères de validation
 • Les dégâts se ne déclenchent que lorsque le joueur arrive sur la case. Il subit ensuite de dégâts pendant 3 tours.
 • Lorsque la case devient à nouveau vide, le piège se réamorce.

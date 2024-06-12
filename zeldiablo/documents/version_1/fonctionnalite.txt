@@ -16,7 +16,7 @@ Critères de validation
 • La collision fonctionne dans les 4 directions ;
 • Si la case est vide, le personnage avance.
 
-==> Erwan et Tuline
+==> all
 
 
 1.3 Gestion des niveaux

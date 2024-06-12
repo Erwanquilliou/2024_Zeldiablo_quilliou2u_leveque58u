@@ -1,0 +1,15 @@
+Pour cette quatrième version, nous avons mis en place notre nouvelle organisation en 2 groupes :
+- Vivien et Olivier ont terminé les fonctionnalités précédentes (cases à effet);
+- Erwan et Tuline se sont concentrés sur la fonctionnalité 6.1 (la mort du héros et la gestion de fin de jeu).
+
+Cases à effet : Lors de cette itération, nous avons dû modifier l'implémentation de CaseEffet, nous étant rendu compte
+que le code n'était pas optimal et qu'il y avait la possibilité d'utiliser de l'héritage entre CaseEffet et les
+différents types de CaseEffet. Ainsi au lieu d'utiliser des chaines de caractères pour définir les différents effets,
+ceux-ci sont désormais définis par des classes héritant de la classe abstraite CaseEffet.
+
+Mort du héros : Cette fonctionnalité une étoile nous a donné un peu de fil à retordre. Nous devions bien comprendre
+le fonctionnement du MoteurJeu pour le modifier. Nous avons rencontré quelques difficultés en lançant le mauvais programme.
+Une petite erreur d'inattention qui nous a fait perdre du temps.
+
+Dans la seconde partie de cette iteration, nous nous sommes à nouveau concentré sur le perfectionnement de nos diagramme
+précédents qui manquaient de description. Nous avons également corrigé les warning dans nos codes afin de le peaufiner.

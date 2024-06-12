@@ -81,7 +81,7 @@ public class LabyDessin implements DessinJeu {
 
             gc.setFill(Color.RED);
 
-            gc.setFont(new Font("Comic sans MS", 100));
+            gc.setFont(new Font("Comic sans MS", 50));
             gc.fillText("GAME OVER", canvas.getWidth()/3 -50, canvas.getHeight()/2);
         }
 

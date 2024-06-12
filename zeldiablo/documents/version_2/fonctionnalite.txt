@@ -33,3 +33,16 @@ Critères de validation
 • Le monstre se déplace à chaque fois après le joueur.
 
 ==> Erwan et Tuline
+
+
+
+5.5 Mort des monstres
+Lorsqu'un monstre n'a plus de points de vie, il meurt et disparait du jeu.
+Critères de validation
+• Les monstres ont par défaut 2 points de vie et ne peuvent pas avoir de points de
+vie négatifs.
+• Lorsqu'un monstre par défaut est touché deux fois, il disparait.
+• Le héros attaque avant le monstre, si le monstre meurt, le monstre n'a pas le
+temps de répliquer et disparait avant.
+
+==> Erwan et Tuline
