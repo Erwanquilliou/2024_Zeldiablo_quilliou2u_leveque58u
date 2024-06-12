@@ -1,6 +1,7 @@
 Pour cette quatrième version, nous avons mis en place notre nouvelle organisation en 2 groupes :
 - Vivien et Olivier ont terminé les fonctionnalités précédentes (cases à effet);
 - Erwan et Tuline se sont concentrés sur la fonctionnalité 6.1 (la mort du héros et la gestion de fin de jeu).
+- Erwan à travaillé sur la base de l'inventaire
 
 Cases à effet : Lors de cette itération, nous avons dû modifier l'implémentation de CaseEffet, nous étant rendu compte
 que le code n'était pas optimal et qu'il y avait la possibilité d'utiliser de l'héritage entre CaseEffet et les
@@ -10,6 +11,10 @@ ceux-ci sont désormais définis par des classes héritant de la classe abstrait
 Mort du héros : Cette fonctionnalité une étoile nous a donné un peu de fil à retordre. Nous devions bien comprendre
 le fonctionnement du MoteurJeu pour le modifier. Nous avons rencontré quelques difficultés en lançant le mauvais programme.
 Une petite erreur d'inattention qui nous a fait perdre du temps.
+
+Inventaire : Pour cette fonctionalité nous sommes allé au plus simple, disposer un objet sur la carte, lorsque l'on passe
+dessus il est récupéré dans notre inventaire. A l'aide de quelques méthodes, et des attributs amulette et inventaire,
+nous avons pu faire quelque chose de fonctionelle. l'affichage n'est pas aboutit
 
 Dans la seconde partie de cette iteration, nous nous sommes à nouveau concentré sur le perfectionnement de nos diagramme
 précédents qui manquaient de description. Nous avons également corrigé les warning dans nos codes afin de le peaufiner.

@@ -72,6 +72,12 @@ public class LabyDessin implements DessinJeu {
                 }
             }
 
+            Position posA = laby.getLaby().getAmulette();
+            if (posA!=null) {
+                double pAx = posA.getX();
+                double pAy = posA.getY();
+                gc.drawImage(sprite.getImgAmulette(), pAx * TAILLE_JEU / 2, pAy * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+            }
 
             Perso p = laby.getLaby().getPerso();
             double px = p.getX();
@@ -83,6 +89,9 @@ public class LabyDessin implements DessinJeu {
             }
 
 
+
+
+
             for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
                 // affiche la ligne
                 for (int x = 0; x < laby.getLaby().getLength(); x++) {
@@ -92,13 +101,14 @@ public class LabyDessin implements DessinJeu {
                 }
 
             }
+            //affichage de l'inventaire (nous l'avons mis en commentaire car il nuit au parcours du labyrinthe)
             for (int i = 0;i<laby.getLaby().getInventaire().length;i++){
-                gc.setFill(Color.YELLOW);
+                /*gc.setFill(Color.YELLOW);
                 gc.setStroke(Color.ORANGE);
                 gc.setLineWidth(10);
                 gc.fillRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
                 gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
-                if(laby.getLaby().getInventaire()[i] != null){
+                */if(laby.getLaby().getInventaire()[i] != null){
                     switch (laby.getLaby().getInventaire()[i]) {
                         case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
                     }
