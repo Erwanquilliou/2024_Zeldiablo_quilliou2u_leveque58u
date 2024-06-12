@@ -26,7 +26,7 @@ public class Labyrinthe {
     public static final char SORTIE = 'S';
     public static final char FEU = 'F';
 
-    public static final int VIEMONSTRE = 5;
+    public static final int VIEMONSTRE = 2;
 
     public static final int VIEPERSO = 10;
 
