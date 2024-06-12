@@ -134,7 +134,6 @@ class MoteurJeu{
 + start(primaryStage: Stage)
 + startAnimation(canvas: Canvas)
 }
-
 MoteurJeu <--  Main
 MoteurJeu "1" --> "1" Jeu : - <static> jeu
 MoteurJeu "1" --> "1" DessinJeu : - <static> dessin
@@ -143,8 +142,8 @@ interface DessinJeu{
 + dessinerJeu(jeu: Jeu, canvas: Canvas)
 }
 
-MoteurJeu "1" --> "1" Clavier : - clavier
 
+MoteurJeu "1" --> "1" Clavier : - clavier
 class Clavier{
 - haut: boolean
 - bas: boolean
@@ -154,5 +153,13 @@ class Clavier{
 + appuyerTouche(event : KeyEvent)
 + relacherTouche(event : KeyEvent)
 }
+
+hide MoteurJeu
+hide Clavier
+hide DessinJeu
+hide Sprite
+hide LabyDessin
+hide Jeu
+hide Main
 
 @enduml
