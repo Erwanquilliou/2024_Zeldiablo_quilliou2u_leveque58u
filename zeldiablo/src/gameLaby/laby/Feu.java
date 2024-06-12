@@ -16,7 +16,6 @@ public class Feu extends CaseEffet{
      */
     public void executerEffet(LabyJeu lj, Labyrinthe l) {
         lj.setFeu(true);
-        System.out.println(l.getPerso().getVie());
     }
 
 }
