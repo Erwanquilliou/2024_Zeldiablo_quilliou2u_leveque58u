@@ -1,0 +1,168 @@
+@startuml
+
+
+class Position {
+- x: int
+- y: int
++ Position(int, int)
++ getX(): int
++ getY(): int
++ setX(int)
++ setY(int)
+}
+
+abstract CaseEffet #FFB6C1{
+- effet: String
++ executerEffet(LabyJeu,Labyrinthe,String)
++ getEffet(): String
++ getCaseEffet(Labyrinthe,int,int): CaseEffet
+}
+
+Position <|-- CaseEffet
+
+Position <|-- Entite
+
+class Entite {
+- pv: int
++ Entite(int, int, pv)
++ deplacer(Labyrinthe, String)
++ attaquer(Entite)
++ subirDegats(int)
++ getPv()
++ setPv()
+}
+
+
+Entite <|-- Monstre
+
+class Monstre{
++ Monstre(int, int)
++ deplacer(Labyrinthe)
++ estProcheDePerso()
+}
+
+Entite <|-- Perso
+
+class Perso #FFB6C1{
++ Perso(int, int)
++ etrePresent(int, int)
++ estProcheDeMonstre(Labyrinthe)
++ estSurCaseEffet(Labyrinthe): boolean
+}
+
+
+CaseEffet "*" <-- "1" Labyrinthe : -caseEffet
+Monstre "*" <-- "1" Labyrinthe : -monstre
+Perso "1" <-- "1" Labyrinthe : - pj
+
+
+class Labyrinthe  {
+- pj: perso
+- monstre: List<Monstre>
+- caseEffet: List<CaseEffet>
+- murs: boolean[][]
++ getSuivant(int, int, String)
++ Labyrinthe(String, int)
++ ajoutMonstreLaby()
++ getMonstre()
++ deplacerPerso(String, LabyJeu)
++ actionMonstre()
++ peutSeDeplacer(int ,int): boolean
++ etreFini(): boolean
++ setPJ(Perso)
++ getLengthY(): int
++ getLength(): int
++ getMur(int, int): boolean
++ getPerso(): Perso
++ getNbMonstre(): int
+}
+
+Labyrinthe "1" <--* "1" LabyJeu : - Laby
+
+class LabyJeu{
++ LabyJeu(Labyrinthe)
++ LabyJeu(String[])
++ update(double, Clavier)
++ etreFini(): boolean
++ init()
+}
+
+LabyJeu <.. Main
+
+class Main{
+- main()
+- main(String[])
+}
+
+Labyrinthe <.. Main
+LabyDessin <.. Main
+
+class LabyDessin{
+- LabyDessin()
+- dessinerJeu(Jeu, Canvas)
+}
+Sprite "1" <-- "*" LabyDessin
+class Sprite #FFB6C1{
+     -img_heros : Image
+     -img_monstre : Image
+     -img_monstre_mort : Image
+     -img_mur : Image
+     +setImgMur(Image)
+     +setImgHeros(Image)
+     +setImgMonstreMort(Image)
+     +getImgHeros(): Image
+     +getImgMonstre(): Image
+     +getImgMonstreMort(): Image
+}
+
+interface Jeu {
+    + update(double, Clavier)
+    + etreFini(): boolean
+    + init()
+}
+
+Jeu <|.. LabyJeu
+DessinJeu <|.. LabyDessin
+
+class MoteurJeu{
+- <static> width: double
+- <static> height: double
+- <static> FPS: int
++ <static> launch(jeu: Jeu, dessin: DessinJeu)
++ <static> setTaille(width: double, height: double)
++ <static> setFPS(FPS: int)
++ start(primaryStage: Stage)
++ startAnimation(canvas: Canvas)
+}
+
+MoteurJeu <--  Main
+MoteurJeu "1" --> "1" Jeu : - <static> jeu
+MoteurJeu "1" --> "1" DessinJeu : - <static> dessin
+
+interface DessinJeu{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+
+MoteurJeu "1" --> "1" Clavier : - clavier
+
+class Clavier{
+- haut: boolean
+- bas: boolean
+- gauche: boolean
+- droite: boolean
+- coup: boolean
++ appuyerTouche(event : KeyEvent)
++ relacherTouche(event : KeyEvent)
+}
+
+hide Position
+hide Entite
+hide CaseEffet
+hide Perso
+hide Monstre
+hide MoteurJeu
+hide Clavier
+hide Jeu
+hide LabyJeu
+hide DessinJeu
+@enduml
