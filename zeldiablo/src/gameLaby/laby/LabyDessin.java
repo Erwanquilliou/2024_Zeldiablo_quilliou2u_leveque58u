@@ -103,14 +103,14 @@ public class LabyDessin implements DessinJeu {
             }
             //affichage de l'inventaire (nous l'avons mis en commentaire car il nuit au parcours du labyrinthe)
             for (int i = 0;i<laby.getLaby().getPerso().getInventaire().getInventaire().length;i++){
-                /*gc.setFill(Color.YELLOW);
+                    gc.setFill(Color.YELLOW);
                 gc.setStroke(Color.ORANGE);
                 gc.setLineWidth(10);
                 gc.fillRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
                 gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
-                */if(laby.getLaby().getPerso().getInventaire().getInventaire()[i] != null){
+                if(laby.getLaby().getPerso().getInventaire().getInventaire()[i] != null){
                     switch (laby.getLaby().getPerso().getInventaire().getInventaire()[i]) {
-                        case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length, canvas.getHeight()/6);
+                        case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
                     }
                 }
 

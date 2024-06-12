@@ -6,25 +6,65 @@ import moteurJeu.Jeu;
 import java.io.IOException;
 
 public class LabyJeu implements Jeu {
+    /**
+     * labyrinthe dans lequel se trouve actuellement le perso
+     */
     private Labyrinthe laby;
+
+    /**
+     * objet permettant d'afficher les elements du Labyrinthe
+     */
     private LabyDessin labyD;
 
+    /**
+     * tableau a deux dimensions de Labyrinthe pour pouvoir gérer plusieurs salles
+     */
     private Labyrinthe[][] map;
+
+    /**
+     * coordonee x du Labyrinthe affiche en temps reel par LabyJeu
+     */
     private int x;
+
+    /**
+     * coordonee y du Labyrinthe affiche en temps reel par LabyJeu
+     */
     private int y;
 
+    /**
+     * permet de creer des intervalles d'activation des methodes actionMonstre et subirDegats
+     */
     private int compteur;
 
+    /**
+     * boolen a vrai si le perso est considere comme en feu
+     * passe a false apres 3 subirDegats de feu
+     */
     private boolean enFeu;
+
+    /**
+     * si superieur a 3, passe le booleen enFeu a false
+     * permet de fixer le nombre de fois que le perso doit bruler
+     */
     private int compteurFeu;
 
-
-
+    /**
+     * constructeur de LabyJeu avec un seul labyrinthe pour faire un LabySimple
+     * @param l est le nom du fichier du labyrinthe a charger
+     * @param ld objet LabyDessin a utiliser pour l'affichage
+     * @throws IOException
+     */
     public LabyJeu(String l, LabyDessin ld) throws IOException {
         this.laby = new Labyrinthe(l, 10);
         this.labyD = ld;
     }
 
+    /**
+     * constructeur de LabyJeu qui prend une liste de Labyrinthe pour faire un labyrinthe multi-salles
+     * @param labys liste de noms des fichiers des labyrinthes a charger
+     * @param ld objet LabyDessin a utiliser pour l'affichage
+     * @throws IOException
+     */
     public LabyJeu(String[] labys, LabyDessin ld) throws IOException {
         this.labyD = ld;
         map = new Labyrinthe[4][4];
@@ -76,12 +116,14 @@ public class LabyJeu implements Jeu {
         }
     }
 
+    /**
+     * active le booleen enFeu pour que le personnage prenne des degats de feu
+     */
     public void activerFeu() {
         this.enFeu = true;
     }
 
     /**
-<<<<<<< HEAD
      * met a jour l'etat du jeu
      */
     public void update(double secondes, Clavier clavier) {
@@ -137,11 +179,17 @@ public class LabyJeu implements Jeu {
         // pas d'initialisation particuliere
     }
 
-    public boolean getEnFeu() {return this.enFeu;}
+    /**
+     * indique le jeu est fini
+     * @return un booleen vrai si le labyrinthe est fini
+     */
     @Override
     public boolean etreFini() {
         return this.laby.etreFini();
     }
+
+    // GETTERS ET SETTERS
+    public boolean getEnFeu() {return this.enFeu;}
 
     public Labyrinthe getLaby() {
         return this.laby;
