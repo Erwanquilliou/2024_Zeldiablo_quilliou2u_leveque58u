@@ -66,8 +66,7 @@ class Feu {
 
 Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
-Sortie "*" <-- "1" Labyrinthe : - sortie
-Feu "*" <-- "1" Labyrinthe : - feu
+CaseEffet "*" <-- "1" Labyrinthe : -
 
 class Labyrinthe {
 - nbMonstre : int
