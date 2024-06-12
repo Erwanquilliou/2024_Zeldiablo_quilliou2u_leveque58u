@@ -68,10 +68,8 @@ public class Sprite {
     public void changementHerosDegat() throws InterruptedException {
         if (this.changement) {
             this.changement = false;
-            System.out.println("false");
         } else {
             this.changement = true;
-            System.out.println("true");
         }
         this.img_intermediaire = this.img_heros;
         this.img_heros = this.img_heros_degat;
