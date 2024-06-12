@@ -8,5 +8,4 @@ public class Feu extends CaseEffet{
         System.out.println(l.getPerso().getVie());
     }
 
-
 }

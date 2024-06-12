@@ -198,9 +198,6 @@ public class Labyrinthe {
      */
     public void deplacerPerso(String action, LabyJeu lj) {
         this.pj.deplacer(this, action);
-        if (this.pj.estSurCaseEffet(this)) {
-            CaseEffet.getCaseEffet(this, pj.getX(), pj.getY()).executerEffet(lj, this);
-        }
     }
 
     public void actionMonstre() {

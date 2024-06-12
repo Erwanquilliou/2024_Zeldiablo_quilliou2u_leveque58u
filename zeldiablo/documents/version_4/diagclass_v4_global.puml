@@ -11,7 +11,7 @@ class Position {
 + setY(int)
 }
 
-abstract CaseEffet #FFB6C1{
+abstract CaseEffet {
 - effet: String
 + executerEffet(LabyJeu,Labyrinthe,String)
 + getEffet(): String
@@ -50,11 +50,22 @@ class Perso #FFB6C1{
 + estSurCaseEffet(Labyrinthe): boolean
 }
 
+CaseEffet <|-- Sortie
 
-CaseEffet "*" <-- "1" Labyrinthe : -caseEffet
+class Sortie {
+executerEffet(LabyJeu, Labyrinthe, String)
+}
+
+CaseEffet <|-- Feu
+
+class Feu {
+executerEffet(LabyJeu, Labyrinthe, String)
+}
+
 Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
-
+Sortie "*" <-- "1" Labyrinthe : - sortie
+Feu "*" <-- "1" Labyrinthe : - feu
 
 class Labyrinthe #FFB6C1 {
 - pj: perso

@@ -99,6 +99,10 @@ public class LabyJeu implements Jeu {
             this.laby.deplacerPerso("Bas", this);
         }
 
+        if (this.laby.getPerso().estSurCaseEffet(this.laby)) {
+            CaseEffet.getCaseEffet(this.laby, this.laby.getPerso().getX(), this.laby.getPerso().getY()).executerEffet(this, this.laby);
+        }
+
         if(clavier.coup) {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
@@ -125,6 +129,7 @@ public class LabyJeu implements Jeu {
         // pas d'initialisation particuliere
     }
 
+    public boolean getEnFeu() {return this.enFeu;}
     @Override
     public boolean etreFini() {
         return this.laby.etreFini();
