@@ -24,7 +24,7 @@ public class Sprite {
         this.img_monstre_mort = new Image(new File("images/monstre1_mort.png").toURI().toURL().toExternalForm());
         this.img_mur = new Image(new File("images/arbre.png").toURI().toURL().toExternalForm());
         this.img_sol = new Image(new File("images/sol.jpg").toURI().toURL().toExternalForm());
-        this.img_amulette = new Image(new File("images/amulette.jpg").toURI().toURL().toExternalForm());
+        this.img_amulette = new Image(new File("images/amulette.png").toURI().toURL().toExternalForm());
         this.img_heros_degat = new Image(new File("images/heros_degat.png").toURI().toURL().toExternalForm());
         this.img_intermediaire = new Image(new File("images/heros.png").toURI().toURL().toExternalForm());
         this.img_feu = new Image(new File("images/feu.png").toURI().toURL().toExternalForm());

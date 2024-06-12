@@ -25,6 +25,7 @@ public class Labyrinthe {
 
     public static final char SORTIE = 'S';
     public static final char FEU = 'F';
+    public static final char AMULETTE = 'A';
 
     public static final int VIEMONSTRE = 2;
 
@@ -54,6 +55,8 @@ public class Labyrinthe {
      * les murs du labyrinthe
      */
     private boolean[][] murs;
+
+    private Position amulette;
 
     /**
      * retourne la case suivante selon une actions
@@ -148,6 +151,9 @@ public class Labyrinthe {
                         break;
                     case FEU:
                         this.casesEffet.add(new Feu(colonne, numeroLigne));
+                        break;
+                    case AMULETTE:
+                        this.amulette = new Position(colonne, numeroLigne);
                         break;
                     default:
                         throw new Error("caractere inconnu " + c);
@@ -334,4 +340,18 @@ public class Labyrinthe {
         this.inventaire[i] = item;
     }
 
+    public Position getAmulette() {
+        return this.amulette;
+    }
+
+    public boolean estSurAmulette(){
+        if(this.amulette !=null) {
+            if (this.amulette.getX() == this.pj.getX() && this.amulette.getY() == this.pj.getY()) {
+                this.amulette = null;
+                this.ajouterItem("amulette");
+                return true;
+            }
+        }
+        return false;
+    }
 }

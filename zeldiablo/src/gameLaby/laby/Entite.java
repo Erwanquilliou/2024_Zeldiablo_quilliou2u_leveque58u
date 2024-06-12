@@ -48,6 +48,7 @@ public class Entite extends Position{
             this.setX(suivante[0]);
             this.setY(suivante[1]);
         }
+        laby.estSurAmulette();
     }
 
     /**

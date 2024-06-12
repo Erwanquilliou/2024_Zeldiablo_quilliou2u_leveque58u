@@ -72,6 +72,12 @@ public class LabyDessin implements DessinJeu {
                 }
             }
 
+            Position posA = laby.getLaby().getAmulette();
+            if (posA!=null) {
+                double pAx = posA.getX();
+                double pAy = posA.getY();
+                gc.drawImage(sprite.getImgAmulette(), pAx * TAILLE_JEU / 2, pAy * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+            }
 
             Perso p = laby.getLaby().getPerso();
             double px = p.getX();
@@ -81,6 +87,9 @@ public class LabyDessin implements DessinJeu {
             } else {
                 gc.drawImage(sprite.getImgMonstre(), px * TAILLE_JEU / 2, py * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
             }
+
+
+
 
 
             for (int y = 0; y < laby.getLaby().getLengthY(); y++) {
