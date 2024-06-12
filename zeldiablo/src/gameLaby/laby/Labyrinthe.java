@@ -213,11 +213,6 @@ public class Labyrinthe {
             if(!this.monstre.get(i).etreMort() && (action == 2)) {
                 if (this.monstre.get(i).estProcheDePerso(this)) {
                     this.monstre.get(i).attaquer(this.getPerso());
-                    try {
-                        lj.getLabyD().getSprite().changementHerosDegat();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
                 } else {
                     this.monstre.get(i).deplacer(this);
                 }
