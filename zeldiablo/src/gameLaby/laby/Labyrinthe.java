@@ -27,8 +27,15 @@ public class Labyrinthe {
     public static final char FEU = 'F';
     public static final char AMULETTE = 'A';
 
+
+    /**
+     * vie initiale a donner aux monstres
+     */
     public static final int VIEMONSTRE = 2;
 
+    /**
+     * vie initiale a donner au perso
+     */
     public static final int VIEPERSO = 10;
 
     /**
@@ -39,6 +46,9 @@ public class Labyrinthe {
     public static final String GAUCHE = "Gauche";
     public static final String DROITE = "Droite";
 
+    /**
+     * nombre de monstres dans le labyrinthe
+     */
     private int nbMonstre;
 
     public static int COMPTEURLABY = 0;
@@ -48,7 +58,11 @@ public class Labyrinthe {
      */
     private Perso pj;
 
+    /**
+     * liste des monstres du labyrinthe
+     */
     private List<Monstre> monstre;
+
 
     private List<CaseEffet> casesEffet;
 
