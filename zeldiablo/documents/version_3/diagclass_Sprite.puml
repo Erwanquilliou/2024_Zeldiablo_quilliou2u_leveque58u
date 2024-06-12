@@ -56,7 +56,7 @@ Monstre "*" <-- "1" Labyrinthe : -monstre
 Perso "1" <-- "1" Labyrinthe : - pj
 
 
-class Labyrinthe #FFB6C1 {
+class Labyrinthe  {
 - pj: perso
 - monstre: List<Monstre>
 - caseEffet: List<CaseEffet>
@@ -155,4 +155,14 @@ class Clavier{
 + relacherTouche(event : KeyEvent)
 }
 
+hide Position
+hide Entite
+hide CaseEffet
+hide Perso
+hide Monstre
+hide MoteurJeu
+hide Clavier
+hide Jeu
+hide LabyJeu
+hide DessinJeu
 @enduml

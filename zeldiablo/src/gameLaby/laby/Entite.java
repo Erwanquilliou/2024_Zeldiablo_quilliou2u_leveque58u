@@ -1,12 +1,23 @@
 package gameLaby.laby;
 
 public class Entite extends Position{
+
+    /**
+     * nombre de points de vie l'Entite
+     */
     private int vie;
 
+    /**
+     * constructeur d'Entite
+     * @param dx coordonne x initiale de l'Entite
+     * @param dy coordonee y initiale de l'Entite
+     * @param v nombre de points de vie initiaux de l'Entite
+     */
     public Entite(int dx, int dy, int v){
         super(dx,dy);
         this.vie = v;
     }
+
     /**
      * @return vie de l'entite
      */
@@ -55,7 +66,7 @@ public class Entite extends Position{
 
     /**
      * methode subirDegats qui fait subir des degats a une entite
-     * @param d nombre de degats a faire subir
+     * @param d nombre de points de vie a enlever a l'entite
      */
     public void subirDegats(int d) {
         int nouvelleVie = this.vie - d;
@@ -67,15 +78,8 @@ public class Entite extends Position{
     }
 
     /**
-     * methode etreMort
-     * @return true si l'entite est morte, false sinon
+     * methode qui teste si l'entite est morte
+     * @return true si l'entite est morte (0pv), false sinon
      */
-    public boolean etreMort() {
-        if (this.vie <= 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+    public boolean etreMort() { return this.vie <= 0; }
 }

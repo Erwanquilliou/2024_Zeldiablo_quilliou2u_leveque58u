@@ -1,3 +1,4 @@
+import gameLaby.laby.LabyJeu;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -137,6 +138,28 @@ public class TestPerso {
 
         // verifie que le perso a bien subi les degats
         assertEquals(l.getPerso().getVie(), vieInitiale - degats);
+    }
+
+    public void test_estSurCaseEffet_true() throws IOException {
+        // Initialisation du jeu avec la carte complexe
+        String[] map1 = new String[]{
+                "labyComplexe/map1/laby1-1.txt", "labyComplexe/map1/laby1-2.txt",
+                "labyComplexe/map1/laby1-3.txt", "labyComplexe/map1/laby1-4.txt",
+                "labyComplexe/map1/laby2-1.txt", "labyComplexe/map1/laby2-2.txt",
+                "labyComplexe/map1/laby2-3.txt", "labyComplexe/map1/laby2-4.txt",
+                "labyComplexe/map1/laby3-1.txt", "labyComplexe/map1/laby3-2.txt",
+                "labyComplexe/map1/laby3-3.txt", "labyComplexe/map1/laby3-4.txt",
+                "labyComplexe/map1/laby4-1.txt", "labyComplexe/map1/laby4-2.txt",
+                "labyComplexe/map1/laby4-3.txt", "labyComplexe/map1/laby4-4.txt"
+        };
+        LabyJeu lj = new LabyJeu(map1);
+        Labyrinthe laby = lj.getLaby();
+
+        // Trouver une case de feu dans le labyrinthe
+        // .... laby.getCasesEffet()
+        laby.getPerso().setX(8);
+        laby.getPerso().setY(15);
+
     }
 }
 

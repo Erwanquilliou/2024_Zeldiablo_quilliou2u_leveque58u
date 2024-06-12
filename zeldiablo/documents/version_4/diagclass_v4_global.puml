@@ -93,9 +93,6 @@ Labyrinthe "1" <--* "1" LabyJeu : - Laby
 class LabyJeu{
 + LabyJeu(Labyrinthe)
 + LabyJeu(String[])
-+ update(double, Clavier)
-+ etreFini(): boolean
-+ init()
 }
 
 LabyJeu <.. Main
@@ -105,7 +102,6 @@ class Main{
 - main(String[])
 }
 
-Labyrinthe <.. Main
 LabyDessin <.. Main
 
 class LabyDessin{
@@ -125,5 +121,47 @@ class Sprite #FFB6C1{
      +getImgMonstre(): Image
      +getImgMonstreMort(): Image
 }
+
+interface Jeu {
+    + update(double, Clavier)
+    + etreFini(): boolean
+    + init()
+}
+
+Jeu <|.. LabyJeu
+DessinJeu <|.. LabyDessin
+
+class MoteurJeu{
+- <static> width: double
+- <static> height: double
+- <static> FPS: int
++ <static> launch(jeu: Jeu, dessin: DessinJeu)
++ <static> setTaille(width: double, height: double)
++ <static> setFPS(FPS: int)
++ start(primaryStage: Stage)
++ startAnimation(canvas: Canvas)
+}
+
+MoteurJeu "1" --> "1" Jeu : - <static> jeu
+
+interface DessinJeu{
++ dessinerJeu(jeu: Jeu, canvas: Canvas)
+}
+
+MoteurJeu "1" --> "1" DessinJeu : - <static> dessin
+
+class Clavier{
+- haut: boolean
+- bas: boolean
+- gauche: boolean
+- droite: boolean
+- coup: boolean
++ appuyerTouche(event : KeyEvent)
++ relacherTouche(event : KeyEvent)
+}
+
+MoteurJeu "1" --> "1" Clavier : - clavier
+
+MoteurJeu <--  Main
 
 @enduml

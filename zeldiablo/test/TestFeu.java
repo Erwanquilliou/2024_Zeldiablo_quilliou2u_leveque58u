@@ -30,12 +30,14 @@ public class TestFeu {
         // Trouver une case de feu dans le labyrinthe
         // .... laby.getCasesEffet()
         lj.getLaby().getPerso().setX(8);
-        lj.getLaby().getPerso().setY(15);
+        lj.getLaby().getPerso().setY(14);
         // Vérifier que la vie du personnage n'a pas changé immédiatement
 
         if (lj.getLaby().getPerso().estSurCaseEffet(lj.getLaby())) {
             CaseEffet.getCaseEffet(lj.getLaby(), lj.getLaby().getPerso().getX(), lj.getLaby().getPerso().getY()).executerEffet(lj, lj.getLaby());
         }
+
+        lj.update(3, new Clavier());
 
         // Vérifier que l'effet de feu est activé
         assertTrue(lj.getEnFeu());
@@ -60,13 +62,15 @@ public class TestFeu {
         // Trouver une case de feu dans le labyrinthe
         // .... laby.getCasesEffet()
         laby.getPerso().setX(8);
-        laby.getPerso().setY(15);
+        laby.getPerso().setY(14);
         // Vérifier que la vie du personnage n'a pas changé immédiatement
         assertEquals(Labyrinthe.VIEPERSO, laby.getPerso().getVie());
 
         if (lj.getLaby().getPerso().estSurCaseEffet(lj.getLaby())) {
             CaseEffet.getCaseEffet(lj.getLaby(), lj.getLaby().getPerso().getX(), lj.getLaby().getPerso().getY()).executerEffet(lj, lj.getLaby());
         }
+
+        lj.update(3,new Clavier());
 
         // Vérifier que le personnage a perdu de la vie due à l'effet de feu
         assertNotEquals(laby.getPerso().getVie(), Labyrinthe.VIEPERSO);
