@@ -13,8 +13,9 @@ le fonctionnement du MoteurJeu pour le modifier. Nous avons rencontré quelques 
 Une petite erreur d'inattention qui nous a fait perdre du temps.
 
 Inventaire : Pour cette fonctionalité nous sommes allé au plus simple, disposer un objet sur la carte, lorsque l'on passe
-dessus il est récupéré dans notre inventaire. A l'aide de quelques méthodes, et des attributs amulette et inventaire,
-nous avons pu faire quelque chose de fonctionelle. l'affichage n'est pas aboutit
+dessus il est récupéré dans notre inventaire. au début nous pensions seulement ajouter quelques méthodes et attributs
+dans labyrinthe mais sachant qu'il y avait plusieurs labyrinthe dans une map cela posait problème. Nous avons donc créé
+une classe Inventaire independante du personnage et du labyrinthe.
 
 Dans la seconde partie de cette iteration, nous nous sommes à nouveau concentré sur le perfectionnement de nos diagramme
 précédents qui manquaient de description. Nous avons également corrigé les warning dans nos codes afin de le peaufiner.

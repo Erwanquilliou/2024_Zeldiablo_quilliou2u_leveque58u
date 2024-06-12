@@ -106,11 +106,11 @@ public class LabyDessin implements DessinJeu {
                     gc.setFill(Color.YELLOW);
                 gc.setStroke(Color.ORANGE);
                 gc.setLineWidth(10);
-                gc.fillRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
-                gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
+                gc.fillRect(i*canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length, canvas.getHeight()/6);
+                gc.strokeRect(i*canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5, canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length, canvas.getHeight()/6);
                 if(laby.getLaby().getPerso().getInventaire().getInventaire()[i] != null){
                     switch (laby.getLaby().getPerso().getInventaire().getInventaire()[i]) {
-                        case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getInventaire().length, canvas.getHeight()/6);
+                        case "amulette" : gc.drawImage(sprite.getImgAmulette(), i*canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length,canvas.getHeight()-canvas.getHeight()/5.5,canvas.getWidth()/laby.getLaby().getPerso().getInventaire().getInventaire().length, canvas.getHeight()/6);
                     }
                 }
 
