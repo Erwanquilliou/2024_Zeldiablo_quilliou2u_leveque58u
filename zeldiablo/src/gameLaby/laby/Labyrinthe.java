@@ -224,6 +224,7 @@ public class Labyrinthe {
      */
     public void deplacerPerso(String action, LabyJeu lj) {
         this.pj.deplacer(this, action);
+        lj.setChangePlace(true);
     }
 
     public void actionMonstre(LabyJeu lj) {
@@ -238,8 +239,6 @@ public class Labyrinthe {
                 }
             }
         }
-
-
     }
 
     /**

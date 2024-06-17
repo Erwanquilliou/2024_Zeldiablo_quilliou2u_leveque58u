@@ -19,7 +19,7 @@ public class LabyDessin implements DessinJeu {
     /**
      * taille permettant d'ajuster la taille d'affichage
      */
-    public static int TAILLE_JEU = 80;
+    public static int TAILLE_JEU = 100;
 
     /**
      * objet Sprite qui permet d'enregistrer les textures du jeu
@@ -40,7 +40,7 @@ public class LabyDessin implements DessinJeu {
             this.sprite = new Sprite();
         }
 
-
+        double taille = ((canvas.getWidth()+canvas.getHeight())/2000)*TAILLE_JEU;
 
         // recupere un pinceau pour dessiner
         final GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -49,7 +49,7 @@ public class LabyDessin implements DessinJeu {
         if (!jeu.etreFini()) {
             for (int y = 0; y < laby.getLaby().getLengthY()+1; y++) {
                 for (int x = 0; x < laby.getLaby().getLength()+1; x++) {
-                    gc.drawImage(sprite.getImgSol(), (double) (x * TAILLE_JEU) / 2, (double) (y * TAILLE_JEU) / 2, (double) TAILLE_JEU / 2, (double) TAILLE_JEU / 2);
+                    gc.drawImage(sprite.getImgSol(), (double) (x * taille) / 2, (double) (y * taille) / 2, (double) taille / 2, (double) taille / 2);
                 }
             }
 
@@ -59,16 +59,16 @@ public class LabyDessin implements DessinJeu {
                 double mx = m.getX();
                 double my = m.getY();
                 if (!laby.getLaby().getMonstre(i).etreMort()) {
-                    gc.drawImage(sprite.getImgMonstre(), mx * TAILLE_JEU / 2, my * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+                    gc.drawImage(sprite.getImgMonstre(), mx * taille / 2, my * taille / 2, taille, taille);
                 } else {
-                    gc.drawImage(sprite.getImgMonstreMort(), mx * TAILLE_JEU / 2, my * TAILLE_JEU / 2 + 10, TAILLE_JEU, TAILLE_JEU);
+                    gc.drawImage(sprite.getImgMonstreMort(), mx * taille / 2, my * taille / 2 + 10, taille, taille);
                 }
             }
 
             //dessin case a effet
             for (CaseEffet c : laby.getLaby().getCasesEffet()) {
                 if (c instanceof Feu) {
-                    gc.drawImage(sprite.getImgFeu(), c.getX() * TAILLE_JEU / 2, c.getY() * TAILLE_JEU / 2 + 10, TAILLE_JEU, TAILLE_JEU);
+                    gc.drawImage(sprite.getImgFeu(), c.getX() * taille / 2, c.getY() * taille / 2 + 10, taille, taille);
                 }
             }
 
@@ -76,16 +76,16 @@ public class LabyDessin implements DessinJeu {
             if (posA!=null) {
                 double pAx = posA.getX();
                 double pAy = posA.getY();
-                gc.drawImage(sprite.getImgAmulette(), pAx * TAILLE_JEU / 2, pAy * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+                gc.drawImage(sprite.getImgAmulette(), pAx * taille / 2, pAy * taille / 2, taille, taille);
             }
 
             Perso p = laby.getLaby().getPerso();
             double px = p.getX();
             double py = p.getY();
             if (!laby.getLaby().getPerso().etreMort()) {
-                gc.drawImage(sprite.getImgHeros(), px * TAILLE_JEU / 2, py * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+                gc.drawImage(sprite.getImgHeros(), px * taille / 2, py * taille / 2, taille, taille);
             } else {
-                gc.drawImage(sprite.getImgMonstre(), px * TAILLE_JEU / 2, py * TAILLE_JEU / 2, TAILLE_JEU, TAILLE_JEU);
+                gc.drawImage(sprite.getImgMonstre(), px * taille / 2, py * taille / 2, taille, taille);
             }
 
 
@@ -96,7 +96,7 @@ public class LabyDessin implements DessinJeu {
                 // affiche la ligne
                 for (int x = 0; x < laby.getLaby().getLength(); x++) {
                     if (laby.getLaby().getMur(x, y)) {
-                        gc.drawImage(sprite.getImgMur(), (double) (x * TAILLE_JEU) / 2, (double) (y * TAILLE_JEU) / 2, TAILLE_JEU, TAILLE_JEU);
+                        gc.drawImage(sprite.getImgMur(), (double) (x * taille) / 2, (double) (y * taille) / 2, taille, taille);
                     }
                 }
 

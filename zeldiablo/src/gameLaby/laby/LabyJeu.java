@@ -31,6 +31,8 @@ public class LabyJeu implements Jeu {
      */
     private int y;
 
+    private boolean changePlace;
+
     /**
      * permet de creer des intervalles d'activation des methodes actionMonstre et subirDegats
      */
@@ -76,6 +78,7 @@ public class LabyJeu implements Jeu {
         laby = map[0][0];
         x = 0;
         y = 0;
+        changePlace = false;
     }
 
     /**
@@ -148,6 +151,8 @@ public class LabyJeu implements Jeu {
             CaseEffet.getCaseEffet(this.laby, this.laby.getPerso().getX(), this.laby.getPerso().getY()).executerEffet(this, this.laby);
         }
 
+        changePlace = false;
+
         if(clavier.coup) {
             this.laby.getPerso().estProcheDeMonstre(laby);
         }
@@ -201,5 +206,13 @@ public class LabyJeu implements Jeu {
 
     public void setFeu(boolean f) {
         this.enFeu = f;
+    }
+
+    public void setChangePlace(boolean b) {
+        this.changePlace = b;
+    }
+
+    public boolean getChangePlace() {
+        return changePlace;
     }
 }
